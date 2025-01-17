@@ -1,0 +1,43 @@
+/* e.g. title slide caption */
+div.caption > blockquote {
+    font-size: 1.75em;
+    text-align: center;
+    word-spacing: 0.3em;
+    font-weight: 600;
+}
+.presentation_card_container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.presentation_card {
+    text-align: center;
+    vertical-align: middle;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+.presentation_card_spacer {
+    height: 4.0em;
+}
+/*.presentation_card_content {
+    width: 28%;
+}*/
+.presentation_card_symbol {
+    font-size: 5.0em;
+    font-weight: bold;
+    opacity: 0.7;
+}
+.emoji_image {
+    font-size: 5.0em;
+}
+.presentation_card_label {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.presentation_card_description {
+    font-size: 1.1em;
+}
+
+.presentation_notes {
+    display: none;
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Abstraction - The Peace Framework</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../src/css/layout.css">
+        <link rel="stylesheet" href="../../src/css/presentation.css">
+        <link rel="stylesheet" href="../../src/css/terminal.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../background.html"><strong aria-hidden="true">2.</strong> Background</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../background/purpose.html"><strong aria-hidden="true">2.1.</strong> Purpose</a></li><li class="chapter-item "><a href="../../background/strategy.html"><strong aria-hidden="true">2.2.</strong> Strategy</a></li></ol></li><li class="chapter-item expanded "><a href="../../examples.html"><strong aria-hidden="true">3.</strong> Examples</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/download.html"><strong aria-hidden="true">3.1.</strong> Download</a></li><li class="chapter-item "><a href="../../examples/envman.html"><strong aria-hidden="true">3.2.</strong> Env Man</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/envman/walkthrough.html"><strong aria-hidden="true">3.2.1.</strong> Walkthrough</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../technical_concepts.html"><strong aria-hidden="true">4.</strong> Technical Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/resources.html"><strong aria-hidden="true">4.1.</strong> Resources</a></li><li class="chapter-item expanded "><a href="../../technical_concepts/function_graph.html"><strong aria-hidden="true">4.2.</strong> Function Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../technical_concepts/function_graph/abstraction.html" class="active"><strong aria-hidden="true">4.2.1.</strong> Abstraction</a></li><li class="chapter-item "><a href="../../technical_concepts/function_graph/ordering.html"><strong aria-hidden="true">4.2.2.</strong> Ordering</a></li><li class="chapter-item "><a href="../../technical_concepts/function_graph/streaming.html"><strong aria-hidden="true">4.2.3.</strong> Streaming</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/item.html"><strong aria-hidden="true">4.3.</strong> Item</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters.html"><strong aria-hidden="true">4.3.1.</strong> Item Parameters</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/value_specification.html"><strong aria-hidden="true">4.3.1.1.</strong> Value Specification</a></li><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/params_specification.html"><strong aria-hidden="true">4.3.1.2.</strong> Params Specification</a></li><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/params_framework_support.html"><strong aria-hidden="true">4.3.1.3.</strong> Params Framework Support</a></li><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/mapping_functions.html"><strong aria-hidden="true">4.3.1.4.</strong> Mapping Functions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/item_graph.html"><strong aria-hidden="true">4.4.</strong> Item Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/item_graph/initialization.html"><strong aria-hidden="true">4.4.1.</strong> Initialization</a></li><li class="chapter-item "><a href="../../technical_concepts/item_graph/state_inspection.html"><strong aria-hidden="true">4.4.2.</strong> State Inspection</a></li><li class="chapter-item "><a href="../../technical_concepts/item_graph/state_ensure.html"><strong aria-hidden="true">4.4.3.</strong> State Ensure</a></li><li class="chapter-item "><a href="../../technical_concepts/item_graph/clean.html"><strong aria-hidden="true">4.4.4.</strong> Clean</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/state.html"><strong aria-hidden="true">4.5.</strong> State</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/state/logical_state.html"><strong aria-hidden="true">4.5.1.</strong> Logical State</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/output.html"><strong aria-hidden="true">4.6.</strong> Output</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/output/execution_progress.html"><strong aria-hidden="true">4.6.1.</strong> Execution Progress</a></li><li class="chapter-item "><a href="../../technical_concepts/output/presentation.html"><strong aria-hidden="true">4.6.2.</strong> Presentation</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/diagrams.html"><strong aria-hidden="true">4.7.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/diagrams/progress.html"><strong aria-hidden="true">4.7.1.</strong> Progress</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome.html"><strong aria-hidden="true">4.7.2.</strong> Outcome</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/render_technology.html"><strong aria-hidden="true">4.7.2.1.</strong> Render Technology</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/html_flexbox.html"><strong aria-hidden="true">4.7.2.2.</strong> HTML + Flexbox</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/div_diag.html"><strong aria-hidden="true">4.7.2.3.</strong> Div Diag</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/api_design.html"><strong aria-hidden="true">4.7.2.4.</strong> API Design</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/interaction_merging.html"><strong aria-hidden="true">4.7.2.5.</strong> Interaction Merging</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/aesthetics_and_clarity.html"><strong aria-hidden="true">4.7.2.6.</strong> Aesthetics and Clarity</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction.html"><strong aria-hidden="true">4.8.</strong> Endpoints and Interaction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction/cmd_invocation.html"><strong aria-hidden="true">4.8.1.</strong> Cmd Invocation</a></li><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction/interruption.html"><strong aria-hidden="true">4.8.2.</strong> Interruption</a></li><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction/progress_output.html"><strong aria-hidden="true">4.8.3.</strong> Progress Output</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/workspace.html"><strong aria-hidden="true">4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../../technical_concepts/commands.html"><strong aria-hidden="true">4.10.</strong> Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/commands/scopes.html"><strong aria-hidden="true">4.10.1.</strong> Scopes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/commands/scopes/reborrowing.html"><strong aria-hidden="true">4.10.1.1.</strong> Reborrowing</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases.html"><strong aria-hidden="true">4.10.2.</strong> Use Cases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/workspace_initialization.html"><strong aria-hidden="true">4.10.2.1.</strong> Workspace Initialization</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/profile_list.html"><strong aria-hidden="true">4.10.2.2.</strong> Profile List</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/workspace_stored_active_profile.html"><strong aria-hidden="true">4.10.2.3.</strong> Workspace Stored Active Profile</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/workspace_active_profile_switch.html"><strong aria-hidden="true">4.10.2.4.</strong> Workspace Active Profile Switch</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_discovery_and_display.html"><strong aria-hidden="true">4.10.2.5.</strong> State Discovery and Display</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_read_and_display.html"><strong aria-hidden="true">4.10.2.6.</strong> State Read and Display</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_diff.html"><strong aria-hidden="true">4.10.2.7.</strong> State Diff</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_apply.html"><strong aria-hidden="true">4.10.2.8.</strong> State Apply</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_clean.html"><strong aria-hidden="true">4.10.2.9.</strong> State Clean</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/commands/cmd_execution.html"><strong aria-hidden="true">4.10.3.</strong> Cmd Execution</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/interruptibility.html"><strong aria-hidden="true">4.10.4.</strong> Interruptibility</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/flow_versioning.html"><strong aria-hidden="true">4.11.</strong> Flow Versioning</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/flow_versioning/seamless_execution.html"><strong aria-hidden="true">4.11.1.</strong> Seamless Execution</a></li><li class="chapter-item "><a href="../../technical_concepts/flow_versioning/upgrade_actions.html"><strong aria-hidden="true">4.11.2.</strong> Upgrade Actions</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Learning Material</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust.html"><strong aria-hidden="true">5.1.</strong> Why Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/topics.html"><strong aria-hidden="true">5.1.1.</strong> Topics</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance.html"><strong aria-hidden="true">5.1.2.</strong> ⚡ Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/performance/benchmarks.html"><strong aria-hidden="true">5.1.2.1.</strong> Benchmarks</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/how_is_rust_fast.html"><strong aria-hidden="true">5.1.2.2.</strong> How Is Rust Fast</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/compiled_vs_interpreted.html"><strong aria-hidden="true">5.1.2.3.</strong> Compiled vs Interpreted</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/native_code.html"><strong aria-hidden="true">5.1.2.4.</strong> Native Code</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/memory_usage.html"><strong aria-hidden="true">5.1.2.5.</strong> Memory Usage</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/memory_freeing.html"><strong aria-hidden="true">5.1.2.6.</strong> Memory Freeing</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/performance_summary.html"><strong aria-hidden="true">5.1.2.7.</strong> Performance Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints.html"><strong aria-hidden="true">5.1.3.</strong> 🚧 Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/correct_programs.html"><strong aria-hidden="true">5.1.3.1.</strong> Correct Programs</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/unconstrained.html"><strong aria-hidden="true">5.1.3.2.</strong> Unconstrained</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constrained.html"><strong aria-hidden="true">5.1.3.3.</strong> Constrained</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constrained_fixed.html"><strong aria-hidden="true">5.1.3.4.</strong> Constrained - Fixed</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/less_vs_more.html"><strong aria-hidden="true">5.1.3.5.</strong> Less vs More</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/nullability_js.html"><strong aria-hidden="true">5.1.3.6.</strong> Nullability - JS</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/nullability_cs.html"><strong aria-hidden="true">5.1.3.7.</strong> Nullability - C#</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/nullability_rust.html"><strong aria-hidden="true">5.1.3.8.</strong> Nullability - Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/data_race_cs.html"><strong aria-hidden="true">5.1.3.9.</strong> Data Race - C#</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/data_race_rust_1.html"><strong aria-hidden="true">5.1.3.10.</strong> Data Race - Rust 1</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/data_race_rust_2.html"><strong aria-hidden="true">5.1.3.11.</strong> Data Race - Rust 2</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constraints_in_rust.html"><strong aria-hidden="true">5.1.3.12.</strong> Constraints in Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constraints_summary.html"><strong aria-hidden="true">5.1.3.13.</strong> Constraints Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive.html"><strong aria-hidden="true">5.1.4.</strong> 💬 Expressive</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/coco_mapping.html"><strong aria-hidden="true">5.1.4.1.</strong> Co/Co Mapping</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/traits.html"><strong aria-hidden="true">5.1.4.2.</strong> Traits</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/multiple_values_rust.html"><strong aria-hidden="true">5.1.4.3.</strong> Multiple Values</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/cloning.html"><strong aria-hidden="true">5.1.4.4.</strong> Cloning</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/cloning_others.html"><strong aria-hidden="true">5.1.4.5.</strong> Cloning - Others</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/cloning_rust.html"><strong aria-hidden="true">5.1.4.6.</strong> Cloning - Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/expressive_summary.html"><strong aria-hidden="true">5.1.4.7.</strong> Expressive Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous.html"><strong aria-hidden="true">5.1.5.</strong> 😵‍💫 Unambiguous</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality.html"><strong aria-hidden="true">5.1.5.1.</strong> Equality</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality_java.html"><strong aria-hidden="true">5.1.5.2.</strong> Equality - Java</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality_rust_1.html"><strong aria-hidden="true">5.1.5.3.</strong> Equality - Rust 1</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality_rust_2.html"><strong aria-hidden="true">5.1.5.4.</strong> Equality - Rust 2</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/control_flow.html"><strong aria-hidden="true">5.1.5.5.</strong> Control Flow</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/control_flow_java.html"><strong aria-hidden="true">5.1.5.6.</strong> Control Flow - Java</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/control_flow_rust.html"><strong aria-hidden="true">5.1.5.7.</strong> Control Flow - Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/unambiguous_summary.html"><strong aria-hidden="true">5.1.5.8.</strong> Unambiguous Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling.html"><strong aria-hidden="true">5.1.6.</strong> 🛠️ Tooling</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/formatter.html"><strong aria-hidden="true">5.1.6.1.</strong> Formatter</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/linter.html"><strong aria-hidden="true">5.1.6.2.</strong> Linter</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/package_manager.html"><strong aria-hidden="true">5.1.6.3.</strong> Package Manager</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/others.html"><strong aria-hidden="true">5.1.6.4.</strong> Others</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/tooling_summary.html"><strong aria-hidden="true">5.1.6.5.</strong> Tooling Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/ecosystem.html"><strong aria-hidden="true">5.1.7.</strong> 🚛 Ecosystem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/variety.html"><strong aria-hidden="true">5.1.7.1.</strong> Variety</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/stable.html"><strong aria-hidden="true">5.1.7.2.</strong> Stable</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/second_order.html"><strong aria-hidden="true">5.1.8.</strong> 🦋 Second Order</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/second_order/chain_of_events.html"><strong aria-hidden="true">5.1.8.1.</strong> Chain of Events</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/second_order/topics_again.html"><strong aria-hidden="true">5.1.8.2.</strong> Topics Again</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/second_order/try_rust.html"><strong aria-hidden="true">5.1.8.3.</strong> Try Rust</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/qna.html"><strong aria-hidden="true">5.1.9.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/user_facing_automation_part_1.html"><strong aria-hidden="true">5.2.</strong> User Facing Automation - Part 1</a></li><li class="chapter-item "><a href="../../learning_material/user_facing_automation_part_2.html"><strong aria-hidden="true">5.3.</strong> User Facing Automation - Part 2</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design.html"><strong aria-hidden="true">5.4.</strong> Empathetic Code Design</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/background.html"><strong aria-hidden="true">5.4.1.</strong> Background</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/scenario.html"><strong aria-hidden="true">5.4.2.</strong> Scenario</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/flow_definition.html"><strong aria-hidden="true">5.4.3.</strong> Flow Definition</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/inputs_and_outputs.html"><strong aria-hidden="true">5.4.4.</strong> Inputs and Outputs</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/parameters_specification.html"><strong aria-hidden="true">5.4.5.</strong> Parameters Specification</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/output_and_presentation.html"><strong aria-hidden="true">5.4.6.</strong> Output and Presentation</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/command_invocation.html"><strong aria-hidden="true">5.4.7.</strong> Command Invocation</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/parameters_recall.html"><strong aria-hidden="true">5.4.8.</strong> Parameters Recall</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/workspace.html"><strong aria-hidden="true">5.4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/profiles.html"><strong aria-hidden="true">5.4.10.</strong> Profiles</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/summary.html"><strong aria-hidden="true">5.4.11.</strong> Summary</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/qna.html"><strong aria-hidden="true">5.4.12.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/interruptible_software.html"><strong aria-hidden="true">5.5.</strong> Interruptible Software</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/interruptible_software/processes.html"><strong aria-hidden="true">5.5.1.</strong> Processes</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/execution.html"><strong aria-hidden="true">5.5.2.</strong> Execution</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/bus_analogy.html"><strong aria-hidden="true">5.5.3.</strong> Bus Analogy</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility.html"><strong aria-hidden="true">5.5.4.</strong> Designing Interruptibility</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/stop_button.html"><strong aria-hidden="true">5.5.4.1.</strong> Stop Button</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/stopping_point.html"><strong aria-hidden="true">5.5.4.2.</strong> Stopping Point</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/parallelism.html"><strong aria-hidden="true">5.5.4.3.</strong> Parallelism</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/reporting.html"><strong aria-hidden="true">5.5.4.4.</strong> Reporting</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/strategy.html"><strong aria-hidden="true">5.5.4.5.</strong> Strategy</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/interruptible_implementation.html"><strong aria-hidden="true">5.5.5.</strong> Interruptible Implementation</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/resumability.html"><strong aria-hidden="true">5.5.6.</strong> Resumability</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_resumability.html"><strong aria-hidden="true">5.5.7.</strong> Designing Resumability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_resumability/executor_resumability.html"><strong aria-hidden="true">5.5.7.1.</strong> Executor Resumability</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_resumability/stepwise_resumability.html"><strong aria-hidden="true">5.5.7.2.</strong> Stepwise Resumability</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/resumable_implementation.html"><strong aria-hidden="true">5.5.8.</strong> Resumable Implementation</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/real_crates.html"><strong aria-hidden="true">5.5.9.</strong> Real Crates</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/summary.html"><strong aria-hidden="true">5.5.10.</strong> Summary</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/qna.html"><strong aria-hidden="true">5.5.11.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator.html"><strong aria-hidden="true">5.6.</strong> Dot IX: Diagram Generator</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/everyday_diagrams.html"><strong aria-hidden="true">5.6.1.</strong> Everyday Diagrams</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems.html"><strong aria-hidden="true">5.6.2.</strong> 🛑 Problems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/appearance.html"><strong aria-hidden="true">5.6.2.1.</strong> Appearance</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/accuracy.html"><strong aria-hidden="true">5.6.2.2.</strong> Accuracy</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/portability.html"><strong aria-hidden="true">5.6.2.3.</strong> Portability</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/dynamics.html"><strong aria-hidden="true">5.6.2.4.</strong> Dynamics</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation.html"><strong aria-hidden="true">5.6.3.</strong> 💡 Ideation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation/output_format.html"><strong aria-hidden="true">5.6.3.1.</strong> Output Format</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation/input_format.html"><strong aria-hidden="true">5.6.3.2.</strong> Input Format</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation/logistics.html"><strong aria-hidden="true">5.6.3.3.</strong> Logistics</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/demo.html"><strong aria-hidden="true">5.6.4.</strong> 🎨 Demo</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution.html"><strong aria-hidden="true">5.6.5.</strong> 🧪 Solution</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution/supported_usages.html"><strong aria-hidden="true">5.6.5.1.</strong> Supported Usages</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution/generation_process.html"><strong aria-hidden="true">5.6.5.2.</strong> Generation Process</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution/challenges.html"><strong aria-hidden="true">5.6.5.3.</strong> Challenges</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/whats_next.html"><strong aria-hidden="true">5.6.6.</strong> What's Next</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/qna.html"><strong aria-hidden="true">5.6.7.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation.html"><strong aria-hidden="true">5.7.</strong> Peace: Zero Stress Automation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/peace_framework.html"><strong aria-hidden="true">5.7.1.</strong> 🕊️ Peace Framework</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story.html"><strong aria-hidden="true">5.7.2.</strong> 🐉 Origin Story</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/manual_deployment.html"><strong aria-hidden="true">5.7.2.1.</strong> Manual Deployment</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/automation.html"><strong aria-hidden="true">5.7.2.2.</strong> Automation</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/engineering_eyes.html"><strong aria-hidden="true">5.7.2.3.</strong> Engineering Eyes</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/engineering_success.html"><strong aria-hidden="true">5.7.2.4.</strong> Engineering Success</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/automation_for_real.html"><strong aria-hidden="true">5.7.2.5.</strong> Automation (For Real)</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/human_eyes.html"><strong aria-hidden="true">5.7.2.6.</strong> Human Eyes</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/envman_example_tool.html"><strong aria-hidden="true">5.7.3.</strong> 🏗️ envman (example tool)</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/understandability.html"><strong aria-hidden="true">5.7.4.</strong> 💡 Understandability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/understandability/demo.html"><strong aria-hidden="true">5.7.4.1.</strong> Demo</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/understandability/goldilocks_principle.html"><strong aria-hidden="true">5.7.4.2.</strong> Goldilocks Principle</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control.html"><strong aria-hidden="true">5.7.5.</strong> 🎮 Control</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/minimal_control.html"><strong aria-hidden="true">5.7.5.1.</strong> Minimal Control</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/discovery.html"><strong aria-hidden="true">5.7.5.2.</strong> Discovery</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/interruption.html"><strong aria-hidden="true">5.7.5.3.</strong> Interruption</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/demo.html"><strong aria-hidden="true">5.7.5.4.</strong> Demo</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale.html"><strong aria-hidden="true">5.7.6.</strong> 💟 Morale</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/aesthetics_outcome.html"><strong aria-hidden="true">5.7.6.1.</strong> Aesthetics: Outcome</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/aesthetics_progress.html"><strong aria-hidden="true">5.7.6.2.</strong> Aesthetics: Progress</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/aesthetics_errors.html"><strong aria-hidden="true">5.7.6.3.</strong> Aesthetics: Errors</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/automation_clarified.html"><strong aria-hidden="true">5.7.6.4.</strong> Automation Clarified</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/how_does_it_work.html"><strong aria-hidden="true">5.7.7.</strong> ⚙️ How Does It Work</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture.html"><strong aria-hidden="true">5.7.8.</strong> 🏭 Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/components.html"><strong aria-hidden="true">5.7.8.1.</strong> Components</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/item.html"><strong aria-hidden="true">5.7.8.2.</strong> Item</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/item_implementations.html"><strong aria-hidden="true">5.7.8.3.</strong> Item Implementations</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/flow.html"><strong aria-hidden="true">5.7.8.4.</strong> Flow</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/commands.html"><strong aria-hidden="true">5.7.8.5.</strong> Commands</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/item_parameters.html"><strong aria-hidden="true">5.7.8.6.</strong> Item Parameters</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/tool.html"><strong aria-hidden="true">5.7.8.7.</strong> Tool</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/side_side_projects.html"><strong aria-hidden="true">5.7.9.</strong> 🪆 Side-Side Projects</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/side_side_projects/interruptible.html"><strong aria-hidden="true">5.7.9.1.</strong> 🛑 Interruptible</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/side_side_projects/dot_ix.html"><strong aria-hidden="true">5.7.9.2.</strong> 🎨 Dot IX</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/project_status.html"><strong aria-hidden="true">5.7.10.</strong> 🦖 Project Status</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/project_status/readiness.html"><strong aria-hidden="true">5.7.10.1.</strong> Readiness</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/links.html"><strong aria-hidden="true">5.7.11.</strong> 🔗 Links</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/thank_you.html"><strong aria-hidden="true">5.7.12.</strong> 🙇‍♂️ Thank You</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/qna.html"><strong aria-hidden="true">5.7.13.</strong> ❓ Q & A</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../ideas.html"><strong aria-hidden="true">6.</strong> Ideas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ideas/feature_gated_incremental_functionality.html"><strong aria-hidden="true">6.1.</strong> Feature Gated Incremental Functionality</a></li></ol></li><li class="chapter-item expanded "><a href="../../licenses.html"><strong aria-hidden="true">7.</strong> Licenses</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Peace Framework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace/edit/main/doc/src/technical_concepts/function_graph/abstraction.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="abstraction"><a class="header" href="#abstraction">Abstraction</a></h1>
+<p>To abstract over the logic, the following needs to be solved:</p>
+<ul>
+<li><strong>Storage:</strong> Single type to be held together in a collection.</li>
+<li><strong>Instantiation:</strong> Easy to instantiate from functions or closures.</li>
+<li><strong>Invocation:</strong> Able to be invoked with <a href="https://docs.rs/resman/latest/resman/struct.Resources.html"><code>Resources</code></a>.</li>
+</ul>
+<p>The concept applies to function with any number of parameters<sup>1</sup>; the code snippets on this page shows implementations for a function with 2 parameters – one mutable parameter, and one immutable parameter.</p>
+<h2 id="storage"><a class="header" href="#storage">Storage</a></h2>
+<p>We can store different types under a single abstraction by defining a trait, and implementing the trait for each of those different types.<div class="mdbook-graphviz-output"><!-- Generated by graphviz version 2.43.0 (0) --><!-- Title: %3 Pages: 1 --><svg width="235pt" height="90pt" viewBox="0.00 0.00 234.86 89.86" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 85.86)"><title>%3</title><!-- fn_res_trait --><g id="node1" class="node"><title>fn_res_trait</title><path fill="#eeeef5" stroke="#aaaabb" d="M158.76,-81.86C158.76,-81.86 68.1,-81.86 68.1,-81.86 63.26,-81.86 58.43,-77.02 58.43,-72.19 58.43,-72.19 58.43,-62.52 58.43,-62.52 58.43,-57.69 63.26,-52.86 68.1,-52.86 68.1,-52.86 158.76,-52.86 158.76,-52.86 163.6,-52.86 168.43,-57.69 168.43,-62.52 168.43,-62.52 168.43,-72.19 168.43,-72.19 168.43,-77.02 163.6,-81.86 158.76,-81.86"/><text text-anchor="start" x="69.43" y="-65.86" font-family="monospace" font-weight="bold" font-size="10.00" fill="#9d00ec">trait</text><text text-anchor="start" x="100.43" y="-65.86" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="107.43" y="-65.86" font-family="monospace" font-weight="bold" font-size="10.00" fill="#0030f2">FnRes</text><text text-anchor="start" x="138.43" y="-65.86" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111"> {}</text></g><!-- fn1 --><g id="node2" class="node"><title>fn1</title><ellipse fill="#eeeef5" stroke="#aaaabb" cx="15.43" cy="-15.43" rx="15.36" ry="15.36"/><text text-anchor="start" x="5.93" y="-13.93" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111">Fn1</text></g><!-- fn_res_trait&#45;&gt;fn1 --><g id="edge1" class="edge"><title>fn_res_trait-&gt;fn1</title><path fill="none" stroke="#555555" d="M80.59,-49.63C63,-40.67 42.29,-30.11 29.01,-23.35"/><polygon fill="#555555" stroke="#555555" points="79.56,-51.85 86.91,-52.85 81.78,-47.49 79.56,-51.85"/></g><!-- fn2 --><g id="node3" class="node"><title>fn2</title><ellipse fill="#eeeef5" stroke="#aaaabb" cx="64.43" cy="-15.43" rx="15.36" ry="15.36"/><text text-anchor="start" x="54.93" y="-13.93" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111">Fn2</text></g><!-- fn_res_trait&#45;&gt;fn2 --><g id="edge3" class="edge"><title>fn_res_trait-&gt;fn2</title><path fill="none" stroke="#555555" d="M95,-47.58C88.19,-40.64 80.71,-33.02 74.85,-27.05"/><polygon fill="#555555" stroke="#555555" points="93.39,-49.43 100.04,-52.71 96.89,-46 93.39,-49.43"/></g><!-- fn3 --><g id="node4" class="node"><title>fn3</title><ellipse fill="#eeeef5" stroke="#aaaabb" cx="113.43" cy="-15.43" rx="15.36" ry="15.36"/><text text-anchor="start" x="103.93" y="-13.93" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111">Fn3</text></g><!-- fn_res_trait&#45;&gt;fn3 --><g id="edge2" class="edge"><title>fn_res_trait-&gt;fn3</title><path fill="none" stroke="#555555" d="M113.43,-45.42C113.43,-40.61 113.43,-35.59 113.43,-31.11"/><polygon fill="#555555" stroke="#555555" points="110.98,-45.71 113.43,-52.71 115.88,-45.71 110.98,-45.71"/></g><!-- fn4 --><g id="node5" class="node"><title>fn4</title><ellipse fill="#eeeef5" stroke="#aaaabb" cx="162.43" cy="-15.43" rx="15.36" ry="15.36"/><text text-anchor="start" x="152.93" y="-13.93" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111">Fn4</text></g><!-- fn_res_trait&#45;&gt;fn4 --><g id="edge5" class="edge"><title>fn_res_trait-&gt;fn4</title><path fill="none" stroke="#555555" d="M131.86,-47.58C138.67,-40.64 146.15,-33.02 152.01,-27.05"/><polygon fill="#555555" stroke="#555555" points="129.97,-46 126.82,-52.71 133.47,-49.43 129.97,-46"/></g><!-- fn5 --><g id="node6" class="node"><title>fn5</title><ellipse fill="#eeeef5" stroke="#aaaabb" cx="211.43" cy="-15.43" rx="15.36" ry="15.36"/><text text-anchor="start" x="201.93" y="-13.93" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111">Fn5</text></g><!-- fn_res_trait&#45;&gt;fn5 --><g id="edge4" class="edge"><title>fn_res_trait-&gt;fn5</title><path fill="none" stroke="#555555" d="M146.27,-49.63C163.86,-40.67 184.57,-30.11 197.85,-23.35"/><polygon fill="#555555" stroke="#555555" points="145.07,-47.49 139.95,-52.85 147.3,-51.85 145.07,-47.49"/></g></g></svg></div></p>
+<pre><code class="language-rust  ignore">// Trait for all logic types to implement.
+pub trait FnRes {
+    // ..
+<span class="boring">    /// Return type of the function.
+</span><span class="boring">    type Ret;
+</span><span class="boring">    /// Runs the function.
+</span><span class="boring">    fn call(&amp;self, resources: &amp;Resources) -&gt; Self::Ret;
+</span>}</code></pre>
+<p>In order to name the logic type in code, the logic is stored in a wrapper type called <a href="https://docs.rs/resman/latest/resman/struct.FnResource.html"><code>FnResource</code></a>.</p>
+<p><a href="https://docs.rs/resman/latest/resman/trait.FnRes.html"><code>FnRes</code></a> is implemented for each type parameter combination of <a href="https://docs.rs/resman/latest/resman/struct.FnResource.html"><code>FnResource</code></a><sup>1</sup>:<div class="mdbook-graphviz-output"><!-- Generated by graphviz version 2.43.0 (0) --><!-- Title: %3 Pages: 1 --><svg width="320pt" height="135pt" viewBox="0.00 0.00 320.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 131)"><title>%3</title><!-- fn_res_trait --><g id="node1" class="node"><title>fn_res_trait</title><path fill="#eeeef5" stroke="#aaaabb" d="M201.33,-127C201.33,-127 110.67,-127 110.67,-127 105.83,-127 101,-122.17 101,-117.33 101,-117.33 101,-107.67 101,-107.67 101,-102.83 105.83,-98 110.67,-98 110.67,-98 201.33,-98 201.33,-98 206.17,-98 211,-102.83 211,-107.67 211,-107.67 211,-117.33 211,-117.33 211,-122.17 206.17,-127 201.33,-127"/><text text-anchor="start" x="112" y="-111" font-family="monospace" font-weight="bold" font-size="10.00" fill="#9d00ec">trait</text><text text-anchor="start" x="143" y="-111" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="150" y="-111" font-family="monospace" font-weight="bold" font-size="10.00" fill="#0030f2">FnRes</text><text text-anchor="start" x="181" y="-111" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111"> {}</text></g><!-- fn_resource --><g id="node2" class="node"><title>fn_resource</title><path fill="#eeeef5" stroke="#aaaabb" d="M300,-76C300,-76 12,-76 12,-76 6,-76 0,-70 0,-64 0,-64 0,-12 0,-12 0,-6 6,0 12,0 12,0 300,0 300,0 306,0 312,-6 312,-12 312,-12 312,-64 312,-64 312,-70 306,-76 300,-76"/><text text-anchor="start" x="11" y="-66" font-family="monospace" font-weight="bold" font-size="10.00" fill="#9d00ec">struct</text><text text-anchor="start" x="48" y="-66" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="55" y="-66" font-family="monospace" font-weight="bold" font-size="10.00" fill="#0030f2">FnResource</text><text text-anchor="start" x="116" y="-66" font-family="monospace" font-weight="bold" font-size="10.00" fill="#111111">&lt;Fun, Ret, Args&gt; {}</text><text text-anchor="start" x="11" y="-46" font-family="monospace" font-size="10.00" fill="#9d00ec">struct</text><text text-anchor="start" x="48" y="-46" font-family="monospace" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="55" y="-46" font-family="monospace" font-size="10.00" fill="#0030f2">FnResource</text><text text-anchor="start" x="116" y="-46" font-family="monospace" font-size="10.00" fill="#111111">&lt;Fn1, (), (&amp;</text><text text-anchor="start" x="189" y="-46" font-family="monospace" font-size="10.00" fill="#9d00ec">mut</text><text text-anchor="start" x="208" y="-46" font-family="monospace" font-size="10.00" fill="#111111"> A, &amp;</text><text text-anchor="start" x="239" y="-46" font-family="monospace" font-size="10.00" fill="#9d00ec">mut</text><text text-anchor="start" x="258" y="-46" font-family="monospace" font-size="10.00" fill="#111111"> B)&gt; {}</text><text text-anchor="start" x="11" y="-36" font-family="monospace" font-size="10.00" fill="#9d00ec">struct</text><text text-anchor="start" x="48" y="-36" font-family="monospace" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="55" y="-36" font-family="monospace" font-size="10.00" fill="#0030f2">FnResource</text><text text-anchor="start" x="116" y="-36" font-family="monospace" font-size="10.00" fill="#111111">&lt;Fn2, (), (&amp;</text><text text-anchor="start" x="189" y="-36" font-family="monospace" font-size="10.00" fill="#9d00ec">mut</text><text text-anchor="start" x="208" y="-36" font-family="monospace" font-size="10.00" fill="#111111"> C, &amp;A)&gt; {}</text><text text-anchor="start" x="11" y="-26" font-family="monospace" font-size="10.00" fill="#9d00ec">struct</text><text text-anchor="start" x="48" y="-26" font-family="monospace" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="55" y="-26" font-family="monospace" font-size="10.00" fill="#0030f2">FnResource</text><text text-anchor="start" x="116" y="-26" font-family="monospace" font-size="10.00" fill="#111111">&lt;Fn3, (), (&amp;</text><text text-anchor="start" x="189" y="-26" font-family="monospace" font-size="10.00" fill="#9d00ec">mut</text><text text-anchor="start" x="208" y="-26" font-family="monospace" font-size="10.00" fill="#111111"> C, &amp;B)&gt; {}</text><text text-anchor="start" x="11" y="-16" font-family="monospace" font-size="10.00" fill="#9d00ec">struct</text><text text-anchor="start" x="48" y="-16" font-family="monospace" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="55" y="-16" font-family="monospace" font-size="10.00" fill="#0030f2">FnResource</text><text text-anchor="start" x="116" y="-16" font-family="monospace" font-size="10.00" fill="#111111">&lt;Fn4, (), (&amp;</text><text text-anchor="start" x="189" y="-16" font-family="monospace" font-size="10.00" fill="#9d00ec">mut</text><text text-anchor="start" x="208" y="-16" font-family="monospace" font-size="10.00" fill="#111111"> D, &amp;C)&gt; {}</text><text text-anchor="start" x="11" y="-6" font-family="monospace" font-size="10.00" fill="#9d00ec">struct</text><text text-anchor="start" x="48" y="-6" font-family="monospace" font-size="10.00" fill="#111111"></text><text text-anchor="start" x="55" y="-6" font-family="monospace" font-size="10.00" fill="#0030f2">FnResource</text><text text-anchor="start" x="116" y="-6" font-family="monospace" font-size="10.00" fill="#111111">&lt;Fn5, (), (&amp;A, &amp;B, &amp;C)&gt; {}</text></g><!-- fn_res_trait&#45;&gt;fn_resource --><g id="edge1" class="edge"><title>fn_res_trait-&gt;fn_resource</title><path fill="none" stroke="#555555" d="M156,-90.63C156,-86.07 156,-81.11 156,-76.13"/><polygon fill="#555555" stroke="#555555" points="153.55,-90.86 156,-97.86 158.45,-90.86 153.55,-90.86"/></g></g></svg></div></p>
+<pre><code class="language-rust  ignore">// Intermediate type so that traits can be implemented on this.
+pub struct FnResource&lt;Fun, Ret, Args&gt; {
+    pub func: Fun,
+    marker: PhantomData&lt;(Fun, Ret, Args)&gt;,
+}
+
+// Implement `FnRes` for `FnResource` with different type parameters.
+impl&lt;Fun, Ret, C, A&gt; FnRes for FnResource&lt;F, Ret, (&amp;mut C, &amp;A)&gt;
+where
+    Fun: Fn(&amp;mut C, &amp;A) -&gt; Ret + 'static,
+    Ret: 'static,
+{
+    // ..
+}</code></pre>
+<p>Once a function or closure is wrapped in a <a href="https://docs.rs/resman/latest/resman/struct.FnResource.html"><code>FnResource</code></a>, then we can hold different functions and closures as <code>Box&lt;dyn FnRes&gt;</code>.</p>
+<h2 id="instantiation"><a class="header" href="#instantiation">Instantiation</a></h2>
+<p>To make it easy to transform functions and closures into <code>Box&lt;dyn FnRes&gt;</code>, the <code>IntoFnResource</code> and <code>IntoFnRes</code> traits are provided generically:</p>
+<pre><code class="language-rust  ignore">// Turns a function or closure into the `FnResource` wrapper type.
+impl&lt;Fun, Ret, C, A&gt; IntoFnResource&lt;Fun, Ret, (&amp;mut C, &amp;A)&gt; for Fun
+where
+    Fun: Fn(&amp;mut C, &amp;A) -&gt; Ret + 'static,
+    Ret: 'static,
+{
+    fn into_fn_resource(self) -&gt; FnResource&lt;Fun, Ret, (&amp;mut C, &amp;A)&gt; {
+        FnResource {
+            func: self,
+            marker: PhantomData,
+        }
+    }
+}
+
+// Turns a function or closure into a `Box&lt;dyn FnRes&gt;`
+impl&lt;Fun, Ret, C, A&gt; IntoFnRes&lt;Fun, Ret, (&amp;mut C, &amp;A)&gt; for Fun
+where
+    Fun: Fn(&amp;mut C, &amp;A) -&gt; Ret + 'static,
+    Ret: 'static,
+    A: 'static,
+    B: 'static,
+    FnResource&lt;Fun, Ret, (&amp;mut C, &amp;A)&gt;: FnRes&lt;Ret = Ret&gt;,
+{
+    fn into_fn_res(self) -&gt; Box&lt;dyn FnRes&lt;Ret = Ret&gt;&gt; {
+        Box::new(self.into_fn_resource())
+    }
+}</code></pre>
+<p>Usage:</p>
+<pre><code class="language-rust  ignore">let fn_res = (|c: &amp;mut u32, a: &amp;u32| *c += *a).into_fn_res();</code></pre>
+<h2 id="invocation"><a class="header" href="#invocation">Invocation</a></h2>
+<p>Now that we can easily hold different types under the <code>Box&lt;dyn FnRes&gt;</code> abstraction, the remaining issue is to invoke the logic through that common abstraction.</p>
+<p>To do this, <code>FnRes</code> has a method that takes a <code>&amp;Resources</code> parameter, and each trait implementation will handle parameter fetching and function invocation:</p>
+<pre><code class="language-rust  ignore">// Trait for all logic types to implement.
+pub trait FnRes {
+    /// Return type of the function.
+    type Ret;
+
+    /// Runs the function.
+    fn call(&amp;self, resources: &amp;Resources) -&gt; Self::Ret;
+}
+
+// Implementation to fetch the parameters from `Resources`, and invoke the function.
+impl&lt;Fun, Ret, C, A&gt; FnRes for FnResource&lt;F, Ret, (&amp;mut C, &amp;A)&gt;
+where
+    Fun: Fn(&amp;mut C, &amp;A) -&gt; Ret + 'static,
+    Ret: 'static,
+{
+    pub fn call(&amp;self, resources: &amp;Resources) -&gt; Ret {
+        let c = resources.borrow_mut::&lt;C&gt;();
+        let a = resources.borrow::&lt;A&gt;();
+
+        (self.func)(c, a)
+    }
+}</code></pre>
+<p>With this, consumers are able to invoke functions generically:</p>
+<pre><code class="language-rust  ignore">let mut resources = Resources::new();
+resources.insert(A::new(1));
+resources.insert(C::new(0));
+
+let fn_res: Box&lt;dyn FnRes&gt; = (|c: &amp;mut C, a: &amp;A| *c += *a).into_fn_res();
+
+// Generically invoke logic with generic data type.
+fn_res.call(&amp;resources);</code></pre>
+<p>Notably:</p>
+<ul>
+<li>Parameters must be <code>&amp;T</code> or <code>&amp;mut T</code>, as <code>T</code> is owned by <a href="https://docs.rs/resman/latest/resman/struct.Resources.html"><code>Resources</code></a>.</li>
+<li>Parameters must be distinct types, as it is invalid to borrow <code>&amp;mut T</code> twice.</li>
+<li>Borrowing and invocation is implemented by the function type – <code>FnResource</code> in this example. Out of the box, this lives in the <a href="https://github.com/azriel91/resman"><code>resman</code></a> crate instead of <a href="https://github.com/azriel91/fn_graph"><code>fn_graph</code></a>.</li>
+</ul>
+<hr />
+<p><sup>1</sup> <code>resman</code> implements <a href="https://docs.rs/resman/latest/resman/trait.FnRes.html"><code>FnRes</code></a> for functions with up to 6 parameters.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../technical_concepts/function_graph.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../technical_concepts/function_graph/ordering.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../technical_concepts/function_graph.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../technical_concepts/function_graph/ordering.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../src/js/highlightjs-line-numbers.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

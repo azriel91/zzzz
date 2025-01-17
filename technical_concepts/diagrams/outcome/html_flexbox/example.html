@@ -1,0 +1,121 @@
+<style>
+.diagram {
+    display: flex;
+    flex: 0 1;
+    align-items: stretch;
+}
+.focusable:focus {
+    outline: 2px dashed #aabbee;
+    outline-offset: 2px;
+}
+.node {
+    border: 2px solid #999999;
+    border-radius: 1.5rem;
+    background-color: #dddddd;
+    padding: 1.0rem 1.0rem;
+}
+.node:hover:not(:has(.node:hover)) {
+    border-color: #bbbbbb;
+    background-color: #f0f0f0;
+}
+.node:focus {
+    border-color: #aaaaaa;
+    background-color: #eeeeee;
+}
+.realm > .node {
+    flex-grow: 1;
+}
+.node_vertical {
+    display: flex;
+    flex: 1 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: stretch;
+    gap: 1.0rem; /* Needs to match `.realm` `gap`. */
+}
+.realm {
+    border: 2px dotted;
+    border-radius: 1.5rem;
+    display: flex;
+    flex: 1 1 1;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1.0rem; /* Needs to match `.node_vertical` `gap`. */
+    padding: 1.0rem 1.0rem;
+}
+.realm_label {
+    flex-basis: 100%;
+    padding-bottom: 1.0rem;
+}
+.realm_localhost {
+    border-color: #99bbcc;
+    background-color: #cceeff;
+}
+.realm_localhost:hover:not(:has(.node:hover)) {
+    border-color: #aaddee;
+    background-color: #eeffff;
+}
+.realm_aws {
+    border-color: #bbcc99;
+    background-color: #eeffcc;
+}
+.realm_aws:hover:not(:has(.node:hover)) {
+    border-color: #ddeeaa;
+    background-color: #ffffee;
+}
+.realm_github {
+    border-color: #cacaca;
+    background-color: #fafafa;
+}
+.realm_github:hover:not(:has(.node:hover)) {
+    border-color: #dbdbdb;
+    background-color: #ffffff;
+}
+</style>
+
+<div tabindex="0" class="focusable diagram">
+    <div tabindex="0" class="focusable realm realm_github">
+        <div class="realm_label" id="github" title="github">🐙 Github</div>
+        <div tabindex="0" class="focusable node" id="github_app_download" title="app_download::src">📁 app.zip</div>
+        <div tabindex="0" class="focusable node" id="other" title="other">..</div>
+    </div>
+    <div tabindex="0" class="focusable realm realm_localhost">
+        <div class="realm_label" id="localhost" title="localhost">💻 Your computer</div>
+        <div class="node_vertical">
+            <div tabindex="0" class="focusable node" id="app_download" title="app_download">📥 app.zip</div>
+            <div tabindex="0" class="focusable node" id="app_extract" title="app_extract">📂 /opt/app</div>
+        </div>
+    </div>
+    <div tabindex="0" class="focusable realm realm_aws">
+        <div class="realm_label" id="aws" title="aws">☁️ Amazon Web Services</div>
+        <div class="node_vertical">
+            <div tabindex="0" class="focusable node" id="s3_bucket" title="s3_bucket">
+                <div class="realm_label">🪣 demo-artifacts</div>
+                <div tabindex="0" class="focusable node" id="s3_object" title="s3_object">📁 app.zip</div>
+            </div>
+        </div>
+        <div class="node_vertical">
+            <div tabindex="0" class="focusable node" id="iam_policy" title="iam_policy">📝 EC2: Allow S3 Read</div>
+            <div tabindex="0" class="focusable node" id="iam_role" title="iam_role">🔰 EC2 IAM policy attachment</div>
+            <div tabindex="0" class="focusable node" id="instance_profile" title="instance_profile">🏷️ EC2 instance role attachment</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leader-line/leader-line.min.js"></script>
+<script>
+    new LeaderLine(
+        document.getElementById('app_download'),
+        document.getElementById('s3_object'),
+        {
+            color: '#336699',
+            dash: {
+                animation: true
+            },
+            size: 3,
+            startSocketGravity: 20, // 100 by default
+            endSocketGravity: 40,
+            endPlugSize: 1.2
+        }
+    );
+</script>

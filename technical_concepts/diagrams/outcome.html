@@ -1,0 +1,745 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Outcome - The Peace Framework</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../src/css/layout.css">
+        <link rel="stylesheet" href="../../src/css/presentation.css">
+        <link rel="stylesheet" href="../../src/css/terminal.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../background.html"><strong aria-hidden="true">2.</strong> Background</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../background/purpose.html"><strong aria-hidden="true">2.1.</strong> Purpose</a></li><li class="chapter-item "><a href="../../background/strategy.html"><strong aria-hidden="true">2.2.</strong> Strategy</a></li></ol></li><li class="chapter-item expanded "><a href="../../examples.html"><strong aria-hidden="true">3.</strong> Examples</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/download.html"><strong aria-hidden="true">3.1.</strong> Download</a></li><li class="chapter-item "><a href="../../examples/envman.html"><strong aria-hidden="true">3.2.</strong> Env Man</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/envman/walkthrough.html"><strong aria-hidden="true">3.2.1.</strong> Walkthrough</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../technical_concepts.html"><strong aria-hidden="true">4.</strong> Technical Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/resources.html"><strong aria-hidden="true">4.1.</strong> Resources</a></li><li class="chapter-item "><a href="../../technical_concepts/function_graph.html"><strong aria-hidden="true">4.2.</strong> Function Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/function_graph/abstraction.html"><strong aria-hidden="true">4.2.1.</strong> Abstraction</a></li><li class="chapter-item "><a href="../../technical_concepts/function_graph/ordering.html"><strong aria-hidden="true">4.2.2.</strong> Ordering</a></li><li class="chapter-item "><a href="../../technical_concepts/function_graph/streaming.html"><strong aria-hidden="true">4.2.3.</strong> Streaming</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/item.html"><strong aria-hidden="true">4.3.</strong> Item</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters.html"><strong aria-hidden="true">4.3.1.</strong> Item Parameters</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/value_specification.html"><strong aria-hidden="true">4.3.1.1.</strong> Value Specification</a></li><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/params_specification.html"><strong aria-hidden="true">4.3.1.2.</strong> Params Specification</a></li><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/params_framework_support.html"><strong aria-hidden="true">4.3.1.3.</strong> Params Framework Support</a></li><li class="chapter-item "><a href="../../technical_concepts/item/item_parameters/mapping_functions.html"><strong aria-hidden="true">4.3.1.4.</strong> Mapping Functions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/item_graph.html"><strong aria-hidden="true">4.4.</strong> Item Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/item_graph/initialization.html"><strong aria-hidden="true">4.4.1.</strong> Initialization</a></li><li class="chapter-item "><a href="../../technical_concepts/item_graph/state_inspection.html"><strong aria-hidden="true">4.4.2.</strong> State Inspection</a></li><li class="chapter-item "><a href="../../technical_concepts/item_graph/state_ensure.html"><strong aria-hidden="true">4.4.3.</strong> State Ensure</a></li><li class="chapter-item "><a href="../../technical_concepts/item_graph/clean.html"><strong aria-hidden="true">4.4.4.</strong> Clean</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/state.html"><strong aria-hidden="true">4.5.</strong> State</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/state/logical_state.html"><strong aria-hidden="true">4.5.1.</strong> Logical State</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/output.html"><strong aria-hidden="true">4.6.</strong> Output</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/output/execution_progress.html"><strong aria-hidden="true">4.6.1.</strong> Execution Progress</a></li><li class="chapter-item "><a href="../../technical_concepts/output/presentation.html"><strong aria-hidden="true">4.6.2.</strong> Presentation</a></li></ol></li><li class="chapter-item expanded "><a href="../../technical_concepts/diagrams.html"><strong aria-hidden="true">4.7.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/diagrams/progress.html"><strong aria-hidden="true">4.7.1.</strong> Progress</a></li><li class="chapter-item expanded "><a href="../../technical_concepts/diagrams/outcome.html" class="active"><strong aria-hidden="true">4.7.2.</strong> Outcome</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/render_technology.html"><strong aria-hidden="true">4.7.2.1.</strong> Render Technology</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/html_flexbox.html"><strong aria-hidden="true">4.7.2.2.</strong> HTML + Flexbox</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/div_diag.html"><strong aria-hidden="true">4.7.2.3.</strong> Div Diag</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/api_design.html"><strong aria-hidden="true">4.7.2.4.</strong> API Design</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/interaction_merging.html"><strong aria-hidden="true">4.7.2.5.</strong> Interaction Merging</a></li><li class="chapter-item "><a href="../../technical_concepts/diagrams/outcome/aesthetics_and_clarity.html"><strong aria-hidden="true">4.7.2.6.</strong> Aesthetics and Clarity</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction.html"><strong aria-hidden="true">4.8.</strong> Endpoints and Interaction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction/cmd_invocation.html"><strong aria-hidden="true">4.8.1.</strong> Cmd Invocation</a></li><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction/interruption.html"><strong aria-hidden="true">4.8.2.</strong> Interruption</a></li><li class="chapter-item "><a href="../../technical_concepts/endpoints_and_interaction/progress_output.html"><strong aria-hidden="true">4.8.3.</strong> Progress Output</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/workspace.html"><strong aria-hidden="true">4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../../technical_concepts/commands.html"><strong aria-hidden="true">4.10.</strong> Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/commands/scopes.html"><strong aria-hidden="true">4.10.1.</strong> Scopes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/commands/scopes/reborrowing.html"><strong aria-hidden="true">4.10.1.1.</strong> Reborrowing</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases.html"><strong aria-hidden="true">4.10.2.</strong> Use Cases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/workspace_initialization.html"><strong aria-hidden="true">4.10.2.1.</strong> Workspace Initialization</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/profile_list.html"><strong aria-hidden="true">4.10.2.2.</strong> Profile List</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/workspace_stored_active_profile.html"><strong aria-hidden="true">4.10.2.3.</strong> Workspace Stored Active Profile</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/workspace_active_profile_switch.html"><strong aria-hidden="true">4.10.2.4.</strong> Workspace Active Profile Switch</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_discovery_and_display.html"><strong aria-hidden="true">4.10.2.5.</strong> State Discovery and Display</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_read_and_display.html"><strong aria-hidden="true">4.10.2.6.</strong> State Read and Display</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_diff.html"><strong aria-hidden="true">4.10.2.7.</strong> State Diff</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_apply.html"><strong aria-hidden="true">4.10.2.8.</strong> State Apply</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/use_cases/state_clean.html"><strong aria-hidden="true">4.10.2.9.</strong> State Clean</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/commands/cmd_execution.html"><strong aria-hidden="true">4.10.3.</strong> Cmd Execution</a></li><li class="chapter-item "><a href="../../technical_concepts/commands/interruptibility.html"><strong aria-hidden="true">4.10.4.</strong> Interruptibility</a></li></ol></li><li class="chapter-item "><a href="../../technical_concepts/flow_versioning.html"><strong aria-hidden="true">4.11.</strong> Flow Versioning</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../technical_concepts/flow_versioning/seamless_execution.html"><strong aria-hidden="true">4.11.1.</strong> Seamless Execution</a></li><li class="chapter-item "><a href="../../technical_concepts/flow_versioning/upgrade_actions.html"><strong aria-hidden="true">4.11.2.</strong> Upgrade Actions</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Learning Material</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust.html"><strong aria-hidden="true">5.1.</strong> Why Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/topics.html"><strong aria-hidden="true">5.1.1.</strong> Topics</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance.html"><strong aria-hidden="true">5.1.2.</strong> ⚡ Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/performance/benchmarks.html"><strong aria-hidden="true">5.1.2.1.</strong> Benchmarks</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/how_is_rust_fast.html"><strong aria-hidden="true">5.1.2.2.</strong> How Is Rust Fast</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/compiled_vs_interpreted.html"><strong aria-hidden="true">5.1.2.3.</strong> Compiled vs Interpreted</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/native_code.html"><strong aria-hidden="true">5.1.2.4.</strong> Native Code</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/memory_usage.html"><strong aria-hidden="true">5.1.2.5.</strong> Memory Usage</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/memory_freeing.html"><strong aria-hidden="true">5.1.2.6.</strong> Memory Freeing</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/performance/performance_summary.html"><strong aria-hidden="true">5.1.2.7.</strong> Performance Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints.html"><strong aria-hidden="true">5.1.3.</strong> 🚧 Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/correct_programs.html"><strong aria-hidden="true">5.1.3.1.</strong> Correct Programs</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/unconstrained.html"><strong aria-hidden="true">5.1.3.2.</strong> Unconstrained</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constrained.html"><strong aria-hidden="true">5.1.3.3.</strong> Constrained</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constrained_fixed.html"><strong aria-hidden="true">5.1.3.4.</strong> Constrained - Fixed</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/less_vs_more.html"><strong aria-hidden="true">5.1.3.5.</strong> Less vs More</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/nullability_js.html"><strong aria-hidden="true">5.1.3.6.</strong> Nullability - JS</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/nullability_cs.html"><strong aria-hidden="true">5.1.3.7.</strong> Nullability - C#</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/nullability_rust.html"><strong aria-hidden="true">5.1.3.8.</strong> Nullability - Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/data_race_cs.html"><strong aria-hidden="true">5.1.3.9.</strong> Data Race - C#</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/data_race_rust_1.html"><strong aria-hidden="true">5.1.3.10.</strong> Data Race - Rust 1</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/data_race_rust_2.html"><strong aria-hidden="true">5.1.3.11.</strong> Data Race - Rust 2</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constraints_in_rust.html"><strong aria-hidden="true">5.1.3.12.</strong> Constraints in Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/constraints/constraints_summary.html"><strong aria-hidden="true">5.1.3.13.</strong> Constraints Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive.html"><strong aria-hidden="true">5.1.4.</strong> 💬 Expressive</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/coco_mapping.html"><strong aria-hidden="true">5.1.4.1.</strong> Co/Co Mapping</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/traits.html"><strong aria-hidden="true">5.1.4.2.</strong> Traits</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/multiple_values_rust.html"><strong aria-hidden="true">5.1.4.3.</strong> Multiple Values</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/cloning.html"><strong aria-hidden="true">5.1.4.4.</strong> Cloning</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/cloning_others.html"><strong aria-hidden="true">5.1.4.5.</strong> Cloning - Others</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/cloning_rust.html"><strong aria-hidden="true">5.1.4.6.</strong> Cloning - Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/expressive_summary.html"><strong aria-hidden="true">5.1.4.7.</strong> Expressive Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous.html"><strong aria-hidden="true">5.1.5.</strong> 😵‍💫 Unambiguous</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality.html"><strong aria-hidden="true">5.1.5.1.</strong> Equality</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality_java.html"><strong aria-hidden="true">5.1.5.2.</strong> Equality - Java</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality_rust_1.html"><strong aria-hidden="true">5.1.5.3.</strong> Equality - Rust 1</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/equality_rust_2.html"><strong aria-hidden="true">5.1.5.4.</strong> Equality - Rust 2</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/control_flow.html"><strong aria-hidden="true">5.1.5.5.</strong> Control Flow</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/control_flow_java.html"><strong aria-hidden="true">5.1.5.6.</strong> Control Flow - Java</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/unambiguous/control_flow_rust.html"><strong aria-hidden="true">5.1.5.7.</strong> Control Flow - Rust</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/expressive/unambiguous_summary.html"><strong aria-hidden="true">5.1.5.8.</strong> Unambiguous Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling.html"><strong aria-hidden="true">5.1.6.</strong> 🛠️ Tooling</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/formatter.html"><strong aria-hidden="true">5.1.6.1.</strong> Formatter</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/linter.html"><strong aria-hidden="true">5.1.6.2.</strong> Linter</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/package_manager.html"><strong aria-hidden="true">5.1.6.3.</strong> Package Manager</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/others.html"><strong aria-hidden="true">5.1.6.4.</strong> Others</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/tooling/tooling_summary.html"><strong aria-hidden="true">5.1.6.5.</strong> Tooling Summary</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/ecosystem.html"><strong aria-hidden="true">5.1.7.</strong> 🚛 Ecosystem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/variety.html"><strong aria-hidden="true">5.1.7.1.</strong> Variety</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/stable.html"><strong aria-hidden="true">5.1.7.2.</strong> Stable</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/second_order.html"><strong aria-hidden="true">5.1.8.</strong> 🦋 Second Order</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/why_rust/second_order/chain_of_events.html"><strong aria-hidden="true">5.1.8.1.</strong> Chain of Events</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/second_order/topics_again.html"><strong aria-hidden="true">5.1.8.2.</strong> Topics Again</a></li><li class="chapter-item "><a href="../../learning_material/why_rust/second_order/try_rust.html"><strong aria-hidden="true">5.1.8.3.</strong> Try Rust</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/why_rust/qna.html"><strong aria-hidden="true">5.1.9.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/user_facing_automation_part_1.html"><strong aria-hidden="true">5.2.</strong> User Facing Automation - Part 1</a></li><li class="chapter-item "><a href="../../learning_material/user_facing_automation_part_2.html"><strong aria-hidden="true">5.3.</strong> User Facing Automation - Part 2</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design.html"><strong aria-hidden="true">5.4.</strong> Empathetic Code Design</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/background.html"><strong aria-hidden="true">5.4.1.</strong> Background</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/scenario.html"><strong aria-hidden="true">5.4.2.</strong> Scenario</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/flow_definition.html"><strong aria-hidden="true">5.4.3.</strong> Flow Definition</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/inputs_and_outputs.html"><strong aria-hidden="true">5.4.4.</strong> Inputs and Outputs</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/parameters_specification.html"><strong aria-hidden="true">5.4.5.</strong> Parameters Specification</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/output_and_presentation.html"><strong aria-hidden="true">5.4.6.</strong> Output and Presentation</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/command_invocation.html"><strong aria-hidden="true">5.4.7.</strong> Command Invocation</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/parameters_recall.html"><strong aria-hidden="true">5.4.8.</strong> Parameters Recall</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/workspace.html"><strong aria-hidden="true">5.4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/profiles.html"><strong aria-hidden="true">5.4.10.</strong> Profiles</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/summary.html"><strong aria-hidden="true">5.4.11.</strong> Summary</a></li><li class="chapter-item "><a href="../../learning_material/empathetic_code_design/qna.html"><strong aria-hidden="true">5.4.12.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/interruptible_software.html"><strong aria-hidden="true">5.5.</strong> Interruptible Software</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/interruptible_software/processes.html"><strong aria-hidden="true">5.5.1.</strong> Processes</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/execution.html"><strong aria-hidden="true">5.5.2.</strong> Execution</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/bus_analogy.html"><strong aria-hidden="true">5.5.3.</strong> Bus Analogy</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility.html"><strong aria-hidden="true">5.5.4.</strong> Designing Interruptibility</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/stop_button.html"><strong aria-hidden="true">5.5.4.1.</strong> Stop Button</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/stopping_point.html"><strong aria-hidden="true">5.5.4.2.</strong> Stopping Point</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/parallelism.html"><strong aria-hidden="true">5.5.4.3.</strong> Parallelism</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/reporting.html"><strong aria-hidden="true">5.5.4.4.</strong> Reporting</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_interruptibility/strategy.html"><strong aria-hidden="true">5.5.4.5.</strong> Strategy</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/interruptible_implementation.html"><strong aria-hidden="true">5.5.5.</strong> Interruptible Implementation</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/resumability.html"><strong aria-hidden="true">5.5.6.</strong> Resumability</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_resumability.html"><strong aria-hidden="true">5.5.7.</strong> Designing Resumability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_resumability/executor_resumability.html"><strong aria-hidden="true">5.5.7.1.</strong> Executor Resumability</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/designing_resumability/stepwise_resumability.html"><strong aria-hidden="true">5.5.7.2.</strong> Stepwise Resumability</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/resumable_implementation.html"><strong aria-hidden="true">5.5.8.</strong> Resumable Implementation</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/real_crates.html"><strong aria-hidden="true">5.5.9.</strong> Real Crates</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/summary.html"><strong aria-hidden="true">5.5.10.</strong> Summary</a></li><li class="chapter-item "><a href="../../learning_material/interruptible_software/qna.html"><strong aria-hidden="true">5.5.11.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator.html"><strong aria-hidden="true">5.6.</strong> Dot IX: Diagram Generator</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/everyday_diagrams.html"><strong aria-hidden="true">5.6.1.</strong> Everyday Diagrams</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems.html"><strong aria-hidden="true">5.6.2.</strong> 🛑 Problems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/appearance.html"><strong aria-hidden="true">5.6.2.1.</strong> Appearance</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/accuracy.html"><strong aria-hidden="true">5.6.2.2.</strong> Accuracy</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/portability.html"><strong aria-hidden="true">5.6.2.3.</strong> Portability</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/problems/dynamics.html"><strong aria-hidden="true">5.6.2.4.</strong> Dynamics</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation.html"><strong aria-hidden="true">5.6.3.</strong> 💡 Ideation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation/output_format.html"><strong aria-hidden="true">5.6.3.1.</strong> Output Format</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation/input_format.html"><strong aria-hidden="true">5.6.3.2.</strong> Input Format</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/ideation/logistics.html"><strong aria-hidden="true">5.6.3.3.</strong> Logistics</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/demo.html"><strong aria-hidden="true">5.6.4.</strong> 🎨 Demo</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution.html"><strong aria-hidden="true">5.6.5.</strong> 🧪 Solution</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution/supported_usages.html"><strong aria-hidden="true">5.6.5.1.</strong> Supported Usages</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution/generation_process.html"><strong aria-hidden="true">5.6.5.2.</strong> Generation Process</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/solution/challenges.html"><strong aria-hidden="true">5.6.5.3.</strong> Challenges</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/whats_next.html"><strong aria-hidden="true">5.6.6.</strong> What's Next</a></li><li class="chapter-item "><a href="../../learning_material/dot_ix_diagram_generator/qna.html"><strong aria-hidden="true">5.6.7.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation.html"><strong aria-hidden="true">5.7.</strong> Peace: Zero Stress Automation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/peace_framework.html"><strong aria-hidden="true">5.7.1.</strong> 🕊️ Peace Framework</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story.html"><strong aria-hidden="true">5.7.2.</strong> 🐉 Origin Story</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/manual_deployment.html"><strong aria-hidden="true">5.7.2.1.</strong> Manual Deployment</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/automation.html"><strong aria-hidden="true">5.7.2.2.</strong> Automation</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/engineering_eyes.html"><strong aria-hidden="true">5.7.2.3.</strong> Engineering Eyes</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/engineering_success.html"><strong aria-hidden="true">5.7.2.4.</strong> Engineering Success</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/automation_for_real.html"><strong aria-hidden="true">5.7.2.5.</strong> Automation (For Real)</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/origin_story/human_eyes.html"><strong aria-hidden="true">5.7.2.6.</strong> Human Eyes</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/envman_example_tool.html"><strong aria-hidden="true">5.7.3.</strong> 🏗️ envman (example tool)</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/understandability.html"><strong aria-hidden="true">5.7.4.</strong> 💡 Understandability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/understandability/demo.html"><strong aria-hidden="true">5.7.4.1.</strong> Demo</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/understandability/goldilocks_principle.html"><strong aria-hidden="true">5.7.4.2.</strong> Goldilocks Principle</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control.html"><strong aria-hidden="true">5.7.5.</strong> 🎮 Control</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/minimal_control.html"><strong aria-hidden="true">5.7.5.1.</strong> Minimal Control</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/discovery.html"><strong aria-hidden="true">5.7.5.2.</strong> Discovery</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/interruption.html"><strong aria-hidden="true">5.7.5.3.</strong> Interruption</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/control/demo.html"><strong aria-hidden="true">5.7.5.4.</strong> Demo</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale.html"><strong aria-hidden="true">5.7.6.</strong> 💟 Morale</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/aesthetics_outcome.html"><strong aria-hidden="true">5.7.6.1.</strong> Aesthetics: Outcome</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/aesthetics_progress.html"><strong aria-hidden="true">5.7.6.2.</strong> Aesthetics: Progress</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/aesthetics_errors.html"><strong aria-hidden="true">5.7.6.3.</strong> Aesthetics: Errors</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/morale/automation_clarified.html"><strong aria-hidden="true">5.7.6.4.</strong> Automation Clarified</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/how_does_it_work.html"><strong aria-hidden="true">5.7.7.</strong> ⚙️ How Does It Work</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture.html"><strong aria-hidden="true">5.7.8.</strong> 🏭 Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/components.html"><strong aria-hidden="true">5.7.8.1.</strong> Components</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/item.html"><strong aria-hidden="true">5.7.8.2.</strong> Item</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/item_implementations.html"><strong aria-hidden="true">5.7.8.3.</strong> Item Implementations</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/flow.html"><strong aria-hidden="true">5.7.8.4.</strong> Flow</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/commands.html"><strong aria-hidden="true">5.7.8.5.</strong> Commands</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/item_parameters.html"><strong aria-hidden="true">5.7.8.6.</strong> Item Parameters</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/architecture/tool.html"><strong aria-hidden="true">5.7.8.7.</strong> Tool</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/side_side_projects.html"><strong aria-hidden="true">5.7.9.</strong> 🪆 Side-Side Projects</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/side_side_projects/interruptible.html"><strong aria-hidden="true">5.7.9.1.</strong> 🛑 Interruptible</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/side_side_projects/dot_ix.html"><strong aria-hidden="true">5.7.9.2.</strong> 🎨 Dot IX</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/project_status.html"><strong aria-hidden="true">5.7.10.</strong> 🦖 Project Status</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/project_status/readiness.html"><strong aria-hidden="true">5.7.10.1.</strong> Readiness</a></li></ol></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/links.html"><strong aria-hidden="true">5.7.11.</strong> 🔗 Links</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/thank_you.html"><strong aria-hidden="true">5.7.12.</strong> 🙇‍♂️ Thank You</a></li><li class="chapter-item "><a href="../../learning_material/peace_zero_stress_automation/qna.html"><strong aria-hidden="true">5.7.13.</strong> ❓ Q & A</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../ideas.html"><strong aria-hidden="true">6.</strong> Ideas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ideas/feature_gated_incremental_functionality.html"><strong aria-hidden="true">6.1.</strong> Feature Gated Incremental Functionality</a></li></ol></li><li class="chapter-item expanded "><a href="../../licenses.html"><strong aria-hidden="true">7.</strong> Licenses</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Peace Framework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace/edit/main/doc/src/technical_concepts/diagrams/outcome.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="outcome"><a class="header" href="#outcome">Outcome</a></h1>
+<p>An outcome diagram should:</p>
+<ul>
+<li>Show the "physical" items that exist / yet-to-exist / to-be-cleaned.</li>
+<li>Show which steps are linked to it, e.g. clicking on a file shows the steps that write to / read from the file.</li>
+</ul>
+<h2 id="determining-information-for-rendering"><a class="header" href="#determining-information-for-rendering">Determining Information for Rendering</a></h2>
+<p>To render the outcome diagram, we need to deduce the physical things from <code>Item</code>s, and determine:</p>
+<ol>
+<li><strong>Source:</strong> where data comes from, whether completely from parameters, or whether parameters are a reference to the data.</li>
+<li><strong>Destination:</strong> where data moves to or the system work is done to.</li>
+<li>Whether the source or destination are declared in parameters.</li>
+</ol>
+<p>As of 2024-02-18, <code>Item::Params</code> is a single type, which would take in both <strong>source</strong> and <strong>destination</strong> parameters, so we cannot (realistically) determine the source/destination/host/cloud from the <code>Item::Params</code> type.</p>
+<h3 id="source-and-destination"><a class="header" href="#source-and-destination">Source and Destination</a></h3>
+<p>An <code>Item</code> is actually a step that encapsulates:</p>
+<ol>
+<li>Source location.</li>
+<li>Destination location.</li>
+</ol>
+<p>This can be further broken down into:</p>
+<pre><code class="language-rust  ignore">/// Can be source / destination
+enum ItemLocation {
+    File {
+        host: Host,
+        path: PathBuf,
+    },
+    Cloud {
+        cloud_provider: CloudProvider,
+        global_or_region: GlobalOrRegion,
+        subnet: Option&lt;Subnet&gt;,
+        url: URL,
+        name: String,
+    },
+}</code></pre>
+<p>Instead of using a flat enum, we may want to use a fixed set of data structures for simplicity, or a <code>trait</code> for extensible implementations.</p>
+<details><summary>Data structure option</summary>
+<pre><code class="language-rust  ignore">enum Realm {
+    Host {
+        address: String,
+        port: Option&lt;u16&gt;,
+    },
+    Cloud {
+        cloud_provider: CloudProvider,
+        global_or_region: GlobalOrRegion,
+        subnet: Option&lt;Subnet&gt;,
+        url: URL,
+        name: String,
+    },
+}
+
+struct ItemLocation {
+    /// Host or Cloud provider
+    realm: Realm,
+    /// Not necessarily a file path, but segments denoting hierarchy 
+    path: Option&lt;String&gt;,
+}</code></pre>
+</details>
+<details><summary>Trait option</summary>
+<pre><code class="language-rust  ignore">trait Name {
+    fn realm(&amp;self) -&gt; Realm;
+}</code></pre>
+</details>
+<p>Note that we want to support nesting, e.g. an application server is "just a host", which may be nested within a network, or a cloud provider, or nothing.</p>
+<p>How should we do the nesting:</p>
+<ol>
+<li>
+<p>Strictly defined levels, implementor selects:</p>
+<ol>
+<li>Cloud</li>
+<li>Availability Zone</li>
+<li>Network</li>
+<li>Subnet</li>
+<li>Host</li>
+<li>Path</li>
+</ol>
+</li>
+<li>
+<p>Arbitrary levels, levels are not necessarily defined by network-hierarchy.</p>
+<p>Note: This doesn't allow consistency across item implementations, or, it requires the tool developer to pass the level into the item.</p>
+<p>Actually, what we can do is:</p>
+<ol>
+<li>Allow the item implementor to specify the list of parents that this item resides in.</li>
+<li>Each parent may be an arbitrary layer around the current item.</li>
+<li>The peace framework will have a <code>struct Layer(IndexMap&lt;LayerId, Layer&gt;);</code> -- this is essentially <code>NodeHierarchy</code> from <code>dot_ix</code>.</li>
+<li>When the <code>LayerId</code>s from different items match up, those are inserted into this map.</li>
+<li>When we render, we render layer by layer as the hierarchy.</li>
+</ol>
+</li>
+</ol>
+<h3 id="what-we-want"><a class="header" href="#what-we-want">What we want</a></h3>
+<ol>
+<li>Tool developer passes in parameters for the item.</li>
+<li>The correct realm for the item is automatically deduced.</li>
+</ol>
+<p>e.g.</p>
+<h4 id="tool-developer"><a class="header" href="#tool-developer">Tool Developer</a></h4>
+<pre><code class="language-rust  ignore">let file_download_params_spec = FileDownloadParams::new(..).into();</code></pre>
+<h4 id="item-implementor"><a class="header" href="#item-implementor">Item Implementor</a></h4>
+<details><summary>File Download</summary>
+<pre><code class="language-rust  ignore">impl Item for FileDownload {
+    fn location_from(
+        params_partial: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial,
+        data: Self::Data&lt;'_&gt;,
+    ) -&gt; Vec&lt;ItemLocation&gt; {
+        let host = params_partial
+            .src()
+            .map(Url::host)
+            .map(Host::to_owned);
+        let port = params_partial
+            .src()
+            .map(Url::port_or_known_default);
+        let url = params_partial.src();
+
+        let mut item_locations = Vec::new();
+        if let Some(host) = host {
+            item_locations.push(ItemLocation::Host { host, port });
+
+            if let Some(url) = url {
+                // May be rendered using the last segment of the URL as the node name.
+                // The full URL may be used as the tooltip.
+                item_locations.push(ItemLocation::Url(url));
+            }
+        }
+
+        item_locations
+    }
+
+    fn location_to(params: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial) -&gt; Vec&lt;ItemLocation&gt; {
+        let path = params_partial
+            .dest()
+            .map(Path::to_string_lossy)
+            .map(Cow::to_owned);
+
+        vec![
+            ItemLocation::Localhost,
+            ItemLocation::Path(path),
+        ]
+    }
+}</code></pre>
+</details>
+<details><summary>S3Bucket</summary>
+<pre><code class="language-rust  ignore">impl Item for S3Bucket {
+    fn location_from(
+        params_partial: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial,
+        data: Self::Data&lt;'_&gt;,
+    ) -&gt; Vec&lt;ItemLocation&gt; {
+        vec![ItemLocation::Localhost]
+    }
+
+    fn location_to(
+        params: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial,
+        data: Self::Data&lt;'_&gt;,
+    ) -&gt; Vec&lt;ItemLocation&gt; {
+        let region = data.region();
+        let availability_zone = params.availability_zone();
+        let name = params.name();
+
+        let mut item_locations = Vec::with_capacity(10);
+        item_locations.push(ItemLocation::CloudProvider(CloudProvider::Aws));
+        item_locations.push(ItemLocation::Group(region.to_string()));
+
+        if let Some(availability_zone) = availability_zone {
+            item_locations.push(ItemLocation::Group(availability_zone.to_string()));
+            if let Some(name) = name {
+                item_locations.push(ItemLocation::Name(name.to_string()));
+            }
+        }
+    }
+}</code></pre>
+</details>
+<h4 id="framework-maintainer"><a class="header" href="#framework-maintainer">Framework Maintainer</a></h4>
+<p>Go through all items' <code>Item::location_*</code> and add to outcome diagram -- see <code>flow_spec_info.rs</code>.</p>
+<h3 id="problems"><a class="header" href="#problems">Problems</a></h3>
+<h4 id="a-how-do-we-get-items-to-be-consistent-with-the-item-locations-they-publish"><a class="header" href="#a-how-do-we-get-items-to-be-consistent-with-the-item-locations-they-publish">A: How do we get items to be consistent with the item locations they publish?</a></h4>
+<p>Cloud provider name, region, availability zone, etc.</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>
+<p>🔴 We could provide a crate with common enums.</p>
+<p>This requires:</p>
+<ol>
+<li>The framework to have knowledge of many many types, or be inaccurate.</li>
+<li>Item implementors to always be up to date. <!--  --></li>
+</ol>
+<p>It's a lot of maintenance, so probably not a good idea.</p>
+</li>
+<li>
+<p>🟡 Item provides default <code>ItemLocation</code>s, developer can pass in names.</p>
+<p>This isn't too bad, as it allows tool developers control over names of the items.</p>
+<p>It still requires item implementors to use the same <code>ItemLocation</code> variant.</p>
+<p>It could mean additional development burden.</p>
+<ul>
+<li>If we go with sensible defaults, then we hope that item implementors use the same conventions.</li>
+<li>Tool developers passing in names to the items is an escape hatch in case the conventions are different between item implementations.</li>
+<li>Item implementors have to take in the names instead of only default them.  <!--  --></li>
+</ul>
+<p>If item implementors have consistent values for their <code>ItemLocation</code>s, then the inconsistency downside is alleviated partially.</p>
+<p>For example, extracting the host / port from a <code>Url</code> could be offloaded to the framework:</p>
+<pre><code class="language-rust  ignore">#[derive(Debug)]
+enum ItemLocation {
+    Host(ItemLocationHost),
+    Url(Url),
+}
+
+struct ItemLocationHost {
+    host: Host&lt;String&gt;,
+    port: Option&lt;u16&gt;,
+}
+
+impl ItemLocation {
+    fn from_url(url: &amp;Url) -&gt; Self {
+        Self::Url(url.clone())
+    }
+}
+
+impl From&lt;&amp;Url&gt; for ItemLocationHost {
+    fn from(url: &amp;Url) -&gt; Self {
+        let host = url
+            .map(Url::host)
+            .map(Host::to_owned)
+            .expect("Expected URL to contain a host.");
+        let port = url
+            .map(Url::port_or_known_default);
+
+        Self { host, port }
+    }
+}</code></pre>
+<p>Item implementors will implement <code>Item::location_from</code> and <code>Item::location_to</code> like so:</p>
+<pre><code class="language-rust  ignore">impl Item for FileDownload {
+    fn location_from(
+        params_partial: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial,
+        data: Self::Data&lt;'_&gt;,
+    ) -&gt; Vec&lt;ItemLocation&gt; {
+        params_partial
+            .src()
+            .as_ref()
+            .map(|src| {
+                vec![
+                    ItemLocation::from_server(src),
+                    ItemLocation::from_url(src),
+                ]
+            })
+            .unwrap_or_else(Vec::new)
+    }
+
+    fn location_to(
+        params: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial,
+    ) -&gt; Vec&lt;ItemLocation&gt; {
+        let path = params_partial
+            .dest()
+            .map(Path::to_string_lossy)
+            .map(Cow::to_owned);
+
+        vec![
+            ItemLocation::Localhost,
+            ItemLocation::Path(path),
+        ]
+    }
+}</code></pre>
+</li>
+<li>
+<p>🟡 Developer specifies <code>ItemLocation</code>s (from and to) for every item.</p>
+<p>Removes the item location inconsistency issue, but also means every tool developer has to specify item locations for every item, where this work could be commonized.</p>
+<p>This also addresses the problem B below, where the developer has control over the level of detail.</p>
+<p>Essentially we are placing the burden of defining the outcome diagram onto the developer.</p>
+<p>This isn't "nice" when the developer has to extract host names from URLs (common burden).</p>
+<p>Maybe the <code>Item</code> implementor provides a method like this:</p>
+<pre><code class="language-rust  ignore">impl Item for MyItem {
+    fn item_location_from(
+        &amp;self,
+        level: MyItemLocationLevel,
+        params_partial: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial,
+    ) -&gt; ItemLocation {
+
+        match level {
+            MyItemLocationLevel::Host =&gt; {
+                let host = params_partial
+                    .src()
+                    .map(Url::host)
+                    .map(Host::to_owned);
+                let port = params_partial
+                    .src()
+                    .map(Url::port_or_known_default);
+                ItemLocation::Host { host, port }
+            }
+            _ =&gt; todo!(),
+        }
+    }
+}</code></pre>
+<p>This interface is awkward -- we don't know the params_partial at the point of flow definition (for the developer).</p>
+<p>It could be the developer that defines that function above, combined with framework helpers:</p>
+<pre><code class="language-rust  ignore">let my_item_locations = MyItem::item_locations_spec()
+    .with_locations_from(|my_item, params_partial| {
+        // with the `From` implementations for 2. above:
+        params_partial
+            .src()
+            .as_ref()
+            .map(|src| {
+                vec![
+                    ItemLocation::from_server(src),
+                    ItemLocation::from_url(src),
+                ]
+            })
+            .unwrap_or_else(Vec::new)
+    })
+    .with_locations_to(todo!("similar to above"));</code></pre>
+</li>
+<li>
+<p>🔴 Magically infer based on parameter names.</p>
+<p>Too inaccurate.</p>
+</li>
+<li>
+<p>🔴 Item implementors use a derive proc-macro.</p>
+<p>Too many annotations -- probably easier to write the trait directly.</p>
+</li>
+</ol>
+<h4 id="b-how-does-control-over-whether-a-group-is-drawn-get-defined"><a class="header" href="#b-how-does-control-over-whether-a-group-is-drawn-get-defined">B: How does control over whether a group is drawn get defined?</a></h4>
+<ol>
+<li>Users may not want so many levels of detail -- it can be overwhelming.</li>
+<li>Developers may want sensible defaults / not require them to set whether a group is drawn.</li>
+<li>Developers may want to set whether a group is drawn.</li>
+</ol>
+<p><strong>Options:</strong></p>
+<ol>
+<li>
+<p>🟡 They can't, everything is always shown.</p>
+<p>Not the best user experience -- too much detail can overwhelm.</p>
+</li>
+<li>
+<p>🟡 Item implementor guidelines to not include too many layers.</p>
+<p>May be okay? It means either we have too much / too little information sometimes.</p>
+<p>Perhaps this is diminishing returns, and it doesn't matter too much.</p>
+</li>
+<li>
+<p>🟡 Developer specifies <code>ItemLocation</code>s (from and to) for every item.</p>
+<p>Same as <strong>A:3</strong> above.</p>
+</li>
+<li>
+<p>🟡 Item takes in parameter whether each layer is visible.</p>
+<p>Probably in the <code>Item</code> constructor, so we introduce a compilation error:</p>
+<pre><code class="language-rust ignore">fn new(
+    /* existing params */
+    #[cfg(feature = "web")]
+    layer_visibility: MyItemLayerVisibility,
+) -&gt; Self { /* .. */ }
+
+struct MyItemLayerVisibility {
+    cloud: bool,
+    availability_zone: bool,
+    subnet: bool,
+}</code></pre>
+<p>In tandem with <strong>A:2</strong> above, maybe it's not worth the complexity.</p>
+</li>
+<li>
+<p>🟡 Draw everything, developer provides separate information for layers.</p>
+<ol>
+<li>Probably want the <code>Item</code> to export what layers it draws.</li>
+<li>Developer passes a <code>Map&lt;ItemLocation, DrawEnabled&gt;</code> to the framework. <!--  --></li>
+</ol>
+<p>Feels weird / unintuitive as a design, not too weird as a user: "I see everything, I want to turn that one off.".</p>
+</li>
+</ol>
+<h4 id="c-consistent-diagram-layout"><a class="header" href="#c-consistent-diagram-layout">C: Consistent Diagram Layout</a></h4>
+<p>If the <code>ItemLocation</code>s changes, such as the number of <code>ItemLocation</code>s change (hierarchy level change), or the <code>ItemLocation</code> variants change (different rendering style applied), then the layout of the diagram can change:</p>
+<ol>
+<li>Position of each box can change: pushing what used to be "here", "there".</li>
+<li>Width / height of each box can expand: it doesn't fit in the screen.</li>
+<li>Colours can change: different <code>ItemLocation</code> type.</li>
+<li>Edges can change position.</li>
+</ol>
+<p>It can be confusing to follow if these keep changing, which is counter productive to the intent of communicating clearly which physical systems are interacting.</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>
+<p>🟡 Don't solve it now, we don't know how much of a problem it is.</p>
+<p><code>dot_ix</code>'s HTML <code>DivDiag</code> is not very mature anyway. We may end up developing this a lot more.</p>
+<p>This is taking a bet that we won't have to do a large refactor to the Item API later. Probably alright since there aren't any consumers of Peace just yet.</p>
+</li>
+<li>
+<p>🔴 Try and match nodes, and animate.</p>
+<p>Too magic / inaccurate?</p>
+</li>
+<li>
+<p>🟡 Require / request <code>Item</code> implementors to always provide the same number of <code>ItemLocation</code>s.</p>
+<p>May mean every <code>ItemLocation</code> that is unknown, is still populated:</p>
+<pre><code class="language-rust  ignore">let item_location_server = item_location_server.unwrap_or(ItemLocation::HostUnknown);
+let item_location_url = item_location_url.unwrap_or(ItemLocation::UrlUnknown);
+
+vec![
+    item_location_server,
+    item_location_url,
+]</code></pre>
+</li>
+</ol>
+<h3 id="solution"><a class="header" href="#solution">Solution</a></h3>
+<p>We'll go with:</p>
+<ul>
+<li>
+<p><strong>A:2:</strong> Item implementors provide <code>ItemLocation</code>s</p>
+</li>
+<li>
+<p><strong>B:1:</strong> Everything is shown.</p>
+<p>There is still the possibility to migrate to <strong>B:4</strong> (<code>Item</code>s take in visibility flags) or <strong>B:5</strong> (developers pass in visibility to framework) later.</p>
+</li>
+<li>
+<p><strong>C:1:</strong> Don't solve the consistent diagram layout now.</p>
+</li>
+</ul>
+<h2 id="what-rendering-makes-sense"><a class="header" href="#what-rendering-makes-sense">What Rendering Makes Sense</a></h2>
+<p>Conceptually, <code>Item</code>s can be thought of either an edge or a node:</p>
+<ul>
+<li><strong>Edge:</strong> The item represents an action / work to between the source(s) and the destination(s).</li>
+<li><strong>Node:</strong> The item represents the destination thing.</li>
+</ul>
+<h3 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h3>
+<ol>
+<li>Upload a file -- one source, one dest.</li>
+<li>Download a file -- one source, one dest.</li>
+<li>Launch servers -- one source (localhost), one dest (AWS).</li>
+<li>Wait for servers to start up -- multiple within (do we need the <code>ItemLocationTree</code> for the cloud provider / subnet context? or leverage previous resource tracking to work it out?).</li>
+<li>Wait for endpoints to become available -- one source, multiple dest (query each endpoint).</li>
+<li>Do we want <code>ItemInteraction</code>s to be queried multiple times while <code>Apply</code> is happening? -- i.e. some servers may have started up, and so we need the <code>Item</code> to report that to us.</li>
+<li>Notably, we want these <code>ItemInteraction</code>s to be queryable without the items actually existing -- so we can generate diagrams to demonstrate what <em>would</em> happen upon execution.</li>
+</ol>
+<h3 id="naive"><a class="header" href="#naive">Naive</a></h3>
+<p>Consider the following diagram, which is the first attempt at rendering an outcome diagram on 2024-02-18 -- this uses edges / hierarchy to draw nodes and edges:</p>
+<p><object type="image/svg+xml" data="outcome/2024-02-18_outcome_diagram.svg" /></object></p>
+<h4 id="notes"><a class="header" href="#notes">Notes</a></h4>
+<ol>
+<li>It is not clear where the <code>app_download</code> <code>Item</code> transfers the file from, or to.</li>
+<li>It is not clear that the <code>iam_policy</code>, <code>iam_role</code>, and <code>instance_profile</code> are defined in AWS.</li>
+<li>The links between <code>iam_policy</code>, <code>iam_role</code>, and <code>instance_profile</code> should probably be reversed, to indicate what references what.</li>
+<li>The <code>s3_object</code> item transfers the downloaded application file, to the S3 bucket created by <code>s3_bucket</code>, but it isn't clear whether we should be highlighting the link, or the nested node.</li>
+<li>If we highlight the link, then note that it is a forward link (data is pushed), compared to point 3 which are backward links (references).</li>
+</ol>
+<h3 id="hosts-realms-and-edges"><a class="header" href="#hosts-realms-and-edges">Hosts, Realms, and Edges</a></h3>
+<p>If we could show:</p>
+<ol>
+<li>The hosts of all network communication</li>
+<li>The "realm" where resources live in, which may be a cloud provider or a region within</li>
+<li>A node for each resource that is created/modified/deleted</li>
+<li>For each item, the edges and nodes that interact</li>
+</ol>
+<p>then what is happening becomes slightly clearer:</p>
+<p><a href="https://azriel.im/dot_ix/#src=LQhQBMEsCcFMGMAukD2A7AXAAgG62svAIYA2oAFpPkdPOQJ4ahZYDmki5ArgEZMst2nXgH0iAB3EiAXpHHYA3gF9QzLCRTES5FAGdE-ARKngUAdzQai4RSoFZjI2AA9E0IkluqWRM7sMskEQAtiLiKCSQ8IxYymqBISLQEbBe9pBo+kRo8LBhyQBmkCSpsXYCugDMIjxc8ADWsAbxFdUoPABWCAZlqmgo4HloIbD+ahpaOvrY9gIARBOkU4hzar7+s5vz66uCHNx8W-ZzQge7bPuijrLy25IAdDfnjqYWVjazcy-mlijWz5InK53J5Nl9AS43B4VmogqFwpFojNPnCwhEovRzqjkiVkWDsSksZlENlcvkUEVcVg5hksjk8uJCsVYOcqjU6o0els5mzag0mqy2p1unjjmz2l0kKtQP1BiJBrp4GMWIttHouWCAJooLjQLDwFDBcRcRD4Z5+UVHakAQWCRGk6CwAHVYDwsABlfA4KKjc6nXiWz4AcUuPHOAGILsIeGJATdkQByAB+CbWgNev2sovB4kecgBUkhII18wA9ChxIhS8YsYkERjA3MAKIAYQATNhrSQNGYPZUsAAlWD-WGJHGlI7N9tYACS1oAslh69EHIgSXRgrA0DDAsTSQymVSp22sLSSfSsOPV+vyJvt4L2fyS8dBsEUMAaMgCtDdA+JSLJ2MPNxGlWU8lgN8OkgZV1E0JZ1UDLBAF4NwBunbWC0rVmQBAMkAeD+1H9Q5MKQwBMHfw0NYykeMBCQwBBnbTEwfneUUkMAU536KBKFQVmJDACGd0d4XRJEtiQwBdnf4pIUkQ5DAAZd2E93pclKVKQAeDcAd-28JYXkOSaRDAD4NwBivbUcVhS4zZaNUWBwFYUZDG+N4-nAEQKI44tsAAbTszNwAAGgcCFgWhABdcTl3oJyCSpNzUVC3yItgYKElCcdwvkslGQpZl3Li2LUoPDKSgSvyGPs6wnOMyUeg89NGIc3zyu6QrosEsKRHq0EorrZq6qFCrgrUSMSCIegdUQMjo2cm4nMcItoXcgiJrkXzpoCpA+tYdxxHIb1pDENdoBgyzrJEYIMhKNB5Vgb8uBIHpKlUTgINSNRN2gI6zH2GoiF0Uo3C4WAjMQegShglgwIuq6bpBio3BQRoRHe8BOGwBMAEZU02GbkfgXVdBQaBgHCDJTT1ZIuDQQZwGAEhWHRgRDryQYIcQKGWExrBKHAQY0BaHgSD+sQ0EgO1TQ+AAyXn+eyIWiBFlpNPICQ8gNDRoGwCX-s2fRkjh-QgdKcAvvISyWEjXQdAIBXyawAo8awNzRYAPnEGXyECjA3K12HYGAA2zZodxGEqQr7E9uGEaRrAEzcttxGcQLaZDmGdYVuV+mgO0SGRgA2AAGHOE4ESkSFalOhjxjPkYAVjzgvWYC7AHeAOWBHtp2XbdqXhe9j2k+932dAKApvsQYA3zwEQABZdBESI0GHaARAyIpBdNYPZmx-a8YJlAifwFpPPeMqepFZuAB5T+wAAqdWBel2X7EiVhyB6UXH+f5ui5L6wy-T0hkZRmuH9ijFz9nKHQeBVaR2rrXa2wCv5yhttjDYqNAGbE-qAvI0JIB4H-qg2Yoc8gYJEGnCukcJ54MTtrQhpcRDgPwMjSoFDoZUPgZgpA2DSgJmrvnZuBDWqAypKYNcllm7O05hkVgDCC7rACAIc+V836jU1grcQSsIh42wCEHge9NgjVnmolW2B6CwG7OYFoqpliyJYPIrAl9FG8JUQYjRWB1YtAIlYrANi7GQCfko-BjiRDK2cetIaLQtJPg8egmhJC-6RzbEwlgUTv60JQBA3BPC0FwKIYgrgyD4kZNmEkuUWCcFxISVgPhRCYmZygeUypNC6GQITOQgplCvasLEOw0pCZc6tOYe03WgiUDCPAKI6wUA0CSMjpUGBftVGBPUZArRe9QBKg2I3NQAABRo9ACjuE3LoCpvcfaGwpEPJoo9UmwFiC0HOABSAQCgjlUJOWbM5w9sATwABwAG4sDlBYAA+5sRnle1eQPc5PQc5-PKOUbZsBdn7NGKCxo4L3kXLHt7OAEDvo3PsMClgTyCFosHh8rA0L-ktCBQ8olxz+7op6N8mFagVBAA">dot_ix</a></p>
+<p><object type="image/svg+xml" data="outcome/2024-02-18_outcome_diagram_2.svg" /></object></p>
+<h4 id="notes-1"><a class="header" href="#notes-1">Notes</a></h4>
+<ol>
+<li>There is only one level of detail.</li>
+<li>It is useful to have expandable detail, e.g. hide a full URL, and allow the user to expand it if they need to.</li>
+<li>It is useful to show animated edges while that step is in progress, and hide them after.</li>
+</ol>
+<details><summary>Old idea for code</summary>
+<h4 id="item-implementor-1"><a class="header" href="#item-implementor-1">Item Implementor</a></h4>
+<details><summary>File Download</summary>
+<pre><code class="language-rust  ignore">impl Item for FileDownload {
+    fn location_from(&amp;self, params_partial: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial)
+    -&gt; ItemLocation {
+        let address = params_partial
+            .src()
+            .map(Url::host_str)
+            .unwrap_or("&lt;to_be_determined&gt;")
+            .to_string();
+        let path = params_partial
+            .src()
+            .map(Url::path);
+
+        ItemLocation {
+            realm: Realm::Host { address },
+            path,
+        }
+    }
+
+    fn location_to(&amp;self, params: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial) -&gt; ItemLocation {
+        let address = "localhost".to_string();
+        let path = params_partial
+            .dest()
+            .map(Path::to_string_lossy)
+            .map(Cow::to_owned);
+
+        ItemLocation {
+            realm: Realm::Host { address },
+            path,
+        }
+    }
+}</code></pre>
+</details>
+<details><summary>S3Bucket</summary>
+<pre><code class="language-rust  ignore">impl Item for S3Bucket {
+    fn location_from(&amp;self, params_partial: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial)
+    -&gt; ItemLocation {
+        let address = "localhost"; // or None
+        ItemLocation::Host { address }
+    }
+
+    fn location_to(&amp;self, params: &amp;&lt;Self::Params&lt;'_&gt; as Params&gt;::Partial) -&gt; ItemLocation {
+        ItemLocation::Cloud {
+            cloud_provider: CloudProvider::Aws,
+            global_or_region: GlobalOrRegion::Region(Region::ApSoutheast2),
+            subnet: None,
+            url: URL::from(".."),
+            name: params.name.unwrap_or("&lt;to_be_determined&gt;"),
+        }
+    }
+}</code></pre>
+</details>
+</details>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../technical_concepts/diagrams/progress.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../technical_concepts/diagrams/outcome/render_technology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../technical_concepts/diagrams/progress.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../technical_concepts/diagrams/outcome/render_technology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../src/js/highlightjs-line-numbers.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

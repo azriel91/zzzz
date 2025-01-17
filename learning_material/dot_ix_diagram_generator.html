@@ -1,0 +1,386 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dot IX: Diagram Generator - The Peace Framework</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../src/css/layout.css">
+        <link rel="stylesheet" href="../src/css/presentation.css">
+        <link rel="stylesheet" href="../src/css/terminal.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../background.html"><strong aria-hidden="true">2.</strong> Background</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../background/purpose.html"><strong aria-hidden="true">2.1.</strong> Purpose</a></li><li class="chapter-item "><a href="../background/strategy.html"><strong aria-hidden="true">2.2.</strong> Strategy</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">3.</strong> Examples</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/download.html"><strong aria-hidden="true">3.1.</strong> Download</a></li><li class="chapter-item "><a href="../examples/envman.html"><strong aria-hidden="true">3.2.</strong> Env Man</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/envman/walkthrough.html"><strong aria-hidden="true">3.2.1.</strong> Walkthrough</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../technical_concepts.html"><strong aria-hidden="true">4.</strong> Technical Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/resources.html"><strong aria-hidden="true">4.1.</strong> Resources</a></li><li class="chapter-item "><a href="../technical_concepts/function_graph.html"><strong aria-hidden="true">4.2.</strong> Function Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/function_graph/abstraction.html"><strong aria-hidden="true">4.2.1.</strong> Abstraction</a></li><li class="chapter-item "><a href="../technical_concepts/function_graph/ordering.html"><strong aria-hidden="true">4.2.2.</strong> Ordering</a></li><li class="chapter-item "><a href="../technical_concepts/function_graph/streaming.html"><strong aria-hidden="true">4.2.3.</strong> Streaming</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/item.html"><strong aria-hidden="true">4.3.</strong> Item</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/item/item_parameters.html"><strong aria-hidden="true">4.3.1.</strong> Item Parameters</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/value_specification.html"><strong aria-hidden="true">4.3.1.1.</strong> Value Specification</a></li><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/params_specification.html"><strong aria-hidden="true">4.3.1.2.</strong> Params Specification</a></li><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/params_framework_support.html"><strong aria-hidden="true">4.3.1.3.</strong> Params Framework Support</a></li><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/mapping_functions.html"><strong aria-hidden="true">4.3.1.4.</strong> Mapping Functions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../technical_concepts/item_graph.html"><strong aria-hidden="true">4.4.</strong> Item Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/item_graph/initialization.html"><strong aria-hidden="true">4.4.1.</strong> Initialization</a></li><li class="chapter-item "><a href="../technical_concepts/item_graph/state_inspection.html"><strong aria-hidden="true">4.4.2.</strong> State Inspection</a></li><li class="chapter-item "><a href="../technical_concepts/item_graph/state_ensure.html"><strong aria-hidden="true">4.4.3.</strong> State Ensure</a></li><li class="chapter-item "><a href="../technical_concepts/item_graph/clean.html"><strong aria-hidden="true">4.4.4.</strong> Clean</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/state.html"><strong aria-hidden="true">4.5.</strong> State</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/state/logical_state.html"><strong aria-hidden="true">4.5.1.</strong> Logical State</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/output.html"><strong aria-hidden="true">4.6.</strong> Output</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/output/execution_progress.html"><strong aria-hidden="true">4.6.1.</strong> Execution Progress</a></li><li class="chapter-item "><a href="../technical_concepts/output/presentation.html"><strong aria-hidden="true">4.6.2.</strong> Presentation</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/diagrams.html"><strong aria-hidden="true">4.7.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/diagrams/progress.html"><strong aria-hidden="true">4.7.1.</strong> Progress</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome.html"><strong aria-hidden="true">4.7.2.</strong> Outcome</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/render_technology.html"><strong aria-hidden="true">4.7.2.1.</strong> Render Technology</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/html_flexbox.html"><strong aria-hidden="true">4.7.2.2.</strong> HTML + Flexbox</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/div_diag.html"><strong aria-hidden="true">4.7.2.3.</strong> Div Diag</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/api_design.html"><strong aria-hidden="true">4.7.2.4.</strong> API Design</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/interaction_merging.html"><strong aria-hidden="true">4.7.2.5.</strong> Interaction Merging</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/aesthetics_and_clarity.html"><strong aria-hidden="true">4.7.2.6.</strong> Aesthetics and Clarity</a></li></ol></li></ol></li><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction.html"><strong aria-hidden="true">4.8.</strong> Endpoints and Interaction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction/cmd_invocation.html"><strong aria-hidden="true">4.8.1.</strong> Cmd Invocation</a></li><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction/interruption.html"><strong aria-hidden="true">4.8.2.</strong> Interruption</a></li><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction/progress_output.html"><strong aria-hidden="true">4.8.3.</strong> Progress Output</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/workspace.html"><strong aria-hidden="true">4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../technical_concepts/commands.html"><strong aria-hidden="true">4.10.</strong> Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/commands/scopes.html"><strong aria-hidden="true">4.10.1.</strong> Scopes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/commands/scopes/reborrowing.html"><strong aria-hidden="true">4.10.1.1.</strong> Reborrowing</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases.html"><strong aria-hidden="true">4.10.2.</strong> Use Cases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/workspace_initialization.html"><strong aria-hidden="true">4.10.2.1.</strong> Workspace Initialization</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/profile_list.html"><strong aria-hidden="true">4.10.2.2.</strong> Profile List</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/workspace_stored_active_profile.html"><strong aria-hidden="true">4.10.2.3.</strong> Workspace Stored Active Profile</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/workspace_active_profile_switch.html"><strong aria-hidden="true">4.10.2.4.</strong> Workspace Active Profile Switch</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_discovery_and_display.html"><strong aria-hidden="true">4.10.2.5.</strong> State Discovery and Display</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_read_and_display.html"><strong aria-hidden="true">4.10.2.6.</strong> State Read and Display</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_diff.html"><strong aria-hidden="true">4.10.2.7.</strong> State Diff</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_apply.html"><strong aria-hidden="true">4.10.2.8.</strong> State Apply</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_clean.html"><strong aria-hidden="true">4.10.2.9.</strong> State Clean</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/commands/cmd_execution.html"><strong aria-hidden="true">4.10.3.</strong> Cmd Execution</a></li><li class="chapter-item "><a href="../technical_concepts/commands/interruptibility.html"><strong aria-hidden="true">4.10.4.</strong> Interruptibility</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/flow_versioning.html"><strong aria-hidden="true">4.11.</strong> Flow Versioning</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/flow_versioning/seamless_execution.html"><strong aria-hidden="true">4.11.1.</strong> Seamless Execution</a></li><li class="chapter-item "><a href="../technical_concepts/flow_versioning/upgrade_actions.html"><strong aria-hidden="true">4.11.2.</strong> Upgrade Actions</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Learning Material</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust.html"><strong aria-hidden="true">5.1.</strong> Why Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/topics.html"><strong aria-hidden="true">5.1.1.</strong> Topics</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance.html"><strong aria-hidden="true">5.1.2.</strong> ⚡ Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/performance/benchmarks.html"><strong aria-hidden="true">5.1.2.1.</strong> Benchmarks</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/how_is_rust_fast.html"><strong aria-hidden="true">5.1.2.2.</strong> How Is Rust Fast</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/compiled_vs_interpreted.html"><strong aria-hidden="true">5.1.2.3.</strong> Compiled vs Interpreted</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/native_code.html"><strong aria-hidden="true">5.1.2.4.</strong> Native Code</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/memory_usage.html"><strong aria-hidden="true">5.1.2.5.</strong> Memory Usage</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/memory_freeing.html"><strong aria-hidden="true">5.1.2.6.</strong> Memory Freeing</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/performance_summary.html"><strong aria-hidden="true">5.1.2.7.</strong> Performance Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints.html"><strong aria-hidden="true">5.1.3.</strong> 🚧 Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/constraints/correct_programs.html"><strong aria-hidden="true">5.1.3.1.</strong> Correct Programs</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/unconstrained.html"><strong aria-hidden="true">5.1.3.2.</strong> Unconstrained</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constrained.html"><strong aria-hidden="true">5.1.3.3.</strong> Constrained</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constrained_fixed.html"><strong aria-hidden="true">5.1.3.4.</strong> Constrained - Fixed</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/less_vs_more.html"><strong aria-hidden="true">5.1.3.5.</strong> Less vs More</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/nullability_js.html"><strong aria-hidden="true">5.1.3.6.</strong> Nullability - JS</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/nullability_cs.html"><strong aria-hidden="true">5.1.3.7.</strong> Nullability - C#</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/nullability_rust.html"><strong aria-hidden="true">5.1.3.8.</strong> Nullability - Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/data_race_cs.html"><strong aria-hidden="true">5.1.3.9.</strong> Data Race - C#</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/data_race_rust_1.html"><strong aria-hidden="true">5.1.3.10.</strong> Data Race - Rust 1</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/data_race_rust_2.html"><strong aria-hidden="true">5.1.3.11.</strong> Data Race - Rust 2</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constraints_in_rust.html"><strong aria-hidden="true">5.1.3.12.</strong> Constraints in Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constraints_summary.html"><strong aria-hidden="true">5.1.3.13.</strong> Constraints Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive.html"><strong aria-hidden="true">5.1.4.</strong> 💬 Expressive</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/expressive/coco_mapping.html"><strong aria-hidden="true">5.1.4.1.</strong> Co/Co Mapping</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/traits.html"><strong aria-hidden="true">5.1.4.2.</strong> Traits</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/multiple_values_rust.html"><strong aria-hidden="true">5.1.4.3.</strong> Multiple Values</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/cloning.html"><strong aria-hidden="true">5.1.4.4.</strong> Cloning</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/cloning_others.html"><strong aria-hidden="true">5.1.4.5.</strong> Cloning - Others</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/cloning_rust.html"><strong aria-hidden="true">5.1.4.6.</strong> Cloning - Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/expressive_summary.html"><strong aria-hidden="true">5.1.4.7.</strong> Expressive Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous.html"><strong aria-hidden="true">5.1.5.</strong> 😵‍💫 Unambiguous</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality.html"><strong aria-hidden="true">5.1.5.1.</strong> Equality</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality_java.html"><strong aria-hidden="true">5.1.5.2.</strong> Equality - Java</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality_rust_1.html"><strong aria-hidden="true">5.1.5.3.</strong> Equality - Rust 1</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality_rust_2.html"><strong aria-hidden="true">5.1.5.4.</strong> Equality - Rust 2</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/control_flow.html"><strong aria-hidden="true">5.1.5.5.</strong> Control Flow</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/control_flow_java.html"><strong aria-hidden="true">5.1.5.6.</strong> Control Flow - Java</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/control_flow_rust.html"><strong aria-hidden="true">5.1.5.7.</strong> Control Flow - Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/unambiguous_summary.html"><strong aria-hidden="true">5.1.5.8.</strong> Unambiguous Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling.html"><strong aria-hidden="true">5.1.6.</strong> 🛠️ Tooling</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/tooling/formatter.html"><strong aria-hidden="true">5.1.6.1.</strong> Formatter</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/linter.html"><strong aria-hidden="true">5.1.6.2.</strong> Linter</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/package_manager.html"><strong aria-hidden="true">5.1.6.3.</strong> Package Manager</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/others.html"><strong aria-hidden="true">5.1.6.4.</strong> Others</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/tooling_summary.html"><strong aria-hidden="true">5.1.6.5.</strong> Tooling Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/ecosystem.html"><strong aria-hidden="true">5.1.7.</strong> 🚛 Ecosystem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/variety.html"><strong aria-hidden="true">5.1.7.1.</strong> Variety</a></li><li class="chapter-item "><a href="../learning_material/why_rust/stable.html"><strong aria-hidden="true">5.1.7.2.</strong> Stable</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/second_order.html"><strong aria-hidden="true">5.1.8.</strong> 🦋 Second Order</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/second_order/chain_of_events.html"><strong aria-hidden="true">5.1.8.1.</strong> Chain of Events</a></li><li class="chapter-item "><a href="../learning_material/why_rust/second_order/topics_again.html"><strong aria-hidden="true">5.1.8.2.</strong> Topics Again</a></li><li class="chapter-item "><a href="../learning_material/why_rust/second_order/try_rust.html"><strong aria-hidden="true">5.1.8.3.</strong> Try Rust</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/qna.html"><strong aria-hidden="true">5.1.9.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../learning_material/user_facing_automation_part_1.html"><strong aria-hidden="true">5.2.</strong> User Facing Automation - Part 1</a></li><li class="chapter-item "><a href="../learning_material/user_facing_automation_part_2.html"><strong aria-hidden="true">5.3.</strong> User Facing Automation - Part 2</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design.html"><strong aria-hidden="true">5.4.</strong> Empathetic Code Design</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/empathetic_code_design/background.html"><strong aria-hidden="true">5.4.1.</strong> Background</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/scenario.html"><strong aria-hidden="true">5.4.2.</strong> Scenario</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/flow_definition.html"><strong aria-hidden="true">5.4.3.</strong> Flow Definition</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/inputs_and_outputs.html"><strong aria-hidden="true">5.4.4.</strong> Inputs and Outputs</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/parameters_specification.html"><strong aria-hidden="true">5.4.5.</strong> Parameters Specification</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/output_and_presentation.html"><strong aria-hidden="true">5.4.6.</strong> Output and Presentation</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/command_invocation.html"><strong aria-hidden="true">5.4.7.</strong> Command Invocation</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/parameters_recall.html"><strong aria-hidden="true">5.4.8.</strong> Parameters Recall</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/workspace.html"><strong aria-hidden="true">5.4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/profiles.html"><strong aria-hidden="true">5.4.10.</strong> Profiles</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/summary.html"><strong aria-hidden="true">5.4.11.</strong> Summary</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/qna.html"><strong aria-hidden="true">5.4.12.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../learning_material/interruptible_software.html"><strong aria-hidden="true">5.5.</strong> Interruptible Software</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/interruptible_software/processes.html"><strong aria-hidden="true">5.5.1.</strong> Processes</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/execution.html"><strong aria-hidden="true">5.5.2.</strong> Execution</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/bus_analogy.html"><strong aria-hidden="true">5.5.3.</strong> Bus Analogy</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility.html"><strong aria-hidden="true">5.5.4.</strong> Designing Interruptibility</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/stop_button.html"><strong aria-hidden="true">5.5.4.1.</strong> Stop Button</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/stopping_point.html"><strong aria-hidden="true">5.5.4.2.</strong> Stopping Point</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/parallelism.html"><strong aria-hidden="true">5.5.4.3.</strong> Parallelism</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/reporting.html"><strong aria-hidden="true">5.5.4.4.</strong> Reporting</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/strategy.html"><strong aria-hidden="true">5.5.4.5.</strong> Strategy</a></li></ol></li><li class="chapter-item "><a href="../learning_material/interruptible_software/interruptible_implementation.html"><strong aria-hidden="true">5.5.5.</strong> Interruptible Implementation</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/resumability.html"><strong aria-hidden="true">5.5.6.</strong> Resumability</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_resumability.html"><strong aria-hidden="true">5.5.7.</strong> Designing Resumability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_resumability/executor_resumability.html"><strong aria-hidden="true">5.5.7.1.</strong> Executor Resumability</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_resumability/stepwise_resumability.html"><strong aria-hidden="true">5.5.7.2.</strong> Stepwise Resumability</a></li></ol></li><li class="chapter-item "><a href="../learning_material/interruptible_software/resumable_implementation.html"><strong aria-hidden="true">5.5.8.</strong> Resumable Implementation</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/real_crates.html"><strong aria-hidden="true">5.5.9.</strong> Real Crates</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/summary.html"><strong aria-hidden="true">5.5.10.</strong> Summary</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/qna.html"><strong aria-hidden="true">5.5.11.</strong> Q & A</a></li></ol></li><li class="chapter-item expanded "><a href="../learning_material/dot_ix_diagram_generator.html" class="active"><strong aria-hidden="true">5.6.</strong> Dot IX: Diagram Generator</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/everyday_diagrams.html"><strong aria-hidden="true">5.6.1.</strong> Everyday Diagrams</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems.html"><strong aria-hidden="true">5.6.2.</strong> 🛑 Problems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/appearance.html"><strong aria-hidden="true">5.6.2.1.</strong> Appearance</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/accuracy.html"><strong aria-hidden="true">5.6.2.2.</strong> Accuracy</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/portability.html"><strong aria-hidden="true">5.6.2.3.</strong> Portability</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/dynamics.html"><strong aria-hidden="true">5.6.2.4.</strong> Dynamics</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation.html"><strong aria-hidden="true">5.6.3.</strong> 💡 Ideation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation/output_format.html"><strong aria-hidden="true">5.6.3.1.</strong> Output Format</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation/input_format.html"><strong aria-hidden="true">5.6.3.2.</strong> Input Format</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation/logistics.html"><strong aria-hidden="true">5.6.3.3.</strong> Logistics</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/demo.html"><strong aria-hidden="true">5.6.4.</strong> 🎨 Demo</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution.html"><strong aria-hidden="true">5.6.5.</strong> 🧪 Solution</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution/supported_usages.html"><strong aria-hidden="true">5.6.5.1.</strong> Supported Usages</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution/generation_process.html"><strong aria-hidden="true">5.6.5.2.</strong> Generation Process</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution/challenges.html"><strong aria-hidden="true">5.6.5.3.</strong> Challenges</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/whats_next.html"><strong aria-hidden="true">5.6.6.</strong> What's Next</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/qna.html"><strong aria-hidden="true">5.6.7.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation.html"><strong aria-hidden="true">5.7.</strong> Peace: Zero Stress Automation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/peace_framework.html"><strong aria-hidden="true">5.7.1.</strong> 🕊️ Peace Framework</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story.html"><strong aria-hidden="true">5.7.2.</strong> 🐉 Origin Story</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/manual_deployment.html"><strong aria-hidden="true">5.7.2.1.</strong> Manual Deployment</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/automation.html"><strong aria-hidden="true">5.7.2.2.</strong> Automation</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/engineering_eyes.html"><strong aria-hidden="true">5.7.2.3.</strong> Engineering Eyes</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/engineering_success.html"><strong aria-hidden="true">5.7.2.4.</strong> Engineering Success</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/automation_for_real.html"><strong aria-hidden="true">5.7.2.5.</strong> Automation (For Real)</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/human_eyes.html"><strong aria-hidden="true">5.7.2.6.</strong> Human Eyes</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/envman_example_tool.html"><strong aria-hidden="true">5.7.3.</strong> 🏗️ envman (example tool)</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/understandability.html"><strong aria-hidden="true">5.7.4.</strong> 💡 Understandability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/understandability/demo.html"><strong aria-hidden="true">5.7.4.1.</strong> Demo</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/understandability/goldilocks_principle.html"><strong aria-hidden="true">5.7.4.2.</strong> Goldilocks Principle</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control.html"><strong aria-hidden="true">5.7.5.</strong> 🎮 Control</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/minimal_control.html"><strong aria-hidden="true">5.7.5.1.</strong> Minimal Control</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/discovery.html"><strong aria-hidden="true">5.7.5.2.</strong> Discovery</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/interruption.html"><strong aria-hidden="true">5.7.5.3.</strong> Interruption</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/demo.html"><strong aria-hidden="true">5.7.5.4.</strong> Demo</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale.html"><strong aria-hidden="true">5.7.6.</strong> 💟 Morale</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/aesthetics_outcome.html"><strong aria-hidden="true">5.7.6.1.</strong> Aesthetics: Outcome</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/aesthetics_progress.html"><strong aria-hidden="true">5.7.6.2.</strong> Aesthetics: Progress</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/aesthetics_errors.html"><strong aria-hidden="true">5.7.6.3.</strong> Aesthetics: Errors</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/automation_clarified.html"><strong aria-hidden="true">5.7.6.4.</strong> Automation Clarified</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/how_does_it_work.html"><strong aria-hidden="true">5.7.7.</strong> ⚙️ How Does It Work</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture.html"><strong aria-hidden="true">5.7.8.</strong> 🏭 Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/components.html"><strong aria-hidden="true">5.7.8.1.</strong> Components</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/item.html"><strong aria-hidden="true">5.7.8.2.</strong> Item</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/item_implementations.html"><strong aria-hidden="true">5.7.8.3.</strong> Item Implementations</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/flow.html"><strong aria-hidden="true">5.7.8.4.</strong> Flow</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/commands.html"><strong aria-hidden="true">5.7.8.5.</strong> Commands</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/item_parameters.html"><strong aria-hidden="true">5.7.8.6.</strong> Item Parameters</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/tool.html"><strong aria-hidden="true">5.7.8.7.</strong> Tool</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/side_side_projects.html"><strong aria-hidden="true">5.7.9.</strong> 🪆 Side-Side Projects</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/side_side_projects/interruptible.html"><strong aria-hidden="true">5.7.9.1.</strong> 🛑 Interruptible</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/side_side_projects/dot_ix.html"><strong aria-hidden="true">5.7.9.2.</strong> 🎨 Dot IX</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/project_status.html"><strong aria-hidden="true">5.7.10.</strong> 🦖 Project Status</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/project_status/readiness.html"><strong aria-hidden="true">5.7.10.1.</strong> Readiness</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/links.html"><strong aria-hidden="true">5.7.11.</strong> 🔗 Links</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/thank_you.html"><strong aria-hidden="true">5.7.12.</strong> 🙇‍♂️ Thank You</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/qna.html"><strong aria-hidden="true">5.7.13.</strong> ❓ Q & A</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ideas.html"><strong aria-hidden="true">6.</strong> Ideas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ideas/feature_gated_incremental_functionality.html"><strong aria-hidden="true">6.1.</strong> Feature Gated Incremental Functionality</a></li></ol></li><li class="chapter-item expanded "><a href="../licenses.html"><strong aria-hidden="true">7.</strong> Licenses</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Peace Framework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace/edit/main/doc/src/learning_material/dot_ix_diagram_generator.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style="
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+">
+    <div>
+        <object
+            type="image/svg+xml"
+            data="dot_ix_diagram_generator/landing_diagram.svg"
+            width="450"></object>
+        <br />
+        <small><a href="https://azriel.im/dot_ix/#src=MQAgogHghgtgDgGwKYC4QAUBOB7AxkgZwJAHUBLAFwAsQBJAOwDNsAoAWg5YBMzMlcKZbPTQA3JJkG4oCFlTISomXFQCeKFiBC5hFKGXoSNWrVDQBvAL6aTAIwvWT2hza1cXWxhMxkCAfVtsCBcWemwuJD96WEJjEC9MH39A4JAAIjSbHXo9AyN0zNM0NK1CkHt00qziqrca9JYWJC4Ac1ibKAqAbSgAGnKAXRtbXDQu237cIa1bdxBx-q5p7TN53H6zAgB3Za5Vrq4NlAIkXb8-BKSx9yR+y98AoJQdxpbMKDgqUTIALz8oCgUTAEOLNNp+bJA-Q5EGuFZoRgyE5wvYIpFIFHne4g+LoxpkGBQNqwzzeXxxLRwAFUNB7PQoAlEpAAegIohaAGoIDAEABuWxQE4ANgALL10AARACcItsJC2LS4MAAaqpcAAmBCiWwAKwADGQALIAZRFW1oZAAQghbDAAHKiABaAHEEABXR0-A3K5UAJWdABkACotMi0AASdr1AE0SABWADWsYg2pgAFUpbQYHHRLQdQAODkAYR1WyovrAUolyoAYggAIq+42Wn5K3AtNM15VFoNgBAS2hF2gUAOqKUADUNesNogDet9ad9RctQeVCfbJpFEFHUprQbDLSzVD1XHDAEEhTuAMxcK+4N1cH6Gt22K8AKXoc64qmj48t2CgEg7R+AMAEY7RIX1VHzbcdTAURfRrCsAyvO11U9SAAxgX09UdIdix1CBWxgdsuE1BMuGdFpMzgrZDSLNMw2dKgEEArhwglA1DSDM8tjfY1aEVHkEC4PU33ETijSLXjaAlMBVENCUzxaAB5JTzStdDxzfH5AKlN10AE2CwDDcMqAoWxnTjH5DLfcJw19LYVLIfNRFvW8A3oXAQJgKVVEdaCFPUlC0ICwSkGdUCCFsehDSFCKIDgW0CEzGBj1PC9r1ve9H2fV8PwDH4wDjFSgwTcRnUS5LTPM2wJTgH5cGdGsdUdIMDVwcM3wQDVVSVRiI1qqyfhU+g7R6nkYFs+zHOc1z3KvTzxtwSasIdWxjXzUyoyQEgIAQWzCT2ggA200DLLTIVHXHR0bV8hNHQlCgdUshAtlOt9zudS7rtu20pQep7Wy60QoHVNMLNdD0SDgUGSBFIUVqlc6YHrAB2XAryg2x1QoBAAxIUC4Eo1VXr0cd6yFTdpyDesFKDAgyHQFpsEPaSWnQZ120A+tMwTCAqF21VgxMiNlsmlSeQTWzDV-BAerIM8IDzEUAGlB2UjW2bPfMAstPUVprN0NUdUQVr1VLQKoU83zgJAixabclIIeitidsA6IlBM3TtIstlAxTozdQ0fmjVRVYE4tFe1mOtdkiAtl-X1sFoZ1edoBM9Xeos9UWnVaDorOKG42hg4lXBVADHOnzIEUgv7EXK51XiVONLZi6fYOgzTdVBz1CBNzjO04JOoMpwDWi7VUM9i97N1Sujbdq7tU0tmHt8JRF2CE3VE12+H587SUkU++nU1px+BNR5aOMJ7TJ9p4oUqwDLw1R8geiRT1O0gxrQ1g35hPM8IEc5xkNKoM0P8qCbzKqBCeLR1R2jIO3Uq9Z55Bkxn3AeSl0FKyrnqIetcRRHzTC0EWa9a4QCPrgUeCYRQT2jAHNM7duJnnVBPMA39VAsJ4uwnUuBQIqTTIaWemMgEKTbrPcBE9DQQFbjPQ0OoWhN3vvgqhEoWg+zHleU+ikzzBx+C0ehOd1GaJ-oaK8dM9QBwlM+EOi81FHzMdovugigxB2fotEx9iu5ph0TnRBOog7cVwLfbx3d0EtB+EGAJw9gkYLCXqYhECrwhy4P-dxiDKFqTANfPO3koz7yCXwsAIo96z1oNvVQdphEUGAhYjhZ8UFlQMQIvuV4cld0NHAgJKkiyQI0WQjBZTTQDx+GmUeIcJ71ggFYjpckuk9L1NUiBQ9jQz2Ai0d6zcfi+xYfnLRFd2nAXvM-Yx-cp511Kuk4MuBiGjKPtGUeaCj5H1ufcrcjznk+1sUM0Jn8wGGJdhApyA4-llP6ahP2cj+mAo3rc1JppUISieSHUupUzxxnaYooOw8EyVw0XnReU8Nk-DPE3fm4C3bcWCUEyxqg9TqlKqXPFt85JPlhT-esQzowfNQj8WgLtabbN4iaDZSi4FwUQdwsZ3sS7qisUyiUaDFHyQDOyy5ULxWAJ1GmGF1KeJd0YdiuealyXqruRPXAhcRHAUqRPWgTK-a71NGUwZtya4inAtwka59DSKzqU+W+OpulIK2ApIhalfQwIrp-Gm9YXY-DQWpXAeo+67y9l3R16qEzbMpY-EOyiOHVL9mA-pSrlQwLAAHfpA9uFlq-uYoZ9Y84tzblQiBZSk1DO6QwsBbc86ZxUmAERIdvbD3rOwgcIElG7MfuY3xbK0ySroWKupIb0GGinZa3VxCEwiM6ROglH9YUhKGUYoB4FkGyrLtGNNOdkl1zRUK+s2z6zgX3U-FFPsyX0LkmfEUT5u3Bi2Qw6V1KBVl2rdipFP9UW9j4ZS6cdS56KVoHAwlMj-H903Kky+ib9GlVTX3GdRjW5uyQSKDN0CV5mkUjQz+T4Q0tFdnUiBQVDQsb9mxp9tjtp6l2vtQ6gEIAEFGh+aMZBHbDwmUfN+9EExo0dDyaKRZQKqC4HtBAkscwxUQCtfMaMLSFiLNHOO7N0BFilPQZmrNzOawlBAegEYoKxmsspvyth2pkDlDWA2PI1ZyRdn7d6QXWEdPPuR1QqD54aNAhHWgUdNbs3s4eRzidxzJ1TunTOoWC6+y3CHZUGTQkyOnDKkhPslFxisRCs0akWgvpnWeEU8iv2EdsSBf9caGvntgtGOiMqQ6nJ4iKGJ1jaPgTCzxbZ1a7QjpQ+ijRTsd4yKodJRbBj305tguA-1GzaZlwruqhBE9M5TltREs1XWi27pXgd8dIZFrl2DZOtdE7b0Ep3dGIeubZ4teLX0rYiKn1Bi4FWpyrrhsEGHveepqgsHcRfsPbNKK9QyLous2eYAZ1039VsXe-TWtBioBkzOZ214yr6V6w0tTSp2KUuj-9HCwGP3pz881maQmgT7mskUYCdRX1o9UoMj0AH0J1PWb+161ttdYU3XAVDJEApyUMj2lzqn8NHh18l42qGmrKk7DrtAk0Mv1yqsl7Cc5N2KuAhR3c+GMKB3U0ZfT7dpmDWeQR3HqcDyDL6DJnDqcdO4wurlCqzfUJ-Yac53vPkhjV3qVukDaajzDmd1rWPuJpibo6qeRTgk-GjSLcC58Udp+DdGCL9uBscLXpI4CL9A4I5MR9n+grgw-bOx05hxdm4S5a-jlDcqdTg+DJUgFaG0+wQ1HbvvOOrVeMZQVhSzHx9UNruB9duKQ2gXG-TNMXdgFqO4nY-hEflncWTWPJZfuRsJmw-Te8p+rc4YOU4+9l-m7oOrSf3VR-QIrFV8XlBdK5vF+Ef0Zk+5V9x04s-9NFT9H8Q5D4pU-94lQl99gIVVdV0dvFv01I0wRQgCTktFaAl9sEzEnxe5rczVYtioT9DUf4EwecaDlUu5J0GDS4x098aDUMBVyCf4EDxkL9osgwuCJQe5HEN1FJ5JoDSpD9FI9UpCPF3ET5eCR8ODW8lEf1U0rEnxbEflZFHEyUtF+YSNFIED84wCLkTC9EW89QnxTUvZcCLkIDFEY9xtdkNEs1X91F9FFDTcHCf5kdBdb8j4m8Q01CgiIlFFStW8BxWkBVl4QxcEwiDCj5HQMkLECsA58535H015qwYFsjKFyluIdV6xWsNthtg1MYh9yj0d+EA4s9DFGiTdndyjJVowmValC0JdeUOiyo+E-E3cO4EwZ089kFZ5mCgE50FFL4+Ful6jDc75Wte8j5s0JUyju484W0rEL59FzFfCf5TkvYki9QL5sDaBzl9dLCWhm051+dYj3448M0-5gw3sy9Q534Sp+lqlWwYE3tO0w0+9zV841kNkUUB9UluFQTGjU13ty4m5iVldm54TpxalqE85OE9k4SrUz5ITHYZFEFUSwTaAIS6kNEZ1vIqVpiJcyDCkUMzw85rjBjCCGE6JMTew81M8eF2T84oiA5Ds8VjiMFYtxjXFuIhCNRHExSj4blu4k8idgIJkRZ+0vU1IG5u5mj+cZMfjaM6JGohll1KNwIyp9Ta5wJDFjTCd+ciN9TTRAktSe5aNv4MF9TIUx0bTk8B5dUfjqZetgw-FP5UllV8jLlCjisgziFa4gM34RZytG1P1BDg1mDcSr8m4LE58mCZ175BiZkHVzi3Fn9ewQELkcEAjxtd5O5kCyyqE3DIjFVhsoNjjbC5J7DEEFkckl4bDDiyosVYlv09Eez6zKDdCGVEFDUpTrD6yVDeV00F0pTEl6yGdZDYkx4f8XDbiDEe4qzh4m9ldexMyh5MSglGi8cpikdtkPd7tt98l1seEAd+FpdxVrUzs1lHy+EWhBEPZA1MIglotDzNiwAe9bUipJUBEQSS4JccSsc7VryoUeEyD8T3sBVGjkDYSS5JV1dMSBUYKKEkKm5KjfZSVDRtlZFaSkdB0h550nxZtyseEF985UI-s7UJdCDyk4kqtuk5kQ5kdy4llEE-j3C-ldl+kgMaFO8Z9d5aKGk4JUkpimDg5R8Ss6tUkgkK9u8hEwLvzGlyM-yy5752k1Jx1DFzkmVHTgIEw-kwFa4Spew09Fi9Q5kF5lK1UAl-U7SvYbLLkhTJLu4YLvdSVVtJcylFKNzw9xt5laV0N8EYKqEFtNl+jBt94HlBcbKAVBDR4uCypziOkNycVntjdokH1mzSpAEc5tktlDRP01I6Y7415uNJ8jSQNpcRQykxCXZTRHDrLWrk8gME1hcf4xcQwdTiER4fSVTz0A5a5qkwyr8u4JSH0f5-DQ4utSk74IBxsu0X41Je0UUqqSoFs9qZ1owxKCcCt9CwBz1dk-UR5Ydo97Cu0SypcLVYJKlGSGt3rKdgdqcmVRcYEjFaMlUnkrKflSEQNM9G1zS1IWUMEnrn5lK8ENFENpxkMTKKVAKth1SmNBIQNbLANh5GtXK+LP9WtM07VnsPZP59cA8QMZKqN9yhU5Lc1h0D0UVSNd5r1C1DkWCkkPtFJKj1Ucdk85r2x6aV8nFmbUyqE-t6dB1v4-Z6ZLClYrFAURtXqBwYVeNrqAEk9TQS1w1YjDL7DAUWVL5ntaAuF2qf5K0AFtbRCGNikHUKEZ46rSNpctggNNF5DlZSq2D28p1siQU7RkzDFB0CVDRCEv4LC-lUJLSNiYdj4ZFM9SUBEZFwI-Zpxy4dzAj+VD5y4-1X1aNQz7j3lwFAMcVE03zdVXav0wA+FgEw0mMR8zxnKGViEFlFEc91VyTPLTFz0YTdTGoXZd8OFS83aUVFiUrV9nEEFasuKQ5j8Bxot+lBEUVprfKsDR6QKGrby6qRUXUjaKaxCasO6x0flBVVURUCSv1X0rUFJuEgo5UV6+5O7-CUUnYC5k9citSWhpx+k14R5FFMU75ALISa7J1m7aC0M1cVkqNn1VUiKB50bvDHk-18turAz3F4TBE25V9C95zYlIUmDR7Nit02aUNcUQwusTdNwKC46rVS9w0TKf01yCFaNZzE1ri97ejewJd-6V4va7UtFl1EcDk+Lnti67LYi4HGM95s6EDewz6cMWlBaCVX1qdiFQ41cB5+lpwtduCrUsk3aUjT8-1sjT0JR4V3E85pM-YgMWVJcBycN9HmVR6e64IuMjbINzFnKipYIb4hH6ZVqc9ZIzxR626OFbreJe7GrCtxl+NBMDpjQ3wjpRNxN6BJNlFqEYdviFMlMVNbA1MNMtMdNtR6B9MYBDNjMktY4LMrMbMWZ6mHMnMXMfx4wfgPNVAvMDRfN-MEBAtclXZQtclPF4FCFw0j4QDQkEs6nUs450sk4U404+Ys5e7PVv5WpbEla0UflujZJVF5Kosl6WMxDmsa4KM1HGcgx2VPLWcINn8BxACipPUHmxknn0NZIrbNqqVALPkjTyjmslT94JDlLuj6wipWcBlGsPjJVJilZNllLxj8EJF49uVpyGEI1gdPLPZHpMWAL8cFK6MN73Dcc51-ZLqTiWNQqZFdlLyID6d-GrbqcgMnlx9B0xLgFFEWUJCp0u9+EsU5JpV2qQ4E0aVYIpcLt6zTjx5hXqY5NVIYjBcmcGSUk0UeV0FFde6skNSgw7RDRXYFJfGp7yBBJMZfQ4wLpUpHQkpnQthEYYAeBVYBwuFgcw0thVYgwKB0mTozoLohR-o3QkAVQemfhGZCo1YFnpJ8wAx1RcB5mUsLMuZFQuoqAYo7QYB8oKBbIKAk5VAoBxwWY95QsIm95EFQ50EH91VKjWX9y4AVZ1Yk3ksW2OZwxLRrYqIWhHoDQgweJR4d1bd91s5c5fdmUWNK36db8pTuKedy5SNEV95DFFrVBIXvJ4FF3A0lH8VZJqbI0x5sq2iSTmSK7tHhnN9SpK16lYttWEi8U53yHiEs641FWjW+0akyLe6qtmDzDLKQxsrEMhLYmc4Q8txmUkmtNhNjoPovpLog2Q3SZw2yBI2m3W2NZY343E3W3OZSI02M2s33wc3Um83MsC2i3sAS31Uy2B1yif0HFlVqk0qEwG2dQo3m2Wm22O3KJ7ie2yA+2y3AHFJo1XYlcRRUIsdRbYbR7nFSloCQzEHtDgiiCGVPV9VV6acE8PjJWuaKNYM4KFlHkCUP6279iFW8iS98SkF5icrYWxD2L1sFFv94dUXqchTi81GlFrD1OhSMWmqIksDe5nZP5PZ6wIOhNUnfXRp2JC3fRtN0I7X25cB6BlQCA2o4AXx1Q4wrptJRAVIEdRBbMOPZItgnQfg2O0OY29Z-MjYTYzYYALYswrYbY7YHYjdgs3Z1U9V+6panEFd6WEwmZmno2W38wmo-MoBlxpZUmDWfd0jm4asyVr5TrIc2EK7dlu534B5LKvHaCJ1zl9aBlwddvaWc4DvCj2xSpKD09p0zsH5yU-qpTpOTbIWeGgk1Pqc14xCeUqrqluaidFFfOUE5vMULQWxTwEBUvvNlMIfin1NNN9pym9MJoamXIsOY5LNrNCuFnHNnMHIOn3NfIenvN+mVpBmXXhmQthaYdaYZ0d4gcDHaU265nTMKu0OlnMsVmct1mKylJV3FuaVlKoDQE74FKWG-Vewhl7VIi95-maYaxiiZ1Slgnk8aZdbaYFcp0G6HVb6Ni6PgsSWbH6rz9HFZqNie1Ff7l9lYCQfrdNwRogtx9XsnI6dTQrSO9T7pkVuR2N864zeRmgE6IDwLWrXvobWEuhQyIqBiZvpCmYeSn4ftNswKmqmUeTMzN2OMemm7N2P45cfXNOnunemfMSA-NSehn2vRnqeUWQ0O1KXK2Ti9Rmf0-We0sE5lnss1mR2AHfefg-5duFj8E2rUJVwJR+-VtTvKNh-SEkXFDzkH4xOj5rKHrgil9H6vLHpl-exV+K6SpSXL4f1kLv0P9ZJTjXrrdTTuJ+xLlO6E1x9hi5F1lkSVkWFIMr8T5nYPjtkyCTRzWsYQ+MwswtrSyIl2S6Q90uOMLLtdHEh5daABXIbjnwlAldPQ5XFprrFUD6xDYxsdCHVwa4wAmuXUFrkSSC7QodWyefKqin4TbJMYfSAbljxz7NtRuzUPUBN0tBTc3wM3N2BikgKzIGU2ybovnjkSMEk0ftfuDIgkScChBvVA3OuzkgNpO6NjV7vlipxsEU0Ig7BLtVpia8SSjNDBHIz9Qj1T855UChUklYUsxkLyF7HJ1moy9NwGacWlvw1z2kgy15PUHriUoA88mFuGPFYn1waFPBBiGPHJxzqC02URvGPHLnkrEkoKbhY+EARCQGJuiqLCMrHWDAYUxOJlannDhRpYIZMkSY9CNH0bDwRqDdWjLvyvpjwJcUDANNnioE6dBBh+GTOcUaJnU-m4RZSo7HGyNEc8YaOah1knR6FL0wTNoUjiiKwQ0w+tKZl3SUTKwgukud6mUmER1pRWGiUegWQFJipGOJLeTOCTOwWVyUBpRSNsK17NxZkAqSVKKifpoZDKaadlPAicjQouBWBGYWWzKhUCz4v-S1ta0AHh8VozrV1vnnjpbBPW3rX1jBwDbwdQ2tgJDih2G4YcE2LPbWHCIIgldMYjoJpgAF50RcILYGQC4DUBigoEdUHqDgAQAygWgQWFJnMjFB8wxI0kY0DCARA-AjIYkHEGxCPBUg2IRoNQBDaoAbABACgKoGQAkgTACASkRQDQAAAyUUS0HMhwhPAZAeWH4AIBUAoAjIsIJgEJAIA0AAAclAgXFtRco+IAqIQBKiVRjIqgNgHECYAdRcYPUAaKcDyjFRyo1UZEGYD3gcQuo-UYaMYDGjTRLo-4AIDIDiAdReou0YaP5E4AEwkQZ0WqOwAaiZAOor+GGIdEgAIx2AKMX6PNGWj8g2oq8F6JTFpiMxMYyIFAEDHBiQA2o20cmIdGFjoxAo5ALSGwCAhmgjQJwJCGhBGBDRAAHi7FoAAAVNKNlEFiVRdsCENgAQBxidRtgd0EgHtEmA2RKQCkCYCQAQAoQaAAAHxsBDRWgLoBKPXFUhqAAwFANgCpC4BKAqgNgHqG3EgA2AUIegAQFYgUAkAbACAGwC6BEiSRywFMbePeD3jHxz4i8V0HzBxhPx143ceuLdAnAjxFoq0ceNPHni2AaMOMJiAuBkhhRTgb4IzFsAKjzxaAAwJhJ8zIAWAQAA">source</a></small>
+    </div>
+    <div style="font-size: 3.0em; font-weight: bold;">Dot IX: Diagram Generator</div>
+    <div style="font-size: 2.0em;">Picture Your Understanding</div>
+    <div style="font-size: 1.5em;"><a href="https://azriel.im/dot_ix">https://azriel.im/dot_ix</a></div>
+    <div style="height: 50px;"></div>
+    <div style="font-size: 2.0em;">Azriel Hoh</div>
+    <div style="font-size: 1.5em;">August 2024</div>
+</div>
+<div class="hidden">
+<ol>
+<li>
+<p>Problem: Diverge</p>
+<ol>
+<li>Diagram types:
+<ol>
+<li>Process diagrams</li>
+<li>Deployment diagrams (outcome)</li>
+<li>Class Diagrams</li>
+<li>Gantt charts</li>
+</ol>
+</li>
+<li>Clarity / Appearance / Styling
+<ol>
+<li>Nodes, Edges, Text</li>
+<li>Animations</li>
+<li>Lossless Resolution</li>
+<li>Interactive</li>
+<li>Level of detail</li>
+</ol>
+</li>
+<li>Input
+<ol>
+<li>Labels for nodes, edges</li>
+<li>Styles</li>
+<li>Common input</li>
+<li>Software library</li>
+</ol>
+</li>
+<li>Where the diagrams will be displayed
+<ol>
+<li>Web app</li>
+<li>Github comments</li>
+<li>Any documentation software</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Problem: Converge</p>
+<ol>
+<li>Diagram types:
+<ol>
+<li>Process diagrams</li>
+<li>Deployment diagrams (outcome)</li>
+<li><del>Class Diagrams</del></li>
+<li><del>Gantt charts</del></li>
+</ol>
+</li>
+<li>Clarity / Appearance / Styling
+<ol>
+<li>Nodes, Edges, Text</li>
+<li>Animations</li>
+<li>Lossless Resolution</li>
+<li>Interactive</li>
+<li>Level of detail</li>
+</ol>
+</li>
+<li>Input
+<ol>
+<li>Labels for nodes, edges</li>
+<li>Styles</li>
+<li>Common input</li>
+<li>Software library</li>
+</ol>
+</li>
+<li>Where the diagrams will be displayed
+<ol>
+<li>Web app</li>
+<li>Github comments</li>
+<li>Any documentation software</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Solution: Diverge</p>
+<blockquote>
+<ul>
+<li>What solutions can we do?</li>
+<li>How does each solution address the concerns in the problem space we have chosen?</li>
+</ul>
+</blockquote>
+<p>Diagrams tend to be an abstraction over something actual.</p>
+<ol>
+<li>Output format:
+<ol>
+<li>SVG</li>
+<li>HTML elements</li>
+<li>HTML canvas</li>
+<li>Image (pixels)</li>
+</ol>
+</li>
+<li>Input format:
+<ol>
+<li>Visual drawing tool</li>
+<li>Structured input, e.g. YAML, JSON</li>
+<li>Software library</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Solution: Converge</p>
+<ol>
+<li>Output format:
+<ol>
+<li>SVG: without <code>foreignObject</code></li>
+<li>HTML elements</li>
+<li><del>HTML canvas</del></li>
+<li><del>Image (pixels)</del></li>
+</ol>
+</li>
+<li>Input format:
+<ol>
+<li>Visual drawing tool</li>
+<li>Structured input, e.g. YAML, pass through graphviz for layout</li>
+<li>Software library</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../learning_material/interruptible_software/qna.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../learning_material/dot_ix_diagram_generator/everyday_diagrams.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../learning_material/interruptible_software/qna.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../learning_material/dot_ix_diagram_generator/everyday_diagrams.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../src/js/highlightjs-line-numbers.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

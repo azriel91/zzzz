@@ -1,0 +1,1129 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Peace: Zero Stress Automation - The Peace Framework</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../src/css/layout.css">
+        <link rel="stylesheet" href="../src/css/presentation.css">
+        <link rel="stylesheet" href="../src/css/terminal.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../background.html"><strong aria-hidden="true">2.</strong> Background</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../background/purpose.html"><strong aria-hidden="true">2.1.</strong> Purpose</a></li><li class="chapter-item "><a href="../background/strategy.html"><strong aria-hidden="true">2.2.</strong> Strategy</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">3.</strong> Examples</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/download.html"><strong aria-hidden="true">3.1.</strong> Download</a></li><li class="chapter-item "><a href="../examples/envman.html"><strong aria-hidden="true">3.2.</strong> Env Man</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/envman/walkthrough.html"><strong aria-hidden="true">3.2.1.</strong> Walkthrough</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../technical_concepts.html"><strong aria-hidden="true">4.</strong> Technical Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/resources.html"><strong aria-hidden="true">4.1.</strong> Resources</a></li><li class="chapter-item "><a href="../technical_concepts/function_graph.html"><strong aria-hidden="true">4.2.</strong> Function Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/function_graph/abstraction.html"><strong aria-hidden="true">4.2.1.</strong> Abstraction</a></li><li class="chapter-item "><a href="../technical_concepts/function_graph/ordering.html"><strong aria-hidden="true">4.2.2.</strong> Ordering</a></li><li class="chapter-item "><a href="../technical_concepts/function_graph/streaming.html"><strong aria-hidden="true">4.2.3.</strong> Streaming</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/item.html"><strong aria-hidden="true">4.3.</strong> Item</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/item/item_parameters.html"><strong aria-hidden="true">4.3.1.</strong> Item Parameters</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/value_specification.html"><strong aria-hidden="true">4.3.1.1.</strong> Value Specification</a></li><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/params_specification.html"><strong aria-hidden="true">4.3.1.2.</strong> Params Specification</a></li><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/params_framework_support.html"><strong aria-hidden="true">4.3.1.3.</strong> Params Framework Support</a></li><li class="chapter-item "><a href="../technical_concepts/item/item_parameters/mapping_functions.html"><strong aria-hidden="true">4.3.1.4.</strong> Mapping Functions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../technical_concepts/item_graph.html"><strong aria-hidden="true">4.4.</strong> Item Graph</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/item_graph/initialization.html"><strong aria-hidden="true">4.4.1.</strong> Initialization</a></li><li class="chapter-item "><a href="../technical_concepts/item_graph/state_inspection.html"><strong aria-hidden="true">4.4.2.</strong> State Inspection</a></li><li class="chapter-item "><a href="../technical_concepts/item_graph/state_ensure.html"><strong aria-hidden="true">4.4.3.</strong> State Ensure</a></li><li class="chapter-item "><a href="../technical_concepts/item_graph/clean.html"><strong aria-hidden="true">4.4.4.</strong> Clean</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/state.html"><strong aria-hidden="true">4.5.</strong> State</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/state/logical_state.html"><strong aria-hidden="true">4.5.1.</strong> Logical State</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/output.html"><strong aria-hidden="true">4.6.</strong> Output</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/output/execution_progress.html"><strong aria-hidden="true">4.6.1.</strong> Execution Progress</a></li><li class="chapter-item "><a href="../technical_concepts/output/presentation.html"><strong aria-hidden="true">4.6.2.</strong> Presentation</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/diagrams.html"><strong aria-hidden="true">4.7.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/diagrams/progress.html"><strong aria-hidden="true">4.7.1.</strong> Progress</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome.html"><strong aria-hidden="true">4.7.2.</strong> Outcome</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/render_technology.html"><strong aria-hidden="true">4.7.2.1.</strong> Render Technology</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/html_flexbox.html"><strong aria-hidden="true">4.7.2.2.</strong> HTML + Flexbox</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/div_diag.html"><strong aria-hidden="true">4.7.2.3.</strong> Div Diag</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/api_design.html"><strong aria-hidden="true">4.7.2.4.</strong> API Design</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/interaction_merging.html"><strong aria-hidden="true">4.7.2.5.</strong> Interaction Merging</a></li><li class="chapter-item "><a href="../technical_concepts/diagrams/outcome/aesthetics_and_clarity.html"><strong aria-hidden="true">4.7.2.6.</strong> Aesthetics and Clarity</a></li></ol></li></ol></li><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction.html"><strong aria-hidden="true">4.8.</strong> Endpoints and Interaction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction/cmd_invocation.html"><strong aria-hidden="true">4.8.1.</strong> Cmd Invocation</a></li><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction/interruption.html"><strong aria-hidden="true">4.8.2.</strong> Interruption</a></li><li class="chapter-item "><a href="../technical_concepts/endpoints_and_interaction/progress_output.html"><strong aria-hidden="true">4.8.3.</strong> Progress Output</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/workspace.html"><strong aria-hidden="true">4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../technical_concepts/commands.html"><strong aria-hidden="true">4.10.</strong> Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/commands/scopes.html"><strong aria-hidden="true">4.10.1.</strong> Scopes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/commands/scopes/reborrowing.html"><strong aria-hidden="true">4.10.1.1.</strong> Reborrowing</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases.html"><strong aria-hidden="true">4.10.2.</strong> Use Cases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/workspace_initialization.html"><strong aria-hidden="true">4.10.2.1.</strong> Workspace Initialization</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/profile_list.html"><strong aria-hidden="true">4.10.2.2.</strong> Profile List</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/workspace_stored_active_profile.html"><strong aria-hidden="true">4.10.2.3.</strong> Workspace Stored Active Profile</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/workspace_active_profile_switch.html"><strong aria-hidden="true">4.10.2.4.</strong> Workspace Active Profile Switch</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_discovery_and_display.html"><strong aria-hidden="true">4.10.2.5.</strong> State Discovery and Display</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_read_and_display.html"><strong aria-hidden="true">4.10.2.6.</strong> State Read and Display</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_diff.html"><strong aria-hidden="true">4.10.2.7.</strong> State Diff</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_apply.html"><strong aria-hidden="true">4.10.2.8.</strong> State Apply</a></li><li class="chapter-item "><a href="../technical_concepts/commands/use_cases/state_clean.html"><strong aria-hidden="true">4.10.2.9.</strong> State Clean</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/commands/cmd_execution.html"><strong aria-hidden="true">4.10.3.</strong> Cmd Execution</a></li><li class="chapter-item "><a href="../technical_concepts/commands/interruptibility.html"><strong aria-hidden="true">4.10.4.</strong> Interruptibility</a></li></ol></li><li class="chapter-item "><a href="../technical_concepts/flow_versioning.html"><strong aria-hidden="true">4.11.</strong> Flow Versioning</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../technical_concepts/flow_versioning/seamless_execution.html"><strong aria-hidden="true">4.11.1.</strong> Seamless Execution</a></li><li class="chapter-item "><a href="../technical_concepts/flow_versioning/upgrade_actions.html"><strong aria-hidden="true">4.11.2.</strong> Upgrade Actions</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Learning Material</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust.html"><strong aria-hidden="true">5.1.</strong> Why Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/topics.html"><strong aria-hidden="true">5.1.1.</strong> Topics</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance.html"><strong aria-hidden="true">5.1.2.</strong> ⚡ Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/performance/benchmarks.html"><strong aria-hidden="true">5.1.2.1.</strong> Benchmarks</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/how_is_rust_fast.html"><strong aria-hidden="true">5.1.2.2.</strong> How Is Rust Fast</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/compiled_vs_interpreted.html"><strong aria-hidden="true">5.1.2.3.</strong> Compiled vs Interpreted</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/native_code.html"><strong aria-hidden="true">5.1.2.4.</strong> Native Code</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/memory_usage.html"><strong aria-hidden="true">5.1.2.5.</strong> Memory Usage</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/memory_freeing.html"><strong aria-hidden="true">5.1.2.6.</strong> Memory Freeing</a></li><li class="chapter-item "><a href="../learning_material/why_rust/performance/performance_summary.html"><strong aria-hidden="true">5.1.2.7.</strong> Performance Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints.html"><strong aria-hidden="true">5.1.3.</strong> 🚧 Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/constraints/correct_programs.html"><strong aria-hidden="true">5.1.3.1.</strong> Correct Programs</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/unconstrained.html"><strong aria-hidden="true">5.1.3.2.</strong> Unconstrained</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constrained.html"><strong aria-hidden="true">5.1.3.3.</strong> Constrained</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constrained_fixed.html"><strong aria-hidden="true">5.1.3.4.</strong> Constrained - Fixed</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/less_vs_more.html"><strong aria-hidden="true">5.1.3.5.</strong> Less vs More</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/nullability_js.html"><strong aria-hidden="true">5.1.3.6.</strong> Nullability - JS</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/nullability_cs.html"><strong aria-hidden="true">5.1.3.7.</strong> Nullability - C#</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/nullability_rust.html"><strong aria-hidden="true">5.1.3.8.</strong> Nullability - Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/data_race_cs.html"><strong aria-hidden="true">5.1.3.9.</strong> Data Race - C#</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/data_race_rust_1.html"><strong aria-hidden="true">5.1.3.10.</strong> Data Race - Rust 1</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/data_race_rust_2.html"><strong aria-hidden="true">5.1.3.11.</strong> Data Race - Rust 2</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constraints_in_rust.html"><strong aria-hidden="true">5.1.3.12.</strong> Constraints in Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/constraints/constraints_summary.html"><strong aria-hidden="true">5.1.3.13.</strong> Constraints Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive.html"><strong aria-hidden="true">5.1.4.</strong> 💬 Expressive</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/expressive/coco_mapping.html"><strong aria-hidden="true">5.1.4.1.</strong> Co/Co Mapping</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/traits.html"><strong aria-hidden="true">5.1.4.2.</strong> Traits</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/multiple_values_rust.html"><strong aria-hidden="true">5.1.4.3.</strong> Multiple Values</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/cloning.html"><strong aria-hidden="true">5.1.4.4.</strong> Cloning</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/cloning_others.html"><strong aria-hidden="true">5.1.4.5.</strong> Cloning - Others</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/cloning_rust.html"><strong aria-hidden="true">5.1.4.6.</strong> Cloning - Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/expressive_summary.html"><strong aria-hidden="true">5.1.4.7.</strong> Expressive Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous.html"><strong aria-hidden="true">5.1.5.</strong> 😵‍💫 Unambiguous</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality.html"><strong aria-hidden="true">5.1.5.1.</strong> Equality</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality_java.html"><strong aria-hidden="true">5.1.5.2.</strong> Equality - Java</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality_rust_1.html"><strong aria-hidden="true">5.1.5.3.</strong> Equality - Rust 1</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/equality_rust_2.html"><strong aria-hidden="true">5.1.5.4.</strong> Equality - Rust 2</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/control_flow.html"><strong aria-hidden="true">5.1.5.5.</strong> Control Flow</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/control_flow_java.html"><strong aria-hidden="true">5.1.5.6.</strong> Control Flow - Java</a></li><li class="chapter-item "><a href="../learning_material/why_rust/unambiguous/control_flow_rust.html"><strong aria-hidden="true">5.1.5.7.</strong> Control Flow - Rust</a></li><li class="chapter-item "><a href="../learning_material/why_rust/expressive/unambiguous_summary.html"><strong aria-hidden="true">5.1.5.8.</strong> Unambiguous Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling.html"><strong aria-hidden="true">5.1.6.</strong> 🛠️ Tooling</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/tooling/formatter.html"><strong aria-hidden="true">5.1.6.1.</strong> Formatter</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/linter.html"><strong aria-hidden="true">5.1.6.2.</strong> Linter</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/package_manager.html"><strong aria-hidden="true">5.1.6.3.</strong> Package Manager</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/others.html"><strong aria-hidden="true">5.1.6.4.</strong> Others</a></li><li class="chapter-item "><a href="../learning_material/why_rust/tooling/tooling_summary.html"><strong aria-hidden="true">5.1.6.5.</strong> Tooling Summary</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/ecosystem.html"><strong aria-hidden="true">5.1.7.</strong> 🚛 Ecosystem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/variety.html"><strong aria-hidden="true">5.1.7.1.</strong> Variety</a></li><li class="chapter-item "><a href="../learning_material/why_rust/stable.html"><strong aria-hidden="true">5.1.7.2.</strong> Stable</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/second_order.html"><strong aria-hidden="true">5.1.8.</strong> 🦋 Second Order</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/why_rust/second_order/chain_of_events.html"><strong aria-hidden="true">5.1.8.1.</strong> Chain of Events</a></li><li class="chapter-item "><a href="../learning_material/why_rust/second_order/topics_again.html"><strong aria-hidden="true">5.1.8.2.</strong> Topics Again</a></li><li class="chapter-item "><a href="../learning_material/why_rust/second_order/try_rust.html"><strong aria-hidden="true">5.1.8.3.</strong> Try Rust</a></li></ol></li><li class="chapter-item "><a href="../learning_material/why_rust/qna.html"><strong aria-hidden="true">5.1.9.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../learning_material/user_facing_automation_part_1.html"><strong aria-hidden="true">5.2.</strong> User Facing Automation - Part 1</a></li><li class="chapter-item "><a href="../learning_material/user_facing_automation_part_2.html"><strong aria-hidden="true">5.3.</strong> User Facing Automation - Part 2</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design.html"><strong aria-hidden="true">5.4.</strong> Empathetic Code Design</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/empathetic_code_design/background.html"><strong aria-hidden="true">5.4.1.</strong> Background</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/scenario.html"><strong aria-hidden="true">5.4.2.</strong> Scenario</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/flow_definition.html"><strong aria-hidden="true">5.4.3.</strong> Flow Definition</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/inputs_and_outputs.html"><strong aria-hidden="true">5.4.4.</strong> Inputs and Outputs</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/parameters_specification.html"><strong aria-hidden="true">5.4.5.</strong> Parameters Specification</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/output_and_presentation.html"><strong aria-hidden="true">5.4.6.</strong> Output and Presentation</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/command_invocation.html"><strong aria-hidden="true">5.4.7.</strong> Command Invocation</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/parameters_recall.html"><strong aria-hidden="true">5.4.8.</strong> Parameters Recall</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/workspace.html"><strong aria-hidden="true">5.4.9.</strong> Workspace</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/profiles.html"><strong aria-hidden="true">5.4.10.</strong> Profiles</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/summary.html"><strong aria-hidden="true">5.4.11.</strong> Summary</a></li><li class="chapter-item "><a href="../learning_material/empathetic_code_design/qna.html"><strong aria-hidden="true">5.4.12.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../learning_material/interruptible_software.html"><strong aria-hidden="true">5.5.</strong> Interruptible Software</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/interruptible_software/processes.html"><strong aria-hidden="true">5.5.1.</strong> Processes</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/execution.html"><strong aria-hidden="true">5.5.2.</strong> Execution</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/bus_analogy.html"><strong aria-hidden="true">5.5.3.</strong> Bus Analogy</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility.html"><strong aria-hidden="true">5.5.4.</strong> Designing Interruptibility</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/stop_button.html"><strong aria-hidden="true">5.5.4.1.</strong> Stop Button</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/stopping_point.html"><strong aria-hidden="true">5.5.4.2.</strong> Stopping Point</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/parallelism.html"><strong aria-hidden="true">5.5.4.3.</strong> Parallelism</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/reporting.html"><strong aria-hidden="true">5.5.4.4.</strong> Reporting</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_interruptibility/strategy.html"><strong aria-hidden="true">5.5.4.5.</strong> Strategy</a></li></ol></li><li class="chapter-item "><a href="../learning_material/interruptible_software/interruptible_implementation.html"><strong aria-hidden="true">5.5.5.</strong> Interruptible Implementation</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/resumability.html"><strong aria-hidden="true">5.5.6.</strong> Resumability</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_resumability.html"><strong aria-hidden="true">5.5.7.</strong> Designing Resumability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_resumability/executor_resumability.html"><strong aria-hidden="true">5.5.7.1.</strong> Executor Resumability</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/designing_resumability/stepwise_resumability.html"><strong aria-hidden="true">5.5.7.2.</strong> Stepwise Resumability</a></li></ol></li><li class="chapter-item "><a href="../learning_material/interruptible_software/resumable_implementation.html"><strong aria-hidden="true">5.5.8.</strong> Resumable Implementation</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/real_crates.html"><strong aria-hidden="true">5.5.9.</strong> Real Crates</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/summary.html"><strong aria-hidden="true">5.5.10.</strong> Summary</a></li><li class="chapter-item "><a href="../learning_material/interruptible_software/qna.html"><strong aria-hidden="true">5.5.11.</strong> Q & A</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator.html"><strong aria-hidden="true">5.6.</strong> Dot IX: Diagram Generator</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/everyday_diagrams.html"><strong aria-hidden="true">5.6.1.</strong> Everyday Diagrams</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems.html"><strong aria-hidden="true">5.6.2.</strong> 🛑 Problems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/appearance.html"><strong aria-hidden="true">5.6.2.1.</strong> Appearance</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/accuracy.html"><strong aria-hidden="true">5.6.2.2.</strong> Accuracy</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/portability.html"><strong aria-hidden="true">5.6.2.3.</strong> Portability</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/problems/dynamics.html"><strong aria-hidden="true">5.6.2.4.</strong> Dynamics</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation.html"><strong aria-hidden="true">5.6.3.</strong> 💡 Ideation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation/output_format.html"><strong aria-hidden="true">5.6.3.1.</strong> Output Format</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation/input_format.html"><strong aria-hidden="true">5.6.3.2.</strong> Input Format</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/ideation/logistics.html"><strong aria-hidden="true">5.6.3.3.</strong> Logistics</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/demo.html"><strong aria-hidden="true">5.6.4.</strong> 🎨 Demo</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution.html"><strong aria-hidden="true">5.6.5.</strong> 🧪 Solution</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution/supported_usages.html"><strong aria-hidden="true">5.6.5.1.</strong> Supported Usages</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution/generation_process.html"><strong aria-hidden="true">5.6.5.2.</strong> Generation Process</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/solution/challenges.html"><strong aria-hidden="true">5.6.5.3.</strong> Challenges</a></li></ol></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/whats_next.html"><strong aria-hidden="true">5.6.6.</strong> What's Next</a></li><li class="chapter-item "><a href="../learning_material/dot_ix_diagram_generator/qna.html"><strong aria-hidden="true">5.6.7.</strong> Q & A</a></li></ol></li><li class="chapter-item expanded "><a href="../learning_material/peace_zero_stress_automation.html" class="active"><strong aria-hidden="true">5.7.</strong> Peace: Zero Stress Automation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/peace_framework.html"><strong aria-hidden="true">5.7.1.</strong> 🕊️ Peace Framework</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story.html"><strong aria-hidden="true">5.7.2.</strong> 🐉 Origin Story</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/manual_deployment.html"><strong aria-hidden="true">5.7.2.1.</strong> Manual Deployment</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/automation.html"><strong aria-hidden="true">5.7.2.2.</strong> Automation</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/engineering_eyes.html"><strong aria-hidden="true">5.7.2.3.</strong> Engineering Eyes</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/engineering_success.html"><strong aria-hidden="true">5.7.2.4.</strong> Engineering Success</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/automation_for_real.html"><strong aria-hidden="true">5.7.2.5.</strong> Automation (For Real)</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/origin_story/human_eyes.html"><strong aria-hidden="true">5.7.2.6.</strong> Human Eyes</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/envman_example_tool.html"><strong aria-hidden="true">5.7.3.</strong> 🏗️ envman (example tool)</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/understandability.html"><strong aria-hidden="true">5.7.4.</strong> 💡 Understandability</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/understandability/demo.html"><strong aria-hidden="true">5.7.4.1.</strong> Demo</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/understandability/goldilocks_principle.html"><strong aria-hidden="true">5.7.4.2.</strong> Goldilocks Principle</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control.html"><strong aria-hidden="true">5.7.5.</strong> 🎮 Control</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/minimal_control.html"><strong aria-hidden="true">5.7.5.1.</strong> Minimal Control</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/discovery.html"><strong aria-hidden="true">5.7.5.2.</strong> Discovery</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/interruption.html"><strong aria-hidden="true">5.7.5.3.</strong> Interruption</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/control/demo.html"><strong aria-hidden="true">5.7.5.4.</strong> Demo</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale.html"><strong aria-hidden="true">5.7.6.</strong> 💟 Morale</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/aesthetics_outcome.html"><strong aria-hidden="true">5.7.6.1.</strong> Aesthetics: Outcome</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/aesthetics_progress.html"><strong aria-hidden="true">5.7.6.2.</strong> Aesthetics: Progress</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/aesthetics_errors.html"><strong aria-hidden="true">5.7.6.3.</strong> Aesthetics: Errors</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/morale/automation_clarified.html"><strong aria-hidden="true">5.7.6.4.</strong> Automation Clarified</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/how_does_it_work.html"><strong aria-hidden="true">5.7.7.</strong> ⚙️ How Does It Work</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture.html"><strong aria-hidden="true">5.7.8.</strong> 🏭 Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/components.html"><strong aria-hidden="true">5.7.8.1.</strong> Components</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/item.html"><strong aria-hidden="true">5.7.8.2.</strong> Item</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/item_implementations.html"><strong aria-hidden="true">5.7.8.3.</strong> Item Implementations</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/flow.html"><strong aria-hidden="true">5.7.8.4.</strong> Flow</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/commands.html"><strong aria-hidden="true">5.7.8.5.</strong> Commands</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/item_parameters.html"><strong aria-hidden="true">5.7.8.6.</strong> Item Parameters</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/architecture/tool.html"><strong aria-hidden="true">5.7.8.7.</strong> Tool</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/side_side_projects.html"><strong aria-hidden="true">5.7.9.</strong> 🪆 Side-Side Projects</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/side_side_projects/interruptible.html"><strong aria-hidden="true">5.7.9.1.</strong> 🛑 Interruptible</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/side_side_projects/dot_ix.html"><strong aria-hidden="true">5.7.9.2.</strong> 🎨 Dot IX</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/project_status.html"><strong aria-hidden="true">5.7.10.</strong> 🦖 Project Status</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/project_status/readiness.html"><strong aria-hidden="true">5.7.10.1.</strong> Readiness</a></li></ol></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/links.html"><strong aria-hidden="true">5.7.11.</strong> 🔗 Links</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/thank_you.html"><strong aria-hidden="true">5.7.12.</strong> 🙇‍♂️ Thank You</a></li><li class="chapter-item "><a href="../learning_material/peace_zero_stress_automation/qna.html"><strong aria-hidden="true">5.7.13.</strong> ❓ Q & A</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ideas.html"><strong aria-hidden="true">6.</strong> Ideas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ideas/feature_gated_incremental_functionality.html"><strong aria-hidden="true">6.1.</strong> Feature Gated Incremental Functionality</a></li></ol></li><li class="chapter-item expanded "><a href="../licenses.html"><strong aria-hidden="true">7.</strong> Licenses</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Peace Framework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/azriel91/peace/edit/main/doc/src/learning_material/peace_zero_stress_automation.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style="
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+">
+    <div>
+        <object
+            type="image/svg+xml"
+            data="peace_zero_stress_automation/dove.svg"
+            width="450"></object>
+        <br />
+    </div>
+    <div style="font-size: 3.0em; font-weight: bold;">Peace</div>
+    <div style="font-size: 2.0em;">Zero Stress Automation</div>
+    <div style="font-size: 1.5em;"><a href="https://peace.mk/">https://peace.mk/</a></div>
+    <div style="height: 50px;"></div>
+    <div style="font-size: 2.0em;">Azriel Hoh</div>
+    <div style="font-size: 1.5em;">October 2024</div>
+</div>
+<div class="hidden">
+<h3 id="building-envman-in-nushell"><a class="header" href="#building-envman-in-nushell">Building <code>envman</code> in Nushell</a></h3>
+<pre><code class="language-nu"># in $nu.config-path
+# usually C:\Users\$env.USER\AppData\Roaming\nushell\config.nu
+def envman_demo_prepare_release [] {
+    cargo envman_build_release
+    let envman_demo_dir = [$env.TEMP demo envman] | path join
+    if not ($envman_demo_dir | path exists) {
+        mkdir $envman_demo_dir
+    }
+
+    let envman_exe_path = [target release envman.exe] | path join
+    cp -f $envman_exe_path $envman_demo_dir
+    echo $"Copied ($envman_exe_path) to ($envman_demo_dir)"
+
+    let envman_pkg_dir = [target web envman pkg] | path join
+    cp -f --recursive $envman_pkg_dir $envman_demo_dir
+}
+
+# then
+envman_demo_prepare_release
+cd ([$env.TEMP demo envman] | path join)
+</code></pre>
+<h3 id="notes"><a class="header" href="#notes">Notes</a></h3>
+<ol>
+<li>
+<p>Heya everyone, my name is Azriel, and today I'll be showing you my automation side project, called Peace.</p>
+</li>
+<li>
+<p>Peace is a framework to create user friendly automation.</p>
+</li>
+<li>
+<p>It provides a set of constraints and common functionality, that when you write code according to these constraints, and plug them into the common functionality, you get a nice tool.</p>
+</li>
+<li>
+<p>As with every side project, there is an origin story.</p>
+</li>
+<li>
+<p>In my first job, a team of us were given the task of fully automating our solution deployment.</p>
+</li>
+<li>
+<p>So this was the deployment process, it's all manual.</p>
+</li>
+<li>
+<p>and, obviously this is the solution. Genius.</p>
+</li>
+<li>
+<p>We wanted this process: click, wait, done.</p>
+</li>
+<li>
+<p>And through engineering eyes, we aimed for:. <em>(linking: Dimensions)</em></p>
+</li>
+<li>
+<p>End-to-end automation.</p>
+</li>
+<li>
+<p>Repeatable correctness.</p>
+</li>
+<li>
+<p>and Performance.</p>
+</li>
+<li>
+<p>and we delivered!</p>
+</li>
+<li>
+<p>If you measure success using these metrics, it was undeniable.</p>
+</li>
+<li>
+<p>We reduced the deployment duration down from 2 weeks of manual steps, to 30 minutes.</p>
+</li>
+<li>
+<p>However, our users said "we hate this!". Azriel, this doesn't enhance our lives.</p>
+</li>
+<li>
+<p>What we really did when we introduced automation, was this.</p>
+</li>
+<li>
+<p>When switching from manual steps to automation, the work changes from doing each step at your own pace, to setting up the parameters for all of the steps, pressing go, and waiting.</p>
+</li>
+<li>
+<p>When it's done, you check if your parameters were correct.</p>
+</li>
+<li>
+<p>If they're correct, that's fine.</p>
+</li>
+<li>
+<p>If they weren't, then you had to understand the error, figure out which step it came from, and which parameters feed into that step.</p>
+</li>
+<li>
+<p>Then when the parameter is fixed, which may take 30 seconds, they still had to wait 30 minutes to confirm if their fix worked,</p>
+</li>
+<li>
+<p>and this delayed feedback loop was frustrating.</p>
+</li>
+<li>
+<p>For new users, it was especially painful:</p>
+</li>
+<li>
+<p>We're telling them to fill in parameters that they don't understand,</p>
+</li>
+<li>
+<p>to feed into a process that they cannot see,</p>
+</li>
+<li>
+<p>to create an environment, that they cannot visualize.</p>
+</li>
+<li>
+<p>So they may not have understood what they were doing, but it was certainly our fault.</p>
+</li>
+<li>
+<p>We created pain.</p>
+</li>
+<li>
+<p>We had engineering eyes, but not human eyes:</p>
+</li>
+<li>
+<p>We took away understandability,</p>
+</li>
+<li>
+<p>We took away control.</p>
+</li>
+<li>
+<p>And when you take away understanding and control, you inadvertently also take away morale. <em>What little they had.</em></p>
+</li>
+<li>
+<p>Ideally we should have built something that provides the benefits of automation,</p>
+</li>
+<li>
+<p>while retaining the benefits of manual execution.</p>
+</li>
+<li>
+<p>This is what the Peace framework aims to do.</p>
+</li>
+<li>
+<p>And today I'd like to show you how it does this, through a tool built using the Peace framework.</p>
+</li>
+<li>
+<p>It's called <code>envman</code>, short for environment manager.</p>
+</li>
+<li>
+<p><code>envman</code> automates the download of a web application from github, creates some resources in Amazon, and uploads the web application.</p>
+</li>
+<li>
+<p>Notably there's a missing step to launch a server that runs the web application, but I'm all out of AWS credits. So if you have spare, I'd gladly take them.</p>
+</li>
+<li>
+<p>The first thing we took away was understandability, so let's put that back.</p>
+</li>
+<li>
+<p>There are two ways we tend to write automation:</p>
+</li>
+<li>
+<p>Either we produce too little information, and we can't tell what's going on,</p>
+</li>
+<li>
+<p>or, we produce too much information, and we still can't tell what's going on.</p>
+</li>
+<li>
+<p>For understandability, we need to have something in between.</p>
+</li>
+<li>
+<p>Let's take a look.</p>
+</li>
+<li>
+<p>This is what it looks like when you have too little information:</p>
+</li>
+<li>
+<p><code>clear</code>, <code>./envman deploy --format none</code>, clean.</p>
+</li>
+<li>
+<p>Something's going on, I promise!</p>
+</li>
+<li>
+<p>This is what it looks like when you have too much information:</p>
+</li>
+<li>
+<p><code>./envman deploy --format json</code>, clean.</p>
+</li>
+<li>
+<p>And finally, something in between.</p>
+</li>
+<li>
+<p>See if you can see how many steps there are in this process, and whether they complete successfully:</p>
+</li>
+<li>
+<p><code>clear</code>, <code>./envman deploy</code>.</p>
+</li>
+<li>
+<p>How many steps are there? <em>gesture</em></p>
+</li>
+<li>
+<p>Did every step complete successfully?</p>
+</li>
+<li>
+<p>"Green means good", so I believe so.</p>
+</li>
+<li>
+<p>What resources were created? <em>gesture</em></p>
+</li>
+<li>
+<p>And if we clean up the environment, you'll see a similar interface, so you can tell that each resource is deleted: <code>./envman clean</code>.</p>
+</li>
+<li>
+<p>That's all good when things go well, but what happens in a failure? Can we understand it?</p>
+</li>
+<li>
+<p>First we'll limit the connection speed of the tool to 40 kilobits per second:</p>
+<pre><code class="language-sh">New-NetQosPolicy `
+  -Name "envman" `
+  -AppPathNameMatchCondition "envman.exe" `
+  -PolicyStore ActiveStore `
+  -ThrottleRateActionBitsPerSecond 40KB
+</code></pre>
+</li>
+<li>
+<p>and run the deployment again: <code>clear</code>, <code>./envman deploy</code>.</p>
+</li>
+<li>
+<p>You can see that our download from github has slowed,</p>
+</li>
+<li>
+<p>and in a little while we should see an error happen.</p>
+</li>
+<li>
+<p>Here we go.</p>
+</li>
+<li>
+<p>With fresh eyes, can you see which step went wrong?</p>
+</li>
+<li>
+<p>Red means bad, so it should be apparent.</p>
+</li>
+<li>
+<p>In detail, what went wrong, why it went wrong, and how to recover, are all shown.</p>
+</li>
+<li>
+<p>We failed to upload the object. Why? The upload timed out, and make sure you are connected to the internet and try again.</p>
+</li>
+<li>
+<p>We're also shown which resources exist and which don't, so we don't have to guess.</p>
+</li>
+<li>
+<p>If we fix our connection, and re-run the automation:</p>
+<pre><code class="language-sh">Remove-NetQosPolicy `
+  -Name "envman" `
+  -PolicyStore ActiveStore `
+  -Confirm:$false
+</code></pre>
+</li>
+<li>
+<p>You'll see that it picks up where it left off, and completes the process.</p>
+</li>
+<li>
+<p>That is, what you think it should do, it does. No surprises.</p>
+</li>
+<li>
+<p>So in summary, with information, the goldilocks principle applies:</p>
+</li>
+<li>
+<p>Too much information is overwhelming, too little is not useful, and there's some middle ground which is just right.</p>
+</li>
+<li>
+<p>The Peace framework generally tries to fit the most relevant information on one screen.</p>
+</li>
+<li>
+<p>The second thing we took away, was control.</p>
+</li>
+<li>
+<p>Most automation tools give you one button -- start -- and that's it.</p>
+</li>
+<li>
+<p>Start the creation, or update, and start the deletion.</p>
+</li>
+<li>
+<p>While pressing start is not difficult, knowing whether the automation will do what we think it will, before we press start, is difficult.</p>
+</li>
+<li>
+<p>What we should understand <em>before</em> starting anything, is:</p>
+</li>
+<li>
+<p>Where we are -- our current state,</p>
+</li>
+<li>
+<p>Where we want to go -- our goal state, and</p>
+</li>
+<li>
+<p>The distance between the two.</p>
+</li>
+<li>
+<p>Because if we start with nothing, and end up with something, the distance is something.</p>
+</li>
+<li>
+<p>And if we start with something, and our goal state is something, the distance is nothing.</p>
+</li>
+<li>
+<p>And if we start with something, and our goal state is something else, the distance is that <em>else</em></p>
+</li>
+<li>
+<p>When we understand these three things, then we can make an informed decision if we should press go.</p>
+</li>
+<li>
+<p>Now, if we press start, and change our mind, can we stop the process?</p>
+</li>
+<li>
+<p>Without automation, we can.</p>
+</li>
+<li>
+<p>Like, if someone said, "Azriel! Stop work."</p>
+</li>
+<li>
+<p>I'd say, "Gladly." I can stop where I am.</p>
+</li>
+<li>
+<p>With automation, you need to intentionally build interruptibility into the process.</p>
+</li>
+<li>
+<p>And while pressing Ctrl C on a command line tool is one form of interruption,</p>
+</li>
+<li>
+<p>what we really care about, is safe interruption.</p>
+</li>
+<li>
+<p>i.e. Stop what you're doing when it is safe to do so.</p>
+</li>
+<li>
+<p>Maybe we're at step 5 of a 10 step process, and we want to adjust the parameter for step 7.</p>
+</li>
+<li>
+<p>If we can interrupt the process, adjust the parameters, press go, and have the automation pick up where it left off, that would be great.</p>
+</li>
+<li>
+<p>As in, don't undo all of the work you've already done to get to this point.</p>
+</li>
+<li>
+<p>I just want to fix the parameter for the later step, and continue.</p>
+</li>
+<li>
+<p>Let's see all of this control, in action.</p>
+</li>
+<li>
+<p>Before we run our deployment, what is our environment's current state.</p>
+</li>
+<li>
+<p>Just like we can run <code>git status</code>, we can also run <code>./envman status</code>.</p>
+</li>
+<li>
+<p>What state will the automation bring our environment to, when we run it? <code>./envman goal</code></p>
+</li>
+<li>
+<p>What's the difference? <code>./envman diff</code></p>
+</li>
+<li>
+<p>The commands are intentionally similar to <code>git</code> commands so we make use of familiar names.</p>
+</li>
+<li>
+<p>And for interruptibility, when we deploy, we'll stop the process halfway.</p>
+</li>
+<li>
+<p><code>./envman deploy</code>, ctrl c.</p>
+</li>
+<li>
+<p>Here you can see steps 1 through 3, and step 5 were complete,</p>
+</li>
+<li>
+<p>and step 4 and 6 were not started due to the interruption.</p>
+</li>
+<li>
+<p>If we look at the diff: <code>./envman diff</code>,</p>
+</li>
+<li>
+<p>you can see that steps 1, 2, 3, and 5 are done, steps 4 and 6 haven't been executed.</p>
+</li>
+<li>
+<p>If we change our parameters, to using version 0.1.2 instead of 0.1.1 of our web application,</p>
+</li>
+<li>
+<p>the diff will now show that step 1 will change.</p>
+</li>
+<li>
+<p>And if we run deploy again, that is exactly what happens.</p>
+</li>
+<li>
+<p>When cleaning up, we can also interrupt the process.</p>
+</li>
+<li>
+<p>Steps 1, 4, 5, and 6 were cleaned, and 2 and 3 were not.</p>
+</li>
+<li>
+<p>And we can choose to either deploy the environment again, or clean up fully.</p>
+</li>
+<li>
+<p>Let's deploy it to completion. <code>deploy</code>, <code>clean</code>.</p>
+</li>
+<li>
+<p>What's the use of this?</p>
+</li>
+<li>
+<p>Well there was once we were told,</p>
+</li>
+<li>
+<p>"hey this customer doesn't need their environment anymore, you can delete it."</p>
+</li>
+<li>
+<p>"You sure?"</p>
+</li>
+<li>
+<p>"Yes."</p>
+</li>
+<li>
+<p>So we started the deletion process, and we got this "Hey stop. Stop what you're doing."</p>
+</li>
+<li>
+<p>"We can't. It's all just going to go."</p>
+</li>
+<li>
+<p>And that was the beginning of a very exciting day.</p>
+</li>
+<li>
+<p>So, build a stop button into your automation people.</p>
+</li>
+<li>
+<p>If you use Peace, it is built in for you.</p>
+</li>
+<li>
+<p>We've given back to the user some control, but there are other things still to be implemented like running a subset of the process.</p>
+</li>
+<li>
+<p>Not too hard to implement, just needs time.</p>
+</li>
+<li>
+<p>Morale.</p>
+</li>
+<li>
+<p>Not everyone who uses automation tools has a software background, and not everyone uses the command line all the time.</p>
+</li>
+<li>
+<p>So why not create something that caters for these situations as well?</p>
+</li>
+<li>
+<p>Back to understandability, normally when explaining what automation does,</p>
+</li>
+<li>
+<p>we tend to draw a diagram on the whiteboard,</p>
+</li>
+<li>
+<p>or create a diagram in an internal documentation site.</p>
+</li>
+<li>
+<p>However, it's never really accurate, and it's usually a tangle of overlapping boxes and lines,</p>
+</li>
+<li>
+<p>so it is hard to understand, because the information isn't clear.</p>
+</li>
+<li>
+<p>So here's a web interface. <code>./envman web</code></p>
+</li>
+<li>
+<p>Based on the code written for your automation, two diagrams are generated:</p>
+</li>
+<li>
+<p>The one on the left is called the Progress diagram, which shows the steps in your process,</p>
+</li>
+<li>
+<p>and the one on the right is the Outcome diagram, which shows what the deployed environment looks like, before you deploy it.</p>
+</li>
+<li>
+<p>By clicking on these steps on the right, we get to see what is happening in that step.</p>
+</li>
+<li>
+<p>For example the first step is to download a file from Github, it shows you the request to github and where it saves the file on the file system.</p>
+</li>
+<li>
+<p>Then it creates the IAM policy, role, and instance profile, and S3 bucket,</p>
+</li>
+<li>
+<p>then uploads the web application to that bucket.</p>
+</li>
+<li>
+<p>All of this is generated from your automation code. Magic.</p>
+</li>
+<li>
+<p>This is what you can use to teach someone, or self learn, what the automation process is, and what the environment looks like.</p>
+</li>
+<li>
+<p>And you don't have to keep erasing and redrawing lines on the whiteboard.</p>
+</li>
+<li>
+<p>Which step was unclear? This one? Let's go through that again.</p>
+</li>
+<li>
+<p>Now, this is great, but I like this one.</p>
+</li>
+<li>
+<p>The diagram you saw is the example environment, but what does the actual environment look like?</p>
+</li>
+<li>
+<p>We can discover it.</p>
+</li>
+<li>
+<p>The diagram on the right has faded boxes for each resource, indicating that it doesn't exist.</p>
+</li>
+<li>
+<p>When I click deploy, you can watch the progress diagram on the left, which will show you which steps are being executed,</p>
+</li>
+<li>
+<p>or you can watch the outcome diagram on the right, which will show you the interactions between hosts, that are happening in real time.</p>
+</li>
+<li>
+<p>All of the steps completed successfully, that why they're green,</p>
+</li>
+<li>
+<p>and the resources have been created, so they are now visible.</p>
+</li>
+<li>
+<p>We can do the same for clean up, and it will delete all of the resources from Amazon, as well as on disk.</p>
+</li>
+<li>
+<p>And if we were to have an error, as we did before, we should see it clearly.</p>
+</li>
+<li>
+<p><em>slow down internet, click deploy</em></p>
+</li>
+<li>
+<p>Let's take a moment to admire this diagram.</p>
+</li>
+<li>
+<p>Ooh look it's gone red.</p>
+</li>
+<li>
+<p>So very quickly, from the user interface, you can tell which step the error came from,</p>
+</li>
+<li>
+<p>as well as which resources it involves.</p>
+</li>
+<li>
+<p>And we can surface the timeout message on the web interface, I just haven't coded that part yet.</p>
+</li>
+<li>
+<p>Cool.</p>
+</li>
+<li>
+<p>So for morale, a lot of effort has been put into aesthetics.</p>
+</li>
+<li>
+<p>For seeing the state of the system, showing one line for each resource, with a link to the full detail, is deliberate.</p>
+</li>
+<li>
+<p>If you've ever been on-call and gotten a call out in the middle of the night, it's very annoying to have to go and find each resource that is part of the system you are investigating.</p>
+</li>
+<li>
+<p>If I can think it, take me there.</p>
+</li>
+<li>
+<p>For progress, we present the information at a level of detail that is digestable,</p>
+</li>
+<li>
+<p>and for errors, instead of panicking, which is visually equivalent of printing a stack trace,</p>
+</li>
+<li>
+<p>we take that error, refine it, and make it beautiful.</p>
+</li>
+<li>
+<p>Always include what went wrong, the reason, and how to recover,</p>
+</li>
+<li>
+<p>because when help people recover from a bad situation,</p>
+</li>
+<li>
+<p>you recover their morale.</p>
+</li>
+<li>
+<p>With all of these aesthetic refinements, that box, is no longer opaque.</p>
+</li>
+<li>
+<p>It is completely, clear.</p>
+</li>
+<li>
+<p>You can see inside it, you can understand it, and you can control it.</p>
+</li>
+<li>
+<p>How does all of this work?</p>
+</li>
+<li>
+<p>Magic.</p>
+</li>
+<li>
+<p>Architecture, how does it fit together?</p>
+</li>
+<li>
+<p>The Peace framework is categorised into two main parts.</p>
+</li>
+<li>
+<p>The item definition, which is the common shape of logic and data, for anything that is managed by automation, and</p>
+</li>
+<li>
+<p>Common functionality, which works with those shapes to provide command execution and a user interface.</p>
+</li>
+<li>
+<p>Item crates contain the logic and data to automate one thing, and</p>
+</li>
+<li>
+<p>the tool crate connects different items together, and passes them to the common functionality from the Peace framework, to provide automation.</p>
+</li>
+<li>
+<p>These groupings are deliberate, so that you can share and reuse common item logic from the standard package registry,</p>
+</li>
+<li>
+<p>while keeping proprietary values and workflows within your tool.</p>
+</li>
+<li>
+<p>Let's go deeper.</p>
+</li>
+<li>
+<p>Starting with Item.</p>
+</li>
+<li>
+<p>If you think of one step in a process, normally we would write code to <em>do</em> the step.</p>
+</li>
+<li>
+<p>But instead of only writing code that does the work of that step,</p>
+</li>
+<li>
+<p>an Item is a collection of functions that interact with the thing that is being automated.</p>
+</li>
+<li>
+<p>What is the current state of the thing I'm managing?</p>
+</li>
+<li>
+<p>What will it be, after the automation logic is executed?</p>
+</li>
+<li>
+<p>What's the difference between these states?</p>
+</li>
+<li>
+<p>What does it look like if it's not there?</p>
+</li>
+<li>
+<p>The actual work logic, and</p>
+</li>
+<li>
+<p>interactions -- what are the hosts, and paths that are involved in this automation.</p>
+</li>
+<li>
+<p>Is it a request to fetch data back in, or is it a push to push data out.</p>
+</li>
+<li>
+<p>This information is used to generate the diagram you saw earlier.</p>
+</li>
+<li>
+<p>An example implementation of this, the File Download.</p>
+</li>
+<li>
+<p>The current state function returns the state of the file on disk -- whether or not it exists.</p>
+</li>
+<li>
+<p>And if it does exist, it also returns the MD5 hash.</p>
+</li>
+<li>
+<p>The goal state function returns the state of the file from the server, because the state of the file on the server, will become the state of the file on disk, when the download is executed.</p>
+</li>
+<li>
+<p>So this would fetch the content-length and etag from the server, as a way to compare with what is on disk locally.</p>
+</li>
+<li>
+<p>Many servers use the MD5 hash of a file as its etag.</p>
+</li>
+<li>
+<p><code>state_diff</code> returns whether the local file has the same hash as the remote file.</p>
+</li>
+<li>
+<p>If it's got a different hash, then we assume we need to download it.</p>
+</li>
+<li>
+<p><code>state_clean</code> returns "the file does not exist".</p>
+</li>
+<li>
+<p><code>apply</code> downloads the file.</p>
+</li>
+<li>
+<p>and <code>interactions</code> says I'm pulling data from this host, and writing to this path on localhost.</p>
+</li>
+<li>
+<p>A collection of functions is called an Item.</p>
+</li>
+<li>
+<p>And a collection of items, is called a Flow.</p>
+</li>
+<li>
+<p>And a flow also contains the dependency ordering between items.</p>
+</li>
+<li>
+<p>And in Rust, since we cannot store different concrete types in a collection, we have to put them on the heap and store their addresses.</p>
+</li>
+<li>
+<p>Then this flow is what is passed to Peace's common functionality to use in execution or display.</p>
+</li>
+<li>
+<p>Commands. Commands are one of the common functionality that Peace provides.</p>
+</li>
+<li>
+<p>Given a flow and parameters, it invokes different functions within each item.</p>
+</li>
+<li>
+<p>For example, the Discover command.</p>
+</li>
+<li>
+<p>What is the current state of each item? What is the goal state of each item?</p>
+</li>
+<li>
+<p>The discover command will run these functions, store the state, and display it to the user.</p>
+</li>
+<li>
+<p>The Diff command will compute and show the difference between the current and goal states of each item.</p>
+</li>
+<li>
+<p>The Ensure command will turn the current state of each item, into its goal state, through the apply function.</p>
+</li>
+<li>
+<p>The Clean command is similar, where it turns the current state into the clean state, also through the apply function.</p>
+</li>
+<li>
+<p>So Peace provides common logic to iterate through the items, and call the appropriate functions.</p>
+</li>
+<li>
+<p>and it will also pass the appropriate values between each item.</p>
+</li>
+<li>
+<p>That, is magic.</p>
+</li>
+<li>
+<p>Going back to the Item definition, besides the functions to read from or write to the item, implementors also have to specify these data types.</p>
+</li>
+<li>
+<p>Input, which we call parameters, and</p>
+</li>
+<li>
+<p>Output, which we call State.</p>
+</li>
+<li>
+<p>The parameters tell the item where to fetch data from, and where to write to, as well as any other information needed to access the item.</p>
+</li>
+<li>
+<p>The state indicates whether or not the item exists, where it lives, and a summary of its contents.</p>
+</li>
+<li>
+<p>This is the type that is returned from the current, goal, and clean state functions.</p>
+</li>
+<li>
+<p>Putting it all together:</p>
+</li>
+<li>
+<p>We combine the items into a flow,</p>
+</li>
+<li>
+<p>We specify the parameters for each item,</p>
+</li>
+<li>
+<p>Pick an output -- the command line, or web, or both,</p>
+</li>
+<li>
+<p>and these three things together is called a command context.</p>
+</li>
+<li>
+<p>Essentially "all the things you need to run a command".</p>
+</li>
+<li>
+<p>Surface the commands to the user with appropriate names,</p>
+</li>
+<li>
+<p>and this is your tool.</p>
+</li>
+<li>
+<p>So Peace is a side project, and</p>
+</li>
+<li>
+<p>there are side-side projects that were built in the making of Peace.</p>
+</li>
+<li>
+<p>The first noticeable one is Interruptible, which adds the ability to interrupt a stream.</p>
+</li>
+<li>
+<p>If you think about playing music, we are streaming bytes to a speaker, and out comes some audio.</p>
+</li>
+<li>
+<p>When we pause the music, the bytes that were buffered still play, but any bytes that were not the audio buffer will not be played.</p>
+</li>
+<li>
+<p>In automation, instead of streaming bytes to a speaker, we are streaming logic, to an executor.</p>
+</li>
+<li>
+<p>When we pause, any logic that was already queued and is executing, will continue to run to completion.</p>
+</li>
+<li>
+<p>Any logic that hasn't been queued, will not be started.</p>
+</li>
+<li>
+<p>So we fully execute what is in progress to completion, and safely stop between steps.</p>
+</li>
+<li>
+<p>And that's how we get safe interruptibility.</p>
+</li>
+<li>
+<p>The second noticeable project is Dot Interactive.</p>
+</li>
+<li>
+<p>This generates diagrams from structured input.</p>
+</li>
+<li>
+<p>So it takes a data model with the nodes and edges, generates a diagram using GraphViz dot, and adds styles using Tailwind.</p>
+</li>
+<li>
+<p>And that's what I've used for most of the diagrams you've seen today.</p>
+</li>
+<li>
+<p>Now rounding off, what's the status of Peace? Is it ready to be used?</p>
+</li>
+<li>
+<p>For development workflows, or short lived environments, where the environment does not live longer than one version of a tool,</p>
+</li>
+<li>
+<p>I'd say it is ready.</p>
+</li>
+<li>
+<p>But for production workflows, or environments that need to be stable, then Peace is not ready.</p>
+</li>
+<li>
+<p>Don't use it, you will not have Peace.</p>
+</li>
+<li>
+<p>In the table below, you can see the command execution and CLI functionality is stable,</p>
+</li>
+<li>
+<p>The web interface is definitely not stable -- it was hacked together last month for this demo, and</p>
+</li>
+<li>
+<p>the most important one for readiness is API and data stability, which may take me a year to complete.</p>
+</li>
+<li>
+<p>Links to the project:</p>
+</li>
+<li>
+<p>peace.mk for the project website</p>
+</li>
+<li>
+<p>Slides are on peace.mk/book.</p>
+</li>
+<li>
+<p>github.com/azriel91/peace for the repository.</p>
+</li>
+<li>
+<p>To wrap up, I'd like to end with this note:</p>
+</li>
+<li>
+<p>To engineer with empathy,</p>
+</li>
+<li>
+<p>whether it is verbal, visual, or vocal,</p>
+</li>
+<li>
+<p>refine your voice, connect,</p>
+</li>
+<li>
+<p>and communicate with clarity.</p>
+</li>
+<li>
+<p>Thank you for listening, and I'm happy to take questions.</p>
+</li>
+</ol>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../learning_material/dot_ix_diagram_generator/qna.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../learning_material/peace_zero_stress_automation/peace_framework.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../learning_material/dot_ix_diagram_generator/qna.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../learning_material/peace_zero_stress_automation/peace_framework.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../src/js/highlightjs-line-numbers.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

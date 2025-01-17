@@ -1,0 +1,49 @@
+.column_half {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+.centered_container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.centered_container > * {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+code {
+    border-radius: 4px;
+}
+main pre code.hljs {
+    padding: 0.6em; /* override hljs padding */
+}
+
+hr {
+    border-top-width: 2px;
+    border-bottom-width: 0px;
+    border-color: #7f7f7f7f;
+}
+
+/* === highlightjs code === */
+:not(pre) > code.hljs {
+    background-color: #e0e0e0;
+}
+
+.hljs-ln-n {
+    border: none;
+    padding: 0.1em 0.5em;
+}
+
+ol ol {
+    list-style: lower-alpha;
+}
+
+ol ol ol {
+    list-style: lower-roman;
+}
