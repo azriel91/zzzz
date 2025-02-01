@@ -1,8 +1,9 @@
 use std::any::TypeId;
 
 use peace::{
-    cfg::{accessors::Stored, item_id, ItemId},
+    cfg::accessors::Stored,
     data::{fn_graph::Resources, Data, DataAccess, DataAccessDyn, TypeIds},
+    item_model::{item_id, ItemId},
     resource_rt::{internal::StatesMut, states::StatesCurrentStored},
 };
 

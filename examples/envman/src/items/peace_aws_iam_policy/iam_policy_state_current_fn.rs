@@ -11,7 +11,7 @@ use crate::items::peace_aws_iam_policy::{
 };
 
 #[cfg(feature = "output_progress")]
-use peace::cfg::progress::ProgressMsgUpdate;
+use peace::progress_model::ProgressMsgUpdate;
 
 /// Reads the current state of the instance profile state.
 #[derive(Debug)]

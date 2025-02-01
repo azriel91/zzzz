@@ -1,16 +1,18 @@
 use diff::{VecDiff, VecDiffType};
 use peace::{
-    cfg::{app_name, profile, FlowId},
+    cfg::{app_name, profile},
     cli::output::CliOutput,
     cmd::ctx::CmdCtx,
     cmd_model::CmdOutcome,
+    flow_model::FlowId,
+    flow_rt::{Flow, ItemGraphBuilder},
     params::ParamsSpec,
     resource_rt::states::{
         ts::{Current, CurrentStored, Goal, GoalStored},
         StatesCurrent, StatesGoal,
     },
     rt::cmds::{DiffCmd, StatesDiscoverCmd},
-    rt_model::{output::OutputWrite, Flow, ItemGraphBuilder, Workspace, WorkspaceSpec},
+    rt_model::{output::OutputWrite, Workspace, WorkspaceSpec},
 };
 
 use crate::{

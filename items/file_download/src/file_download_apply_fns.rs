@@ -23,8 +23,8 @@ use crate::{
 
 #[cfg(feature = "output_progress")]
 use peace::{
-    cfg::progress::{ProgressLimit, ProgressMsgUpdate},
     diff::Tracked,
+    progress_model::{ProgressLimit, ProgressMsgUpdate},
 };
 
 /// ApplyFns for the file to download.

@@ -24,7 +24,7 @@ url = { version = "2.5.4", features = ["serde"] }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 peace = { workspace = true, default-features = false, features = ["cli"] }
-clap = { version = "4.5.26", features = ["derive"] }
+clap = { version = "4.5.27", features = ["derive"] }
 tokio = { version = "1.43.0", features = ["net", "time", "rt"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]

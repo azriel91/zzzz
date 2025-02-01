@@ -22,7 +22,10 @@ test = false
 [dependencies]
 peace_core = { workspace = true }
 peace_data = { workspace = true }
+peace_flow_model = { workspace = true }
 peace_fmt = { workspace = true }
+peace_item_model = { workspace = true }
+peace_profile_model = { workspace = true }
 resman = { workspace = true, features = ["debug"] }
 serde = { workspace = true, features = ["derive"] }
 tokio = { workspace = true, features = ["sync"] }

@@ -1,4 +1,4 @@
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 use serde::{Deserialize, Serialize};
 
 /// Serializable representation of values used for / produced by an [`Item`].

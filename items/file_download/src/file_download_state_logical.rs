@@ -3,7 +3,7 @@ use std::{fmt, path::PathBuf};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "output_progress")]
-use peace::item_model::ItemLocationState;
+use peace::item_interaction_model::ItemLocationState;
 
 /// State of the contents of the file to download.
 ///

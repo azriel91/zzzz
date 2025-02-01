@@ -5,7 +5,7 @@ use futures::stream::{self, StreamExt, TryStreamExt};
 use leptos::view;
 use leptos_axum::LeptosRoutes;
 use peace_cmd_model::CmdExecutionId;
-use peace_core::FlowId;
+use peace_flow_model::FlowId;
 use peace_webi_components::{App, ChildrenFn, Shell};
 use peace_webi_model::{WebUiUpdate, WebiError};
 use tokio::{io::AsyncWriteExt, sync::mpsc};
@@ -22,7 +22,7 @@ use peace_webi_model::OutcomeInfoGraphVariant;
 use std::collections::HashMap;
 
 #[cfg(feature = "output_progress")]
-use peace_core::progress::CmdBlockItemInteractionType;
+use peace_progress_model::CmdBlockItemInteractionType;
 
 #[cfg(feature = "output_progress")]
 use crate::ProgressInfoGraphCalculator;

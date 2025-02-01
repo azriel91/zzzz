@@ -1,11 +1,12 @@
 use std::fmt;
 
-use peace_core::ItemId;
+use peace_item_model::ItemId;
+use serde::{Deserialize, Serialize};
 
 use crate::{FieldNameAndType, ValueResolutionMode};
 
 /// Collects information about how a value is resolved.
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ValueResolutionCtx {
     /// When resolving `Value`s, whether to look up `Current<T>` or
     /// `Goal<T>`.

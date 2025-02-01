@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::FileMetadata;
 
 #[cfg(feature = "output_progress")]
-use peace::item_model::ItemLocationState;
+use peace::item_interaction_model::ItemLocationState;
 
 /// Metadata of files to extract.
 ///

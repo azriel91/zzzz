@@ -5,12 +5,9 @@
 
 // Re-exports
 pub use async_trait::async_trait;
-#[cfg(feature = "output_progress")]
-pub use peace_core::progress;
-
 pub use peace_core::*;
 
-pub use crate::{fn_ctx::FnCtx, item::Item, state::State};
+pub use crate::{apply_check::ApplyCheck, fn_ctx::FnCtx, item::Item, state::State};
 
 #[cfg(feature = "output_progress")]
 pub use crate::ref_into::RefInto;
@@ -18,6 +15,7 @@ pub use crate::ref_into::RefInto;
 pub mod accessors;
 pub mod state;
 
+mod apply_check;
 mod fn_ctx;
 mod item;
 

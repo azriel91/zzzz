@@ -2,7 +2,7 @@
 
 use std::{fmt::Debug, ops::Deref};
 
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 use serde::Serialize;
 use type_reg::{
     common::UnknownEntriesSome,

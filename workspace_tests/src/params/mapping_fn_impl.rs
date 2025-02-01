@@ -41,7 +41,7 @@ macro_rules! mapping_tests {
         mod $module_name {
             use peace::{
                 data::marker::$value_resolution_mode,
-                cfg::{item_id},
+                item_model::item_id,
                 params::{
                     MappingFn, MappingFnImpl, ParamsResolveError,
                     ValueResolutionCtx, ValueResolutionMode,

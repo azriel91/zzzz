@@ -30,7 +30,7 @@ pub fn FlowGraph() -> impl IntoView {
 #[server]
 async fn progress_info_graph_fetch() -> Result<InfoGraph, ServerFnError> {
     use leptos::prelude::{Get, ReadSignal};
-    use peace_core::FlowId;
+    use peace_flow_model::FlowId;
     use peace_webi_model::FlowProgressInfoGraphs;
 
     let flow_id = leptos::prelude::use_context::<ReadSignal<FlowId>>();
@@ -86,7 +86,7 @@ fn ProgressGraph() -> impl IntoView {
 #[server]
 async fn outcome_info_graph_fetch() -> Result<InfoGraph, ServerFnError> {
     use leptos::prelude::{Get, ReadSignal};
-    use peace_core::FlowId;
+    use peace_flow_model::FlowId;
     use peace_webi_model::FlowOutcomeInfoGraphs;
 
     let flow_id = leptos::prelude::use_context::<ReadSignal<FlowId>>();

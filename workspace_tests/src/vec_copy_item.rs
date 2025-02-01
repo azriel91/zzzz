@@ -4,20 +4,21 @@ use std::{
 };
 
 use diff::{Diff, VecDiff, VecDiffType};
-#[cfg(feature = "output_progress")]
 use peace::{
-    cfg::progress::{ProgressLimit, ProgressMsgUpdate},
-    item_model::ItemLocationState,
-};
-use peace::{
-    cfg::{async_trait, item_id, ApplyCheck, FnCtx, Item, ItemId},
+    cfg::{async_trait, ApplyCheck, FnCtx, Item},
     data::{
         accessors::{RMaybe, W},
         Data,
     },
+    item_model::{item_id, ItemId},
     params::Params,
     resource_rt::{resources::ts::Empty, states::StatesCurrentStored, Resources},
     rt_model::ItemWrapper,
+};
+#[cfg(feature = "output_progress")]
+use peace::{
+    item_interaction_model::ItemLocationState,
+    progress_model::{ProgressLimit, ProgressMsgUpdate},
 };
 use serde::{Deserialize, Serialize};
 
@@ -235,8 +236,8 @@ impl Item for VecCopyItem {
     fn interactions(
         _params: &Self::Params<'_>,
         _data: Self::Data<'_>,
-    ) -> Vec<peace::item_model::ItemInteraction> {
-        use peace::item_model::{ItemInteractionPush, ItemLocation};
+    ) -> Vec<peace::item_interaction_model::ItemInteraction> {
+        use peace::item_interaction_model::{ItemInteractionPush, ItemLocation};
 
         let item_interaction = ItemInteractionPush::new(
             vec![

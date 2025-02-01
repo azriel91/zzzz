@@ -21,7 +21,7 @@ pub mod ts;
 ///
 /// * `TS`: The type state of the `Resources` map.
 ///
-/// [`ItemId`]: peace_cfg::ItemId
+/// [`ItemId`]: peace_item_model::ItemId
 #[derive(Debug)]
 pub struct Resources<TS> {
     inner: resman::Resources,

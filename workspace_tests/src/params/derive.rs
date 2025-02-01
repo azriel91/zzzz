@@ -70,7 +70,7 @@ mod struct_params {
     use serde::{Deserialize, Serialize};
 
     use peace::{
-        cfg::item_id,
+        item_model::item_id,
         params::{Params, ParamsSpec, ValueResolutionCtx, ValueResolutionMode, ValueSpec},
         resource_rt::{resources::ts::SetUp, Resources},
     };
@@ -269,7 +269,7 @@ mod struct_with_type_params {
     use serde::{Deserialize, Serialize};
 
     use peace::{
-        cfg::item_id,
+        item_model::item_id,
         params::{Params, ParamsSpec, ValueResolutionCtx, ValueResolutionMode, ValueSpec},
         resource_rt::{resources::ts::SetUp, Resources},
     };
@@ -489,7 +489,7 @@ mod tuple_params {
     use serde::{Deserialize, Serialize};
 
     use peace::{
-        cfg::item_id,
+        item_model::item_id,
         params::{Params, ParamsSpec, ValueResolutionCtx, ValueResolutionMode, ValueSpec},
         resource_rt::{resources::ts::SetUp, Resources},
     };
@@ -665,7 +665,7 @@ mod tuple_with_type_params {
     use serde::{Deserialize, Serialize};
 
     use peace::{
-        cfg::item_id,
+        item_model::item_id,
         params::{Params, ParamsSpec, ValueResolutionCtx, ValueResolutionMode, ValueSpec},
         resource_rt::{resources::ts::SetUp, Resources},
     };
@@ -866,7 +866,7 @@ mod enum_params {
     use serde::{Deserialize, Serialize};
 
     use peace::{
-        cfg::item_id,
+        item_model::item_id,
         params::{Params, ParamsSpec, ValueResolutionCtx, ValueResolutionMode, ValueSpec},
         resource_rt::{resources::ts::SetUp, Resources},
     };
@@ -1499,7 +1499,7 @@ mod struct_recursive_value {
     use serde::{Deserialize, Serialize};
 
     use peace::{
-        cfg::item_id,
+        item_model::item_id,
         params::{Params, ParamsSpec, ValueResolutionCtx, ValueResolutionMode, ValueSpec},
         resource_rt::{resources::ts::SetUp, Resources},
     };

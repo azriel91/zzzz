@@ -7,7 +7,7 @@ use peace_data::fn_graph::FnId;
 /// This is a cheap identifier to copy around, instead of cloning
 /// [`ItemId`].
 ///
-/// [`ItemId`]: peace_cfg::ItemId
+/// [`ItemId`]: peace_item_model::ItemId
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ItemRtId(FnId);
 

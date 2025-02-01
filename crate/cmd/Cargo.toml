@@ -28,9 +28,14 @@ own = { workspace = true }
 peace_cfg = { workspace = true }
 peace_code_gen = { workspace = true }
 peace_core = { workspace = true }
+peace_flow_rt = { workspace = true }
+peace_item_model = { workspace = true }
 peace_params = { workspace = true }
+peace_profile_model = { workspace = true }
+peace_progress_model = { workspace = true, optional = true }
 peace_resource_rt = { workspace = true }
 peace_rt_model = { workspace = true }
+peace_state_rt = { workspace = true }
 peace_value_traits = { workspace = true }
 serde = { workspace = true }
 
@@ -41,11 +46,13 @@ tokio = { workspace = true, features = ["fs"] }
 default = []
 item_state_example = [
     "peace_cfg/item_state_example",
+    "peace_flow_rt/item_state_example",
     "peace_rt_model/item_state_example",
     "peace_params/item_state_example",
 ]
 output_progress = [
     "dep:indicatif",
-    "peace_core/output_progress",
+    "dep:peace_progress_model",
+    "peace_flow_rt/output_progress",
     "peace_rt_model/output_progress",
 ]

@@ -5,9 +5,9 @@ use aws_sdk_s3::{
     operation::create_bucket::CreateBucketError,
     types::{BucketLocationConstraint, CreateBucketConfiguration},
 };
-#[cfg(feature = "output_progress")]
-use peace::cfg::progress::{ProgressLimit, ProgressMsgUpdate};
 use peace::cfg::{ApplyCheck, FnCtx};
+#[cfg(feature = "output_progress")]
+use peace::progress_model::{ProgressLimit, ProgressMsgUpdate};
 
 use crate::items::peace_aws_s3_bucket::{
     S3BucketData, S3BucketError, S3BucketParams, S3BucketState, S3BucketStateDiff,

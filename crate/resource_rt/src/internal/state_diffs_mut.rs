@@ -1,6 +1,6 @@
 use std::ops::{Deref, DerefMut};
 
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 use serde::Serialize;
 use type_reg::untagged::{BoxDtDisplay, TypeMap};
 

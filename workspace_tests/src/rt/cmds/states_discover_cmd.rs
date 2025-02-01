@@ -1,14 +1,17 @@
 use peace::{
-    cfg::{app_name, profile, FlowId, ItemId},
+    cfg::{app_name, profile},
     cmd::ctx::CmdCtx,
     cmd_model::CmdOutcome,
+    flow_model::FlowId,
+    flow_rt::{Flow, ItemGraphBuilder},
+    item_model::ItemId,
     resource_rt::{
         paths::StatesGoalFile,
         states::{StatesCurrentStored, StatesGoal},
         type_reg::untagged::{BoxDtDisplay, TypeReg},
     },
     rt::cmds::{EnsureCmd, StatesCurrentReadCmd, StatesDiscoverCmd, StatesGoalReadCmd},
-    rt_model::{Flow, ItemGraphBuilder, Workspace, WorkspaceSpec},
+    rt_model::{Workspace, WorkspaceSpec},
 };
 
 use crate::{
@@ -19,7 +22,7 @@ use crate::{
 };
 
 #[cfg(feature = "output_progress")]
-use peace::cfg::progress::{ProgressComplete, ProgressStatus};
+use peace::progress_model::{ProgressComplete, ProgressStatus};
 
 #[tokio::test]
 async fn current_and_goal_discovers_both_states_current_and_goal(

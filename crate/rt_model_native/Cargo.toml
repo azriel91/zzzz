@@ -34,6 +34,5 @@ default = []
 error_reporting = ["peace_rt_model_core/error_reporting"]
 output_in_memory = ["peace_rt_model_core/output_in_memory"]
 output_progress = [
-    "peace_core/output_progress",
     "peace_rt_model_core/output_progress",
 ]

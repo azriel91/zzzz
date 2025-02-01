@@ -4,7 +4,7 @@ use fn_graph::{
     resman::{BorrowFail, Ref},
     DataAccess, DataAccessDyn, Resources, TypeIds,
 };
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 
 use crate::Data;
 

@@ -3,11 +3,9 @@ use peace::{cfg::async_trait, fmt::Presentable, rt_model::output::OutputWrite};
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
         use peace::{
-            cfg::{
-                progress::{CmdBlockItemInteractionType, ProgressTracker, ProgressUpdateAndId},
-                ItemId,
-            },
-            item_model::ItemLocationState,
+            item_interaction_model::ItemLocationState,
+            item_model::ItemId,
+            progress_model::{CmdBlockItemInteractionType, ProgressTracker, ProgressUpdateAndId},
             rt_model::CmdProgressTracker,
         };
     }

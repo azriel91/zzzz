@@ -33,15 +33,15 @@ pub fn data_access(input: TokenStream) -> TokenStream {
 fn impl_data_access(ast: &DeriveInput) -> proc_macro2::TokenStream {
     let name = &ast.ident;
 
-    let (peace_data_path, peace_cfg_path) = ast
+    let (peace_data_path, peace_item_model_path) = ast
         .attrs
         .iter()
         .find(peace_internal)
         .map(
             #[cfg_attr(coverage_nightly, coverage(off))]
-            |_| (quote!(peace_data), quote!(peace_cfg)),
+            |_| (quote!(peace_data), quote!(peace_item_model)),
         )
-        .unwrap_or_else(|| (quote!(peace::data), quote!(peace::cfg)));
+        .unwrap_or_else(|| (quote!(peace::data), quote!(peace::item_model)));
 
     let mut generics = ast.generics.clone();
 
@@ -121,7 +121,7 @@ fn impl_data_access(ast: &DeriveInput) -> proc_macro2::TokenStream {
             for #name #ty_generics
             #where_clause
         {
-            fn borrow(item_id: & #impl_borrow_lt #peace_cfg_path::ItemId, resources: & #impl_borrow_lt #peace_data_path::Resources) -> Self {
+            fn borrow(item_id: & #impl_borrow_lt #peace_item_model_path::ItemId, resources: & #impl_borrow_lt #peace_data_path::Resources) -> Self {
                 #borrow_return
             }
         }

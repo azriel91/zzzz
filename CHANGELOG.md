@@ -1,5 +1,15 @@
 # Changelog
 
+## unreleased
+
+* Split `flow_rt` and `state_rt` crates from `rt_model`. ([#187], [#202])
+* Split `peace_core::progress` into `peace_progress_model` crate. ([#187], [#202])
+* Make `ValueResolutionCtx` and `FieldNameAndType` serializable. ([#187], [#202])
+
+
+[#202]: https://github.com/azriel91/peace/pull/202
+
+
 ## 0.0.14 (2025-01-18)
 
 * Move `Cli*` types to `peace_cli` crate under `cli::output` module. ([#182], [#189])

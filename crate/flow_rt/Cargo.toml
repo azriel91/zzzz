@@ -1,0 +1,55 @@
+[package]
+name = "peace_flow_rt"
+description = "Flow runtime types for the peace automation framework."
+documentation = "https://docs.rs/peace_flow_rt/"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+categories.workspace = true
+keywords.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[lib]
+doctest = true
+test = false
+
+[dependencies]
+cfg-if = { workspace = true }
+indexmap = { workspace = true, optional = true }
+peace_cfg = { workspace = true }
+peace_data = { workspace = true }
+peace_flow_model = { workspace = true }
+peace_item_interaction_model = { workspace = true, optional = true }
+peace_item_model = { workspace = true, optional = true }
+peace_params = { workspace = true, optional = true }
+peace_resource_rt = { workspace = true }
+peace_rt_model = { workspace = true }
+
+[features]
+default = []
+item_interactions = [
+    "dep:indexmap",
+    "dep:peace_item_interaction_model",
+    "dep:peace_item_model",
+    "dep:peace_params",
+    "peace_cfg/item_interactions",
+    "peace_item_interaction_model/item_locations_and_interactions",
+    "peace_rt_model/item_interactions",
+]
+item_state_example = [
+    "dep:peace_params",
+    "peace_cfg/item_state_example",
+    "peace_data/item_state_example",
+    "peace_params/item_state_example",
+    "peace_rt_model/item_state_example",
+]
+output_progress = [
+    "peace_cfg/output_progress",
+]
+

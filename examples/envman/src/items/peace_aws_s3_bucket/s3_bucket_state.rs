@@ -5,7 +5,7 @@ use peace::cfg::state::Timestamped;
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "output_progress")]
-use peace::item_model::ItemLocationState;
+use peace::item_interaction_model::ItemLocationState;
 
 /// S3 bucket state.
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq)]

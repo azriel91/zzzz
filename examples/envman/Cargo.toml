@@ -18,9 +18,9 @@ test = false
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-aws-config = { version = "1.5.14", optional = true }
-aws-sdk-iam = { version = "1.57.0", optional = true }
-aws-sdk-s3 = { version = "1.69.0", optional = true }
+aws-config = { version = "1.5.15", optional = true }
+aws-sdk-iam = { version = "1.59.0", optional = true }
+aws-sdk-s3 = { version = "1.71.0", optional = true }
 aws-smithy-types = { version = "1.2.12", optional = true } # used to reference error type, otherwise not recommended for direct usage
 base64 = { version = "0.22.1", optional = true }
 cfg-if = "1.0.0"
@@ -30,7 +30,7 @@ futures = { version = "0.3.31", optional = true }
 md5-rs = { version = "0.1.5", optional = true }  # WASM compatible, and reads bytes as stream
 peace = { path = "../..", default-features = false }
 peace_items = { path = "../../items", features = ["file_download"] }
-semver = { version = "1.0.24", optional = true }
+semver = { version = "1.0.25", optional = true }
 serde = { version = "1.0.217", features = ["derive"] }
 thiserror = { version = "2.0.11", optional = true }
 url = { version = "2.5.4", features = ["serde"] }
@@ -50,7 +50,7 @@ tower-http = { version = "0.6.2", optional = true, features = ["fs"] }
 tracing = { version = "0.1.41", optional = true }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-clap = { version = "4.5.26", features = ["derive"], optional = true }
+clap = { version = "4.5.27", features = ["derive"], optional = true }
 tokio = { version = "1.43.0", features = ["rt", "rt-multi-thread", "signal"], optional = true }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
@@ -65,13 +65,15 @@ js-sys = "0.3.77"
 web-sys = "0.3.77"
 
 [features]
-default = ["item_interactions", "item_state_example"]
+default = []
 
 # === envman modes === #
 cli = [
     "error_reporting",
-    "output_progress",
     "flow_logic",
+    "item_interactions",
+    "item_state_example",
+    "output_progress",
     "web_server",
 
     "peace/cli",

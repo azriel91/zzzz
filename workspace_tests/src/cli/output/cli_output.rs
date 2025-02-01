@@ -1,7 +1,8 @@
 use peace::{
-    cfg::{item_id, State},
+    cfg::State,
     cli::output::{CliColorizeOpt, CliOutput, CliOutputBuilder},
     cli_model::OutputFormat,
+    item_model::item_id,
     resource_rt::{
         internal::{StateDiffsMut, StatesMut},
         states::{StateDiffs, StatesCurrentStored},
@@ -12,7 +13,8 @@ use peace::{
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
         use peace::{
-            cfg::progress::{
+            cli::output::{CliOutputTarget, CliProgressFormatOpt},
+            progress_model::{
                 ProgressComplete,
                 ProgressDelta,
                 ProgressLimit,
@@ -22,7 +24,6 @@ cfg_if::cfg_if! {
                 ProgressUpdate,
                 ProgressUpdateAndId,
             },
-            cli::output::{CliOutputTarget, CliProgressFormatOpt},
             rt_model::{
                 indicatif::{MultiProgress, ProgressBar, ProgressDrawTarget},
                 CmdProgressTracker,

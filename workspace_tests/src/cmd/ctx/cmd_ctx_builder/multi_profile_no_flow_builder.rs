@@ -1,8 +1,9 @@
 use std::collections::BTreeMap;
 
 use peace::{
-    cfg::{app_name, profile, Profile, ProfileInvalidFmt},
+    cfg::app_name,
     cmd::ctx::CmdCtx,
+    profile_model::{profile, Profile, ProfileInvalidFmt},
     resource_rt::paths::{ProfileDir, ProfileHistoryDir},
     rt_model::{params::ParamsTypeRegs, Error as PeaceRtError, NativeError},
 };

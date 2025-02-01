@@ -1,4 +1,4 @@
-use peace::{cfg::item_id, flow_model::ItemInfo};
+use peace::{flow_model::ItemInfo, item_model::item_id};
 
 #[test]
 fn clone() {

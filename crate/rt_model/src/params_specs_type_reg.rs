@@ -1,6 +1,6 @@
 use std::ops::{Deref, DerefMut};
 
-use peace_cfg::ItemId;
+use peace_item_model::ItemId;
 use peace_params::AnySpecRtBoxed;
 use peace_resource_rt::type_reg::untagged::TypeReg;
 

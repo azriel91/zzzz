@@ -54,7 +54,7 @@ pub fn impl_with_profile(scope_struct: &ScopeStruct) -> proc_macro2::TokenStream
         {
             pub fn with_profile(
                 self,
-                profile: peace_core::Profile,
+                profile: peace_profile_model::Profile,
             ) ->
                 // crate::ctx::CmdCtxBuilder<
                 //     'ctx,

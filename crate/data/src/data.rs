@@ -1,7 +1,7 @@
 use std::fmt::Debug;
 
 use fn_graph::{DataAccess, DataAccessDyn, DataBorrow, Resources, R, W};
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 
 /// Defines the logic to instantiate and retrieve runtime data.
 ///

@@ -4,7 +4,6 @@ use std::{
     marker::PhantomData,
 };
 
-use peace_core::ItemId;
 use peace_data::{
     fn_graph::{
         resman::{BorrowFail, Ref},
@@ -12,6 +11,7 @@ use peace_data::{
     },
     Data,
 };
+use peace_item_model::ItemId;
 use peace_resource_rt::{states::StatesCurrentStored, type_reg::untagged::DataType};
 use serde::Serialize;
 

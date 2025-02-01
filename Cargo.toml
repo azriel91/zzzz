@@ -31,12 +31,17 @@ peace_cmd_rt = { workspace = true }
 peace_data = { workspace = true }
 peace_diff = { workspace = true }
 peace_flow_model = { workspace = true }
+peace_flow_rt = { workspace = true }
 peace_fmt = { workspace = true }
+peace_item_interaction_model = { workspace = true, optional = true }
+peace_item_model = { workspace = true }
 peace_params = { workspace = true }
-peace_item_model = { workspace = true, optional = true }
+peace_profile_model = { workspace = true }
+peace_progress_model = { workspace = true, optional = true }
 peace_resource_rt = { workspace = true }
 peace_rt = { workspace = true }
 peace_rt_model = { workspace = true }
+peace_state_rt = { workspace = true }
 peace_webi = { workspace = true, optional = true }
 peace_webi_components = { workspace = true, optional = true }
 peace_webi_model = { workspace = true, optional = true }
@@ -69,18 +74,21 @@ error_reporting = [
 ]
 output_in_memory = ["peace_cli?/output_in_memory"]
 output_progress = [
+    "dep:peace_progress_model",
     "peace_cli?/output_progress",
     "peace_cmd_rt/output_progress",
     "peace_cfg/output_progress",
-    "peace_item_model/output_progress",
+    "peace_flow_rt/output_progress",
+    "peace_item_interaction_model/output_progress",
     "peace_rt/output_progress",
     "peace_rt_model/output_progress",
     "peace_webi?/output_progress",
     "peace_cmd_model/output_progress",
 ]
 item_interactions = [
-    "dep:peace_item_model",
+    "dep:peace_item_interaction_model",
     "peace_cfg/item_interactions",
+    "peace_flow_rt/item_interactions",
     "peace_webi?/item_interactions",
     "peace_webi_components?/item_interactions",
 ]
@@ -88,6 +96,7 @@ item_state_example = [
     "peace_cfg/item_state_example",
     "peace_cmd/item_state_example",
     "peace_data/item_state_example",
+    "peace_flow_rt/item_state_example",
     "peace_params/item_state_example",
     "peace_rt_model/item_state_example",
     "peace_webi?/item_state_example",
@@ -133,10 +142,14 @@ peace_data = { path = "crate/data", version = "0.0.14" }
 peace_data_derive = { path = "crate/data_derive", version = "0.0.14" }
 peace_diff = { path = "crate/diff", version = "0.0.14" }
 peace_flow_model = { path = "crate/flow_model", version = "0.0.14" }
+peace_flow_rt = { path = "crate/flow_rt", version = "0.0.14" }
 peace_fmt = { path = "crate/fmt", version = "0.0.14" }
+peace_item_interaction_model = { path = "crate/item_interaction_model", version = "0.0.14" }
+peace_item_model = { path = "crate/item_model", version = "0.0.14" }
 peace_params = { path = "crate/params", version = "0.0.14" }
 peace_params_derive = { path = "crate/params_derive", version = "0.0.14" }
-peace_item_model = { path = "crate/item_model", version = "0.0.14" }
+peace_profile_model = { path = "crate/profile_model", version = "0.0.14" }
+peace_progress_model = { path = "crate/progress_model", version = "0.0.14" }
 peace_resource_rt = { path = "crate/resource_rt", version = "0.0.14" }
 peace_rt = { path = "crate/rt", version = "0.0.14" }
 peace_rt_model = { path = "crate/rt_model", version = "0.0.14" }
@@ -144,6 +157,7 @@ peace_rt_model_core = { path = "crate/rt_model_core", version = "0.0.14" }
 peace_rt_model_hack = { path = "crate/rt_model_hack", version = "0.0.14" }
 peace_rt_model_native = { path = "crate/rt_model_native", version = "0.0.14" }
 peace_rt_model_web = { path = "crate/rt_model_web", version = "0.0.14" }
+peace_state_rt = { path = "crate/state_rt", version = "0.0.14" }
 peace_static_check_macros = { path = "crate/static_check_macros", version = "0.0.14" }
 peace_value_traits = { path = "crate/value_traits", version = "0.0.14" }
 peace_webi = { path = "crate/webi", version = "0.0.14" }
@@ -172,8 +186,8 @@ chrono = { version = "0.4.39", default-features = false, features = ["clock", "s
 console = "0.15.10"
 derivative = "2.2.0"
 diff-struct = "0.5.3"
-dot_ix = { version = "0.9.1", default-features = false }
-dot_ix_model = "0.9.1"
+dot_ix = { version = "0.9.2", default-features = false }
+dot_ix_model = "0.9.2"
 downcast-rs = "2.0.1"
 dyn-clone = "1.0.17"
 enser = "0.1.4"
@@ -182,7 +196,8 @@ fn_graph = { version = "0.15.0", features = ["async", "graph_info", "interruptib
 futures = "0.3.31"
 gloo-timers = "0.3.0"
 heck = "0.5.0"
-indexmap = "2.7.0"
+id_newtype = "0.1.0"
+indexmap = "2.7.1"
 indicatif = "0.17.9"
 interruptible = "0.2.4"
 leptos = { version = "0.7" }
@@ -201,7 +216,7 @@ reqwest = "0.12.12"
 resman = "0.18.0"
 serde = "1.0.217"
 serde-wasm-bindgen = "0.6.5"
-serde_json = "1.0.135"
+serde_json = "1.0.137"
 serde_yaml = "0.9.34"
 smallvec = "1.13.2"
 syn = "2.0.96"
@@ -216,6 +231,7 @@ type_reg = { version = "0.8.0", features = ["debug", "untagged", "ordered"] }
 url = "2.5.4"
 wasm-bindgen = "0.2.100"
 web-sys = "0.3.77"
+yaml_error_context_hack = "0.1.0"
 
 [workspace.lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(coverage_nightly)'] }

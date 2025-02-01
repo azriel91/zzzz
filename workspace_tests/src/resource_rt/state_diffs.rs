@@ -1,5 +1,5 @@
 use peace::{
-    cfg::item_id,
+    item_model::item_id,
     resource_rt::{internal::StateDiffsMut, states::StateDiffs, type_reg::untagged::TypeMap},
 };
 

@@ -4,7 +4,8 @@ use std::{
 };
 
 use peace::{
-    cfg::{app_name, flow_id, profile},
+    cfg::{app_name, profile},
+    flow_model::flow_id,
     resource_rt::{
         internal::FlowParamsFile,
         paths::{FlowDir, PeaceAppDir, PeaceDir, ProfileDir},

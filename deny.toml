@@ -70,12 +70,6 @@ yanked = "warn"
 # A list of advisory IDs to ignore. Note that ignored advisories will still
 # output a note when they are encountered.
 ignore = [
-    # `proc-macro-error` is Unmaintained.
-    #
-    # Transitive dependency of `syn_derive`.
-    # Pending <https://github.com/rs-tml/rstml/issues/56>.
-    "RUSTSEC-2024-0370",
-
     # `derivative` is unmaintained.
     #
     # Transitive dependency of `log4rs`.

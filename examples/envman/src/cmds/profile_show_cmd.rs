@@ -1,7 +1,8 @@
 use peace::{
-    cfg::{app_name, Profile},
+    cfg::app_name,
     cmd::{ctx::CmdCtx, scopes::SingleProfileNoFlowView},
     fmt::presentln,
+    profile_model::Profile,
     rt_model::{output::OutputWrite, Workspace, WorkspaceSpec},
 };
 

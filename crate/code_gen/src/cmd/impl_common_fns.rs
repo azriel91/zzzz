@@ -52,7 +52,7 @@ pub fn impl_common_fns(scope_struct: &ScopeStruct) -> proc_macro2::TokenStream {
             /// Note: this **must** be called for each item in the flow.
             pub fn with_item_params<I>(
                 mut self,
-                item_id: peace_cfg::ItemId,
+                item_id: peace_item_model::ItemId,
                 params_spec: <I::Params<'_> as peace_params::Params>::Spec,
             ) -> Self
             where

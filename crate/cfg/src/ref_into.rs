@@ -1,9 +1,9 @@
-use peace_item_model::ItemLocationState;
+use peace_item_interaction_model::ItemLocationState;
 
 /// Returns `T` from a reference to `self`.
 ///
 /// Allows setting a constraint on `Item::State`, such that `&State` can be
-/// turned into an `peace_item_model::ItemLocationState`.
+/// turned into an `peace_item_interaction_model::ItemLocationState`.
 ///
 /// # Implementors
 ///

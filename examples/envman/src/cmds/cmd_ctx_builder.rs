@@ -4,7 +4,7 @@ macro_rules! ws_params_augment {
     ($cmd_ctx_builder:ident) => {
         let $cmd_ctx_builder = $cmd_ctx_builder
             .with_workspace_params_k::<$crate::model::WorkspaceParamsKey>()
-            .with_workspace_param::<peace::cfg::Profile>($crate::model::WorkspaceParamsKey::Profile)
+            .with_workspace_param::<peace::profile_model::Profile>($crate::model::WorkspaceParamsKey::Profile)
             .with_workspace_param::<$crate::model::EnvManFlow>($crate::model::WorkspaceParamsKey::Flow);
     };
 }
@@ -15,7 +15,7 @@ macro_rules! ws_and_profile_params_augment {
     ($cmd_ctx_builder:ident) => {
         let $cmd_ctx_builder = $cmd_ctx_builder
             .with_workspace_params_k::<$crate::model::WorkspaceParamsKey>()
-            .with_workspace_param::<peace::cfg::Profile>($crate::model::WorkspaceParamsKey::Profile)
+            .with_workspace_param::<peace::profile_model::Profile>($crate::model::WorkspaceParamsKey::Profile)
             .with_workspace_param::<$crate::model::EnvManFlow>($crate::model::WorkspaceParamsKey::Flow)
             .with_profile_params_k::<$crate::model::ProfileParamsKey>()
             .with_profile_param::<$crate::model::EnvType>($crate::model::ProfileParamsKey::EnvType);

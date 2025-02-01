@@ -1,6 +1,6 @@
 use std::{collections::BTreeMap, fmt::Debug, hash::Hash};
 
-use peace_core::Profile;
+use peace_profile_model::Profile;
 use peace_rt_model::params::FlowParams;
 use serde::{de::DeserializeOwned, Serialize};
 

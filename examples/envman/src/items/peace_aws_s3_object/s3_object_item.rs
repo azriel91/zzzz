@@ -2,7 +2,8 @@ use std::marker::PhantomData;
 
 use aws_config::BehaviorVersion;
 use peace::{
-    cfg::{async_trait, ApplyCheck, FnCtx, Item, ItemId},
+    cfg::{async_trait, ApplyCheck, FnCtx, Item},
+    item_model::ItemId,
     params::Params,
     resource_rt::{resources::ts::Empty, Resources},
 };
@@ -198,8 +199,10 @@ where
     fn interactions(
         params: &Self::Params<'_>,
         _data: Self::Data<'_>,
-    ) -> Vec<peace::item_model::ItemInteraction> {
-        use peace::item_model::{ItemInteractionPush, ItemLocation, ItemLocationAncestors};
+    ) -> Vec<peace::item_interaction_model::ItemInteraction> {
+        use peace::item_interaction_model::{
+            ItemInteractionPush, ItemLocation, ItemLocationAncestors,
+        };
 
         let file_path = format!("📄 {}", params.file_path().display());
         let bucket_name = format!("🪣 {}", params.bucket_name());

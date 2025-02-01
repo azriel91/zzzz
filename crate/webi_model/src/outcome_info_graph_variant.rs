@@ -4,11 +4,9 @@ cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
         use std::collections::HashMap;
 
-        use peace_core::{
-            progress::{CmdBlockItemInteractionType, ProgressStatus},
-            ItemId,
-        };
-        use peace_item_model::ItemLocationState;
+        use peace_item_model::ItemId;
+        use peace_item_interaction_model::ItemLocationState;
+        use peace_progress_model::{CmdBlockItemInteractionType, ProgressStatus};
     }
 }
 

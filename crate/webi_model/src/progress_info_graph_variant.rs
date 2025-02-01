@@ -1,5 +1,5 @@
 use indexmap::IndexSet;
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 use serde::{Deserialize, Serialize};
 
 /// How to style the progress `InfoGraph`.

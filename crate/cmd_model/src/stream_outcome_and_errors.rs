@@ -1,6 +1,6 @@
 use fn_graph::StreamOutcome;
 use indexmap::IndexMap;
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 
 /// `CmdBlock` stream outcome and item wise errors.
 #[derive(Clone, Debug, PartialEq, Eq)]

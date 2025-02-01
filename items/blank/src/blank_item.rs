@@ -1,7 +1,8 @@
 use std::marker::PhantomData;
 
 use peace::{
-    cfg::{async_trait, ApplyCheck, FnCtx, Item, ItemId},
+    cfg::{async_trait, ApplyCheck, FnCtx, Item},
+    item_model::ItemId,
     params::Params,
     resource_rt::{resources::ts::Empty, Resources},
 };
@@ -167,8 +168,8 @@ where
     fn interactions(
         _params: &Self::Params<'_>,
         _data: Self::Data<'_>,
-    ) -> Vec<peace::item_model::ItemInteraction> {
-        use peace::item_model::{ItemInteractionWithin, ItemLocation};
+    ) -> Vec<peace::item_interaction_model::ItemInteraction> {
+        use peace::item_interaction_model::{ItemInteractionWithin, ItemLocation};
 
         let item_interaction =
             ItemInteractionWithin::new(vec![ItemLocation::localhost()].into()).into();

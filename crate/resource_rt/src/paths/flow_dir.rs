@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use peace_core::FlowId;
+use peace_flow_model::FlowId;
 
 use crate::paths::ProfileDir;
 

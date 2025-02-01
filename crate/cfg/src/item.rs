@@ -2,13 +2,13 @@ use std::fmt::{Debug, Display};
 
 use async_trait::async_trait;
 use dyn_clone::DynClone;
-use peace_core::{ApplyCheck, ItemId};
 use peace_data::Data;
+use peace_item_model::ItemId;
 use peace_params::{Params, ParamsSpec};
 use peace_resource_rt::{resources::ts::Empty, Resources};
 use serde::{de::DeserializeOwned, Serialize};
 
-use crate::FnCtx;
+use crate::{ApplyCheck, FnCtx};
 
 /// Defines all of the data and logic to manage an item.
 ///
@@ -116,7 +116,7 @@ pub trait Item: DynClone {
         + Send
         + Sync
         + 'static
-        + crate::RefInto<peace_item_model::ItemLocationState>;
+        + crate::RefInto<peace_item_interaction_model::ItemLocationState>;
 
     /// Diff between the current and target [`State`]s.
     ///
@@ -180,7 +180,7 @@ pub trait Item: DynClone {
     /// a compile time check to ensure that these conditions are upheld.
     ///
     /// ```rust
-    /// # use peace_cfg::{item_id, ItemId};
+    /// # use peace_item_model::{item_id, ItemId};
     /// const fn id() -> ItemId {
     ///     item_id!("my_item")
     /// }
@@ -510,5 +510,5 @@ pub trait Item: DynClone {
     fn interactions(
         params: &Self::Params<'_>,
         data: Self::Data<'_>,
-    ) -> Vec<peace_item_model::ItemInteraction>;
+    ) -> Vec<peace_item_interaction_model::ItemInteraction>;
 }

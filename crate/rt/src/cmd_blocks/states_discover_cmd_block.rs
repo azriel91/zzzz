@@ -1,10 +1,11 @@
 use std::{fmt::Debug, marker::PhantomData};
 
 use futures::join;
-use peace_cfg::{FnCtx, ItemId};
+use peace_cfg::FnCtx;
 use peace_cmd::{ctx::CmdCtxTypesConstrained, scopes::SingleProfileSingleFlowView};
 use peace_cmd_model::CmdBlockOutcome;
 use peace_cmd_rt::{async_trait, CmdBlock};
+use peace_item_model::ItemId;
 use peace_resource_rt::{
     internal::StatesMut,
     resources::ts::SetUp,
@@ -23,17 +24,15 @@ use crate::BUFFERED_FUTURES_MAX;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_cfg::{
-            progress::{
-                CmdBlockItemInteractionType,
-                CmdProgressUpdate,
-                ProgressComplete,
-                ProgressDelta,
-                ProgressMsgUpdate,
-                ProgressSender,
-                ProgressUpdate,
-                ProgressUpdateAndId,
-            },
+        use peace_progress_model::{
+            CmdBlockItemInteractionType,
+            CmdProgressUpdate,
+            ProgressComplete,
+            ProgressDelta,
+            ProgressMsgUpdate,
+            ProgressSender,
+            ProgressUpdate,
+            ProgressUpdateAndId,
         };
         use tokio::sync::mpsc::Sender;
     }

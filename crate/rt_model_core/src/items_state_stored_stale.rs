@@ -1,7 +1,7 @@
 use std::ops::{Deref, DerefMut};
 
 use indexmap::IndexMap;
-use peace_core::ItemId;
+use peace_item_model::ItemId;
 
 use crate::StateStoredAndDiscovered;
 

@@ -1,10 +1,11 @@
 use peace::{
-    cfg::item_id,
+    flow_rt::{ItemGraph, ItemGraphBuilder},
+    item_model::item_id,
     resource_rt::{
         internal::StatesMut,
         states::{StatesCurrent, StatesSerde},
     },
-    rt_model::{fn_graph::FnGraph, ItemBoxed, ItemGraph, ItemGraphBuilder},
+    rt_model::{fn_graph::FnGraph, ItemBoxed},
 };
 
 use crate::{

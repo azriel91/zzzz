@@ -1,4 +1,7 @@
-use peace::rt_model::{fn_graph::FnGraphBuilder, Error, ItemBoxed, ItemGraphBuilder};
+use peace::{
+    flow_rt::ItemGraphBuilder,
+    rt_model::{fn_graph::FnGraphBuilder, Error, ItemBoxed},
+};
 
 #[test]
 fn debug() {

@@ -1,11 +1,5 @@
 [advisories]
 ignore = [
-  # `proc-macro-error` is Unmaintained.
-  #
-  # Transitive dependency of `syn_derive`.
-  # Pending <https://github.com/rs-tml/rstml/issues/56>.
-  "RUSTSEC-2024-0370",
-
   # `derivative` is unmaintained.
   #
   # Transitive dependency of `log4rs`.

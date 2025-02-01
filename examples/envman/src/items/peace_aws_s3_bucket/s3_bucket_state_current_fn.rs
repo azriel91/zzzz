@@ -11,7 +11,7 @@ use crate::items::peace_aws_s3_bucket::{
 };
 
 #[cfg(feature = "output_progress")]
-use peace::cfg::progress::ProgressMsgUpdate;
+use peace::progress_model::ProgressMsgUpdate;
 
 /// Reads the current state of the S3 bucket state.
 #[derive(Debug)]

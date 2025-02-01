@@ -1,8 +1,8 @@
 use std::any::TypeId;
 
 use peace::{
-    cfg::item_id,
     data::{DataAccessDyn, TypeIds},
+    item_model::item_id,
     rt_model::{ItemBoxed, ItemRt},
 };
 

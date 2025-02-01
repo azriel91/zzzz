@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::{ShCmdExecutionRecord, ShCmdStateLogical};
 
 #[cfg(feature = "output_progress")]
-use peace::item_model::ItemLocationState;
+use peace::item_interaction_model::ItemLocationState;
 
 /// Newtype wrapper for `State<ShCmdStatePhysical<Id>, ShCmdExecutionRecord>`.
 #[derive(Derivative, Serialize, Deserialize)]

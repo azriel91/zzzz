@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use peace_core::Profile;
+use peace_profile_model::Profile;
 
 use crate::paths::PeaceAppDir;
 

@@ -2,7 +2,7 @@
 use std::net::IpAddr;
 
 use clap::{Parser, Subcommand, ValueHint};
-use peace::{cfg::Profile, cli::output::CliColorizeOpt, cli_model::OutputFormat};
+use peace::{cli::output::CliColorizeOpt, cli_model::OutputFormat, profile_model::Profile};
 use semver::Version;
 use url::Url;
 

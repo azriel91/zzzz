@@ -2,13 +2,14 @@ use std::{fmt::Debug, marker::PhantomData};
 
 use fn_graph::{StreamOpts, StreamOutcome};
 use futures::FutureExt;
-use peace_cfg::ItemId;
 use peace_cmd::{
     ctx::CmdCtxTypesConstrained, interruptible::InterruptibilityState,
     scopes::SingleProfileSingleFlowView,
 };
 use peace_cmd_model::CmdBlockOutcome;
 use peace_cmd_rt::{async_trait, CmdBlock};
+use peace_flow_rt::Flow;
+use peace_item_model::ItemId;
 use peace_params::ParamsSpecs;
 use peace_resource_rt::{
     internal::StateDiffsMut,
@@ -20,13 +21,12 @@ use peace_resource_rt::{
     type_reg::untagged::{BoxDtDisplay, TypeMap},
     ResourceFetchError, Resources,
 };
-use peace_rt_model::Flow;
 
 use crate::cmds::DiffStateSpec;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_cfg::progress::{CmdBlockItemInteractionType, CmdProgressUpdate};
+        use peace_progress_model::{CmdBlockItemInteractionType, CmdProgressUpdate};
         use tokio::sync::mpsc::Sender;
     }
 }

@@ -16,14 +16,18 @@ license.workspace = true
 workspace = true
 
 [dependencies]
+cfg-if = { workspace = true }
 dot_ix = { workspace = true, default-features = false }
 fn_graph = { workspace = true, features = ["graph_info"] }
 peace_core = { workspace = true }
+peace_item_model = { workspace = true }
+peace_progress_model = { workspace = true, optional = true }
+peace_static_check_macros = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 tynm = { workspace = true, features = ["info", "serde"] }
 
 [features]
 default = []
 output_progress = [
-    "peace_core/output_progress",
+    "dep:peace_progress_model",
 ]

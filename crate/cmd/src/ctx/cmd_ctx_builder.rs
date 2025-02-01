@@ -5,7 +5,8 @@ use std::{fmt::Debug, hash::Hash};
 use futures::stream::{StreamExt, TryStreamExt};
 use interruptible::Interruptibility;
 use own::{OwnedOrMutRef, OwnedOrRef};
-use peace_cfg::ItemId;
+use peace_flow_rt::{Flow, ItemGraph};
+use peace_item_model::ItemId;
 use peace_params::ParamsSpecs;
 use peace_resource_rt::{
     internal::{FlowParamsFile, ProfileParamsFile, WorkspaceParamsFile},
@@ -16,7 +17,7 @@ use peace_resource_rt::{
 use peace_rt_model::{
     fn_graph::resman::Resource,
     params::{FlowParams, ProfileParams, WorkspaceParams},
-    Flow, ItemGraph, ParamsSpecsSerializer, ParamsSpecsTypeReg, StatesTypeReg, Storage, Workspace,
+    ParamsSpecsSerializer, ParamsSpecsTypeReg, StatesTypeReg, Storage, Workspace,
     WorkspaceInitializer,
 };
 use serde::{de::DeserializeOwned, Serialize};
@@ -168,8 +169,8 @@ fn flow_params_insert<FlowParamsK>(
 #[cfg(not(target_arch = "wasm32"))]
 pub(crate) async fn profiles_from_peace_app_dir(
     peace_app_dir: &peace_resource_rt::paths::PeaceAppDir,
-    profiles_filter_fn: Option<&dyn Fn(&peace_core::Profile) -> bool>,
-) -> Result<Vec<peace_core::Profile>, peace_rt_model::Error> {
+    profiles_filter_fn: Option<&dyn Fn(&peace_profile_model::Profile) -> bool>,
+) -> Result<Vec<peace_profile_model::Profile>, peace_rt_model::Error> {
     use std::{ffi::OsStr, str::FromStr};
 
     let mut profiles = Vec::new();
@@ -207,15 +208,16 @@ pub(crate) async fn profiles_from_peace_app_dir(
             let entry_path = entry.path();
             if let Some(dir_name) = entry_path.file_name().and_then(OsStr::to_str) {
                 // Assume this is a profile directory
-                let profile = peace_core::Profile::from_str(dir_name).map_err(|error| {
-                    peace_rt_model::Error::Native(
-                        peace_rt_model::NativeError::ProfileDirInvalidName {
-                            dir_name: dir_name.to_string(),
-                            path: entry_path.to_path_buf(),
-                            error,
-                        },
-                    )
-                })?;
+                let profile =
+                    peace_profile_model::Profile::from_str(dir_name).map_err(|error| {
+                        peace_rt_model::Error::Native(
+                            peace_rt_model::NativeError::ProfileDirInvalidName {
+                                dir_name: dir_name.to_string(),
+                                path: entry_path.to_path_buf(),
+                                error,
+                            },
+                        )
+                    })?;
 
                 if let Some(profiles_filter_fn) = profiles_filter_fn {
                     if !profiles_filter_fn(&profile) {
@@ -240,8 +242,8 @@ pub(crate) async fn profiles_from_peace_app_dir(
 #[cfg(target_arch = "wasm32")]
 pub(crate) async fn profiles_from_peace_app_dir(
     _peace_app_dir: &peace_resource_rt::paths::PeaceAppDir,
-    _profiles_filter_fn: Option<&dyn Fn(&peace_core::Profile) -> bool>,
-) -> Result<Vec<peace_core::Profile>, peace_rt_model::Error> {
+    _profiles_filter_fn: Option<&dyn Fn(&peace_profile_model::Profile) -> bool>,
+) -> Result<Vec<peace_profile_model::Profile>, peace_rt_model::Error> {
     let profiles = Vec::new();
 
     // Not supported yet -- needs a `Storage` abstraction over both native an web

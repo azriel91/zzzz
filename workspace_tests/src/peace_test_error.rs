@@ -13,7 +13,7 @@ pub enum PeaceTestError {
     FlowIdInvalidFmt(
         #[source]
         #[from]
-        peace::cfg::FlowIdInvalidFmt<'static>,
+        peace::flow_model::FlowIdInvalidFmt<'static>,
     ),
 
     /// Failed to initialize tempdir.

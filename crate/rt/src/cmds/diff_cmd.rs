@@ -1,14 +1,16 @@
 use std::{fmt::Debug, marker::PhantomData};
 
 use futures::{StreamExt, TryStreamExt};
-use peace_cfg::{ItemId, Profile};
 use peace_cmd::{
     ctx::{CmdCtx, CmdCtxTypesConstrained},
     scopes::{MultiProfileSingleFlow, MultiProfileSingleFlowView, SingleProfileSingleFlow},
 };
 use peace_cmd_model::CmdOutcome;
 use peace_cmd_rt::{CmdBlockWrapper, CmdExecution, CmdExecutionBuilder};
+use peace_flow_rt::Flow;
+use peace_item_model::ItemId;
 use peace_params::ParamsSpecs;
+use peace_profile_model::Profile;
 use peace_resource_rt::{
     internal::StateDiffsMut,
     resources::ts::SetUp,
@@ -19,7 +21,7 @@ use peace_resource_rt::{
     type_reg::untagged::{BoxDtDisplay, TypeMap},
     Resources,
 };
-use peace_rt_model::{Error, Flow};
+use peace_rt_model::Error;
 
 use crate::cmd_blocks::{
     DiffCmdBlock, DiffCmdBlockStatesTsExt, StatesCurrentReadCmdBlock, StatesDiscoverCmdBlock,

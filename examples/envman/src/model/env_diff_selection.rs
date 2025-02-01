@@ -1,4 +1,4 @@
-use peace::cfg::Profile;
+use peace::profile_model::Profile;
 
 /// What to run the diff on.
 ///

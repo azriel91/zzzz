@@ -5,7 +5,7 @@ use peace_fmt::Presentable;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_core::progress::{
+        use peace_progress_model::{
             CmdBlockItemInteractionType,
             ProgressTracker,
             ProgressUpdateAndId,
@@ -67,8 +67,8 @@ pub trait OutputWrite<E>: Debug + Unpin {
     #[cfg(feature = "output_progress")]
     async fn item_location_state(
         &mut self,
-        item_id: peace_core::ItemId,
-        item_location_state: peace_item_model::ItemLocationState,
+        item_id: peace_item_model::ItemId,
+        item_location_state: peace_item_interaction_model::ItemLocationState,
     );
 
     /// Renders progress information, and returns when no more progress

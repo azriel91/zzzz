@@ -11,7 +11,7 @@
 //! ```rust
 //! #[cfg(feature = "file_download")]
 //! # fn main() {
-//! use peace::cfg::{item_id, ItemId};
+//! use peace::item_model::{item_id, ItemId};
 //! use peace_items::file_download::FileDownloadItem;
 //!
 //! /// Marker type for `FileDownloadParams`.

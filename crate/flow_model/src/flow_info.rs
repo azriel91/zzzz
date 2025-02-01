@@ -1,9 +1,8 @@
 use fn_graph::GraphInfo;
-use peace_core::FlowId;
 
 use serde::{Deserialize, Serialize};
 
-use crate::ItemInfo;
+use crate::{FlowId, ItemInfo};
 
 /// Serializable representation of values in a [`Flow`].
 ///

@@ -30,7 +30,7 @@ peace_cmd = { workspace = true }
 peace_cmd_model = { workspace = true }
 peace_core = { workspace = true }
 peace_flow_model = { workspace = true }
-peace_item_model = { workspace = true }
+peace_item_interaction_model = { workspace = true }
 peace_params = { workspace = true }
 peace_resource_rt = { workspace = true }
 peace_rt_model = { workspace = true }

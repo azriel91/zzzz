@@ -1,0 +1,26 @@
+[package]
+name = "peace_profile_model"
+description = "Serializable data model for profiles for the Peace framework."
+documentation = "https://docs.rs/peace_profile_model/"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+categories.workspace = true
+keywords.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[lib]
+doctest = false
+test = false
+
+[dependencies]
+id_newtype = { workspace = true }
+peace_core = { workspace = true }
+peace_static_check_macros = { workspace = true }
+serde = { workspace = true, features = ["derive"] }

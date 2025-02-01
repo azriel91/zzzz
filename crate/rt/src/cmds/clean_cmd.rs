@@ -6,13 +6,14 @@ use peace_cmd::{
 };
 use peace_cmd_model::CmdOutcome;
 use peace_cmd_rt::{CmdBlockWrapper, CmdExecution};
+use peace_flow_rt::ItemGraph;
 use peace_resource_rt::{
     paths::{FlowDir, StatesCurrentFile},
     resources::ts::SetUp,
     states::{States, StatesCleaned, StatesCleanedDry, StatesPrevious},
     Resources,
 };
-use peace_rt_model::{ItemGraph, Storage};
+use peace_rt_model::Storage;
 
 use crate::{
     cmd_blocks::{
@@ -284,7 +285,7 @@ where
         resources: &Resources<SetUp>,
         states_cleaned: &StatesCleaned,
     ) -> Result<(), <CmdCtxTypesT as CmdCtxTypesConstrained>::AppError> {
-        use peace_rt_model::StatesSerializer;
+        use peace_state_rt::StatesSerializer;
 
         let flow_dir = resources.borrow::<FlowDir>();
         let storage = resources.borrow::<Storage>();

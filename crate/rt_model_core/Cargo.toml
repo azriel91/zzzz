@@ -22,14 +22,18 @@ test = false
 [dependencies]
 async-trait = { workspace = true }
 cfg-if = { workspace = true }
-indicatif = { workspace = true, features = ["tokio"] }
 indexmap = { workspace = true }
+indicatif = { workspace = true, features = ["tokio"] }
 miette = { workspace = true, optional = true }
-peace_core = { workspace = true }
 peace_cmd_model = { workspace = true }
+peace_core = { workspace = true }
+peace_flow_model = { workspace = true }
 peace_fmt = { workspace = true }
-peace_item_model = { workspace = true, optional = true }
+peace_item_interaction_model = { workspace = true, optional = true }
+peace_item_model = { workspace = true }
 peace_params = { workspace = true }
+peace_profile_model = { workspace = true }
+peace_progress_model = { workspace = true, optional = true }
 peace_resource_rt = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
@@ -45,7 +49,7 @@ default = []
 error_reporting = ["dep:miette", "peace_cmd_model/error_reporting"]
 output_in_memory = ["indicatif/in_memory"]
 output_progress = [
-    "dep:peace_item_model",
-    "peace_core/output_progress",
-    "peace_item_model/output_progress",
+    "dep:peace_item_interaction_model",
+    "dep:peace_progress_model",
+    "peace_item_interaction_model/output_progress",
 ]

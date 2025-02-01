@@ -15,7 +15,7 @@ use crate::{CmdBlockError, CmdBlockRtBox, ItemStreamOutcomeMapper};
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_cfg::progress::CmdProgressUpdate;
+        use peace_progress_model::CmdProgressUpdate;
         use peace_rt_model::{output::OutputWrite, CmdProgressTracker};
         use tokio::sync::mpsc::{self, Sender};
 

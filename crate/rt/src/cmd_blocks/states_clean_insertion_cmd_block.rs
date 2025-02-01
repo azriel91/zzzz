@@ -15,7 +15,7 @@ use peace_rt_model_core::IndexMap;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_cfg::progress::{CmdBlockItemInteractionType, CmdProgressUpdate};
+        use peace_progress_model::{CmdBlockItemInteractionType, CmdProgressUpdate};
         use tokio::sync::mpsc::Sender;
     }
 }

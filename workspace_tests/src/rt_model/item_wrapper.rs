@@ -1,7 +1,8 @@
 use diff::{VecDiff, VecDiffType};
 use peace::{
-    cfg::{item_id, ApplyCheck, FnCtx},
+    cfg::{ApplyCheck, FnCtx},
     data::marker::{ApplyDry, Clean, Current, Goal},
+    item_model::item_id,
     params::{ParamsSpec, ParamsSpecs},
     resource_rt::{
         internal::StatesMut,
@@ -15,7 +16,7 @@ use peace::{
 use peace_items::blank::BlankItem;
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace::cfg::progress::{ProgressLimit, ProgressSender};
+        use peace::progress_model::{ProgressLimit, ProgressSender};
         use tokio::sync::mpsc;
     }
 }

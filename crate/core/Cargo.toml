@@ -21,14 +21,7 @@ test = false
 
 [dependencies]
 cfg-if = { workspace = true }
-chrono = { workspace = true, default-features = false }
-indicatif = { workspace = true }
+id_newtype = { workspace = true }
 peace_fmt = { workspace = true }
 peace_static_check_macros = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
-serde_yaml = { workspace = true, optional = true }
-tokio = { workspace = true, optional = true, features = ["sync"] }
-
-[features]
-default = []
-output_progress = ["dep:serde_yaml", "dep:tokio"]

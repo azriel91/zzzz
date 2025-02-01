@@ -1,5 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 /// A field name and its type.
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct FieldNameAndType {
     /// Name of the field, e.g. `my_field`.
     field_name: String,

@@ -1,5 +1,5 @@
 use own::OwnedOrRef;
-use peace_rt_model::Flow;
+use peace_flow_rt::Flow;
 
 /// A `Flow` is not yet selected.
 #[derive(Clone, Debug, PartialEq, Eq)]

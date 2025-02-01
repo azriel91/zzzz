@@ -1,9 +1,9 @@
 use std::marker::PhantomData;
 
 use aws_sdk_iam::{error::SdkError, operation::list_policy_versions::ListPolicyVersionsError};
-#[cfg(feature = "output_progress")]
-use peace::cfg::progress::{ProgressLimit, ProgressMsgUpdate};
 use peace::cfg::{state::Generated, ApplyCheck, FnCtx};
+#[cfg(feature = "output_progress")]
+use peace::progress_model::{ProgressLimit, ProgressMsgUpdate};
 
 use crate::items::peace_aws_iam_policy::{
     model::PolicyIdArnVersion, IamPolicyData, IamPolicyError, IamPolicyParams, IamPolicyState,

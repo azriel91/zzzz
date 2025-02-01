@@ -2,7 +2,8 @@
 use peace::miette;
 
 use peace::{
-    cfg::{AppName, Profile},
+    cfg::AppName,
+    profile_model::Profile,
     rt_model::fn_graph::{Edge, WouldCycle},
 };
 

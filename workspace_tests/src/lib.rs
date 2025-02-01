@@ -26,11 +26,16 @@ mod diff;
 mod flow_model;
 mod fmt;
 #[cfg(feature = "item_interactions")]
+mod item_interaction_model;
 mod item_model;
 mod params;
+mod profile_model;
+#[cfg(feature = "output_progress")]
+mod progress_model;
 mod resource_rt;
 mod rt;
 mod rt_model;
+mod state_rt;
 #[cfg(feature = "webi")]
 mod webi;
 

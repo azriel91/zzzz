@@ -1,8 +1,8 @@
 use std::marker::PhantomData;
 
-#[cfg(feature = "output_progress")]
-use peace::cfg::progress::ProgressLimit;
 use peace::cfg::{ApplyCheck, FnCtx};
+#[cfg(feature = "output_progress")]
+use peace::progress_model::ProgressLimit;
 
 use crate::{FileMetadatas, TarXData, TarXError, TarXParams, TarXStateDiff};
 

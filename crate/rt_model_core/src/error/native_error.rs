@@ -1,6 +1,6 @@
 use std::{ffi::OsString, path::PathBuf, sync::Mutex};
 
-use peace_core::ProfileInvalidFmt;
+use peace_profile_model::ProfileInvalidFmt;
 use peace_resource_rt::paths::WorkspaceDir;
 
 /// Peace runtime errors.

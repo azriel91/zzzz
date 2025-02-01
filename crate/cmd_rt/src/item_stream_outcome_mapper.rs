@@ -1,6 +1,6 @@
 use fn_graph::StreamOutcome;
 use peace_cmd_model::ItemStreamOutcome;
-use peace_rt_model::Flow;
+use peace_flow_rt::Flow;
 
 /// Maps a `StreamOutcome<T>` to an `ItemStreamOutcome<T>`.
 ///

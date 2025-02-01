@@ -2,7 +2,7 @@ use std::fmt::Debug;
 
 use fn_graph::StreamOutcome;
 use indexmap::IndexMap;
-use peace_cfg::ItemId;
+use peace_item_model::ItemId;
 use peace_resource_rt::ResourceFetchError;
 
 /// Error while executing a `CmdBlock`.

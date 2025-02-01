@@ -1,6 +1,6 @@
 use proc_macro2::Span;
 use quote::quote;
-use syn::{parse_macro_input, Ident};
+use syn::{parse_macro_input, parse_quote, Ident, Path};
 
 use self::lit_str_maybe::LitStrMaybe;
 
@@ -47,6 +47,7 @@ pub fn app_name(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let crate_name = std::env::var("CARGO_PKG_NAME")
         .expect("Failed to read `CARGO_PKG_NAME` environmental variable to infer `AppName`.");
     ensure_valid_id(
+        parse_quote!(peace::cfg),
         &parse_macro_input!(input as LitStrMaybe),
         "AppName",
         Some(crate_name.as_str()),
@@ -62,7 +63,7 @@ pub fn app_name(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///
 /// ```rust
 /// # use peace_static_check_macros::item_id;
-/// // use peace::cfg::{item_id, ItemId};
+/// // use peace::item_model::{item_id, ItemId};
 ///
 /// let _my_item_id: ItemId = item_id!("valid_id"); // Ok!
 ///
@@ -76,10 +77,10 @@ pub fn app_name(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///
 /// ```rust,compile_fail
 /// # use peace_static_check_macros::item_id;
-/// // use peace::cfg::{item_id, ItemId};
+/// // use peace::item_model::{item_id, ItemId};
 ///
 /// let _my_item_id: ItemId = item_id!("-invalid_id"); // Compile error
-/// //                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/// //                        ^^^^^^^^^^^^^^^^^^^^^^^^
 /// // error: "-invalid_id" is not a valid `ItemId`.
 /// //        `ItemId`s must begin with a letter or underscore, and contain only letters, numbers, or underscores.
 /// #
@@ -90,7 +91,13 @@ pub fn app_name(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 /// ```
 #[proc_macro]
 pub fn item_id(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    ensure_valid_id(&parse_macro_input!(input as LitStrMaybe), "ItemId", None).into()
+    ensure_valid_id(
+        parse_quote!(peace::item_model),
+        &parse_macro_input!(input as LitStrMaybe),
+        "ItemId",
+        None,
+    )
+    .into()
 }
 
 /// Returns a `const Profile` validated at compile time.
@@ -101,7 +108,7 @@ pub fn item_id(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///
 /// ```rust
 /// # use peace_static_check_macros::profile;
-/// // use peace::cfg::{profile, Profile};
+/// // use peace::profile_model::{profile, Profile};
 ///
 /// let _my_profile: Profile = profile!("valid_id"); // Ok!
 ///
@@ -115,7 +122,7 @@ pub fn item_id(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///
 /// ```rust,compile_fail
 /// # use peace_static_check_macros::profile;
-/// // use peace::cfg::{profile, Profile};
+/// // use peace::profile_model::{profile, Profile};
 ///
 /// let _my_profile: Profile = profile!("-invalid_id"); // Compile error
 /// //                         ^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,7 +136,13 @@ pub fn item_id(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 /// ```
 #[proc_macro]
 pub fn profile(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    ensure_valid_id(&parse_macro_input!(input as LitStrMaybe), "Profile", None).into()
+    ensure_valid_id(
+        parse_quote!(peace::profile_model),
+        &parse_macro_input!(input as LitStrMaybe),
+        "Profile",
+        None,
+    )
+    .into()
 }
 
 /// Returns a `const FlowId` validated at compile time.
@@ -140,7 +153,7 @@ pub fn profile(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///
 /// ```rust
 /// # use peace_static_check_macros::flow_id;
-/// // use peace::cfg::{flow_id, FlowId};
+/// // use peace::flow_model::{flow_id, FlowId};
 ///
 /// let _my_flow: FlowId = flow_id!("valid_id"); // Ok!
 ///
@@ -154,7 +167,7 @@ pub fn profile(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///
 /// ```rust,compile_fail
 /// # use peace_static_check_macros::flow_id;
-/// // use peace::cfg::{flow_id, FlowId};
+/// // use peace::flow_model::{flow_id, FlowId};
 ///
 /// let _my_flow: FlowId = flow_id!("-invalid_id"); // Compile error
 /// //                     ^^^^^^^^^^^^^^^^^^^^^^^
@@ -168,10 +181,17 @@ pub fn profile(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 /// ```
 #[proc_macro]
 pub fn flow_id(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    ensure_valid_id(&parse_macro_input!(input as LitStrMaybe), "FlowId", None).into()
+    ensure_valid_id(
+        parse_quote!(peace::flow_model),
+        &parse_macro_input!(input as LitStrMaybe),
+        "FlowId",
+        None,
+    )
+    .into()
 }
 
 fn ensure_valid_id(
+    crate_path: Path,
     proposed_id: &LitStrMaybe,
     ty_name: &str,
     default: Option<&str>,
@@ -182,7 +202,7 @@ fn ensure_valid_id(
     if let Some(proposed_id) = proposed_id {
         if is_valid_id(proposed_id) {
             let ty_name = Ident::new(ty_name, Span::call_site());
-            quote!( peace::cfg:: #ty_name ::new_unchecked( #proposed_id ))
+            quote!( #crate_path:: #ty_name ::new_unchecked( #proposed_id ))
         } else {
             let message = format!(
                 "\"{proposed_id}\" is not a valid `{ty_name}`.\n\
@@ -218,7 +238,7 @@ fn is_valid_id(proposed_id: &str) -> bool {
 #[cfg(test)]
 mod tests {
     use proc_macro2::Span;
-    use syn::LitStr;
+    use syn::{parse_quote, LitStr};
 
     use crate::LitStrMaybe;
 
@@ -227,6 +247,7 @@ mod tests {
     #[test]
     fn name_beginning_with_underscore_is_valid() {
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("_", Span::call_site()))),
             "Ty",
             None,
@@ -241,6 +262,7 @@ mod tests {
     #[test]
     fn name_beginning_with_alpha_is_valid() {
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("a", Span::call_site()))),
             "Ty",
             None,
@@ -251,6 +273,7 @@ mod tests {
         );
 
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("A", Span::call_site()))),
             "Ty",
             None,
@@ -265,6 +288,7 @@ mod tests {
     #[test]
     fn name_beginning_with_number_is_invalid() {
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("1", Span::call_site()))),
             "Ty",
             None,
@@ -280,6 +304,7 @@ mod tests {
     #[test]
     fn name_containing_space_is_invalid() {
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("a b", Span::call_site()))),
             "Ty",
             None,
@@ -295,6 +320,7 @@ mod tests {
     #[test]
     fn name_containing_hyphen_is_invalid() {
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("a-b", Span::call_site()))),
             "Ty",
             None,
@@ -310,6 +336,7 @@ mod tests {
     #[test]
     fn name_empty_string_is_invalid() {
         let tokens = ensure_valid_id(
+            parse_quote!(peace::cfg),
             &LitStrMaybe(Some(LitStr::new("", Span::call_site()))),
             "Ty",
             None,
@@ -324,7 +351,7 @@ mod tests {
 
     #[test]
     fn name_none_is_invalid() {
-        let tokens = ensure_valid_id(&LitStrMaybe(None), "Ty", None);
+        let tokens = ensure_valid_id(parse_quote!(peace::cfg), &LitStrMaybe(None), "Ty", None);
 
         assert_eq!(
             "compile_error ! (\"`` is not a valid `Ty`.\\n\

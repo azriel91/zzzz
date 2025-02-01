@@ -10,14 +10,14 @@ use dot_ix_model::{
     theme::{AnyIdOrDefaults, CssClassPartials, Theme, ThemeAttr, ThemeStyles},
 };
 use indexmap::IndexMap;
-use peace_core::ItemId;
-use peace_item_model::{
+use peace_flow_rt::Flow;
+use peace_item_interaction_model::{
     ItemInteraction, ItemInteractionPull, ItemInteractionPush, ItemInteractionWithin, ItemLocation,
     ItemLocationTree, ItemLocationType, ItemLocationsAndInteractions,
 };
+use peace_item_model::ItemId;
 use peace_params::ParamsSpecs;
 use peace_resource_rt::{resources::ts::SetUp, Resources};
-use peace_rt_model::Flow;
 use peace_webi_model::OutcomeInfoGraphVariant;
 use smallvec::SmallVec;
 
@@ -25,9 +25,9 @@ use smallvec::SmallVec;
 use std::{collections::HashSet, ops::ControlFlow};
 
 #[cfg(feature = "output_progress")]
-use peace_core::progress::{CmdBlockItemInteractionType, ProgressComplete, ProgressStatus};
+use peace_item_interaction_model::{ItemLocationState, ItemLocationStateInProgress};
 #[cfg(feature = "output_progress")]
-use peace_item_model::{ItemLocationState, ItemLocationStateInProgress};
+use peace_progress_model::{CmdBlockItemInteractionType, ProgressComplete, ProgressStatus};
 
 /// Calculates the example / actual `InfoGraph` for a flow's outcome.
 #[derive(Debug)]
@@ -306,7 +306,7 @@ fn theme_styles_augment(
                                     | ControlFlow::Break(item_location_state)) = referrer_item_ids
                                         .iter()
                                         .filter_map(|referrer_item_id| {
-                                            item_location_states.get(referrer_item_id).copied()
+                                            item_location_states.get(*referrer_item_id).copied()
                                         })
                                         .try_fold(
                                             ItemLocationState::NotExists,
@@ -330,7 +330,7 @@ fn theme_styles_augment(
                                     | ControlFlow::Break(progress_status)) = referrer_item_ids
                                         .iter()
                                         .filter_map(|referrer_item_id| {
-                                            item_progress_statuses.get(referrer_item_id).cloned()
+                                            item_progress_statuses.get(*referrer_item_id).cloned()
                                         })
                                         .try_fold(
                                             ProgressStatus::Initialized,

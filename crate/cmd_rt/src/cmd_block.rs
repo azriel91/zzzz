@@ -7,7 +7,7 @@ use peace_resource_rt::{resources::ts::SetUp, Resource, ResourceFetchError, Reso
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_cfg::progress::{CmdBlockItemInteractionType, CmdProgressUpdate};
+        use peace_progress_model::{CmdBlockItemInteractionType, CmdProgressUpdate};
         use tokio::sync::mpsc::Sender;
     }
 }

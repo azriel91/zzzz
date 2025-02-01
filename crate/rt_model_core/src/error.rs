@@ -1,8 +1,10 @@
 use std::path::PathBuf;
 
 use peace_cmd_model::CmdExecutionError;
-use peace_core::{FlowId, ItemId, Profile};
+use peace_flow_model::FlowId;
+use peace_item_model::ItemId;
 use peace_params::{ParamsResolveError, ParamsSpecs};
+use peace_profile_model::Profile;
 use peace_resource_rt::paths::ParamsSpecsFile;
 
 pub use self::{apply_cmd_error::ApplyCmdError, state_downcast_error::StateDowncastError};

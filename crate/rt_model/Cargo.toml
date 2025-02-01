@@ -25,15 +25,17 @@ dyn-clone = { workspace = true }
 erased-serde = { workspace = true }
 futures = { workspace = true }
 heck = { workspace = true, optional = true }
-indexmap = { workspace = true, optional = true }
 indicatif = { workspace = true, features = ["tokio"] }
 miette = { workspace = true, optional = true }
 peace_cfg = { workspace = true }
 peace_data = { workspace = true }
 peace_flow_model = { workspace = true }
 peace_fmt = { workspace = true }
-peace_item_model = { workspace = true, optional = true }
+peace_item_interaction_model = { workspace = true, optional = true }
+peace_item_model = { workspace = true }
 peace_params = { workspace = true }
+peace_profile_model = { workspace = true }
+peace_progress_model = { workspace = true, optional = true }
 peace_resource_rt = { workspace = true }
 peace_rt_model_core = { workspace = true }
 peace_rt_model_hack = { workspace = true, optional = true }
@@ -41,6 +43,7 @@ serde = { workspace = true }
 serde_yaml = { workspace = true }
 tynm = { workspace = true }
 type_reg = { workspace = true, features = ["resman"] }
+yaml_error_context_hack = { workspace = true, optional = true }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 peace_rt_model_native = { workspace = true }
@@ -52,22 +55,23 @@ peace_rt_model_web = { workspace = true }
 default = []
 error_reporting = [
     "dep:miette",
+    "dep:yaml_error_context_hack",
     "peace_params/error_reporting",
     "peace_rt_model_hack/error_reporting",
 ]
 output_in_memory = ["peace_rt_model_native/output_in_memory"]
 output_progress = [
-    "dep:peace_item_model",
+    "dep:peace_item_interaction_model",
+    "dep:peace_progress_model",
     "peace_cfg/output_progress",
-    "peace_item_model/output_progress",
+    "peace_item_interaction_model/output_progress",
     "peace_rt_model_hack/output_progress"
 ]
 item_interactions = [
     "dep:heck",
-    "dep:indexmap",
-    "dep:peace_item_model",
+    "dep:peace_item_interaction_model",
     "peace_cfg/item_interactions",
-    "peace_item_model/item_locations_and_interactions",
+    "peace_item_interaction_model/item_locations_and_interactions",
 ]
 item_state_example = [
     "peace_cfg/item_state_example",

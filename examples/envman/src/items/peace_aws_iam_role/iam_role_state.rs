@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use crate::items::peace_aws_iam_role::model::{ManagedPolicyAttachment, RoleIdAndArn};
 
 #[cfg(feature = "output_progress")]
-use peace::item_model::ItemLocationState;
+use peace::item_interaction_model::ItemLocationState;
 
 /// IAM role state.
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq)]

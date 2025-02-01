@@ -1,7 +1,7 @@
 use std::fmt;
 
 use own::OwnedOrRef;
-use peace_core::Profile;
+use peace_profile_model::Profile;
 
 /// A `Profile` is not yet selected.
 #[derive(Clone, Debug, PartialEq, Eq)]

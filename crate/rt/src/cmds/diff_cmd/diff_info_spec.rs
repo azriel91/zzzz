@@ -1,4 +1,4 @@
-use peace_cfg::Profile;
+use peace_profile_model::Profile;
 
 use crate::cmds::diff_cmd::DiffStateSpec;
 

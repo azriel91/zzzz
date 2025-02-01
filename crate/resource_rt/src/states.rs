@@ -13,8 +13,8 @@ pub mod ts;
 
 use std::{marker::PhantomData, ops::Deref};
 
-use peace_core::ItemId;
 use peace_fmt::{Presentable, Presenter};
+use peace_item_model::ItemId;
 use serde::Serialize;
 use type_reg::untagged::{BoxDtDisplay, TypeMap};
 

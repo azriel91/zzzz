@@ -24,8 +24,8 @@ downcast-rs = { workspace = true }
 dyn-clone = { workspace = true }
 erased-serde = { workspace = true }
 miette = { workspace = true, optional = true }
-peace_core = { workspace = true }
 peace_data = { workspace = true }
+peace_item_model = { workspace = true }
 peace_params_derive = { workspace = true }
 peace_resource_rt = { workspace = true }
 serde = { workspace = true, features = ["derive"] }

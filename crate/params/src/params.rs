@@ -6,16 +6,19 @@ use crate::FieldWiseSpecRt;
 
 /// Input parameters to an item.
 ///
-/// This trait is automatically implemented by `#[derive(Value)]`.
+/// This trait is automatically implemented by
+/// `#[derive(peace::params::Params)]`.
 pub trait Params: Clone + Debug + Serialize + DeserializeOwned + Send + Sync + 'static {
     /// Convenience associated type for `ValueSpec<Self>`.
     type Spec: Clone + Debug + Serialize + DeserializeOwned + Send + Sync + 'static;
-    /// The `Value` type, but with optional fields.
+    /// The `Params` type, where each field is wrapped in [`Option`].
     type Partial: Clone + Debug + Default + Send + Sync + 'static;
-    /// The `Value` type, but each field is wrapped with
-    /// `ParamsSpecFieldless<T>`.
+    /// The `Params` type, where each field is wrapped with
+    /// [`ParamsSpecFieldless<T>`].
     ///
     /// Specifies how to look up values for each field in the `Value`.
+    ///
+    /// [`ParamsSpecFieldless<T>`]: crate::ParamsSpecFieldless
     type FieldWiseSpec: FieldWiseSpecRt<ValueType = Self, Partial = Self::Partial>
         + Clone
         + Debug

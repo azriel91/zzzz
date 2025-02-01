@@ -1,0 +1,40 @@
+[package]
+name = "peace_state_rt"
+description = "State runtime logic for the peace automation framework."
+documentation = "https://docs.rs/peace_state_rt/"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+categories.workspace = true
+keywords.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[lib]
+doctest = true
+test = false
+
+[dependencies]
+miette = { workspace = true, optional = true }
+peace_flow_model = { workspace = true }
+peace_flow_rt = { workspace = true }
+peace_item_model = { workspace = true }
+peace_resource_rt = { workspace = true }
+peace_rt_model = { workspace = true }
+peace_rt_model_core = { workspace = true }
+serde_yaml = { workspace = true }
+yaml_error_context_hack = { workspace = true, optional = true }
+
+[features]
+default = []
+error_reporting = [
+    "dep:miette",
+    "dep:yaml_error_context_hack",
+    "peace_rt_model/error_reporting",
+    "peace_rt_model_core/error_reporting",
+]

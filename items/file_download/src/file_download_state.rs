@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use crate::{ETag, FileDownloadStateLogical};
 
 #[cfg(feature = "output_progress")]
-use peace::item_model::ItemLocationState;
+use peace::item_interaction_model::ItemLocationState;
 
 /// Newtype wrapper for `State<FileDownloadStatePhysical, FetchedOpt<ETag>>`.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]

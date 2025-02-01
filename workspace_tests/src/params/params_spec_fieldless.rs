@@ -1,5 +1,5 @@
 use peace::{
-    cfg::item_id,
+    item_model::item_id,
     params::{
         AnySpecRt, AnySpecRtBoxed, ParamsFieldless, ParamsResolveError, ParamsSpecFieldless,
         ValueResolutionCtx, ValueResolutionMode, ValueSpecRt,

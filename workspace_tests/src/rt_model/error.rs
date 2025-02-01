@@ -1,7 +1,7 @@
 use std::fmt;
 
 use peace::{
-    cfg::item_id,
+    item_model::item_id,
     miette::{GraphicalReportHandler, GraphicalTheme},
     params::{ParamsSpec, ParamsSpecs},
     rt_model::Error,

@@ -5,11 +5,13 @@ use crate::Error;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        use peace_cfg::{
-            progress::{CmdBlockItemInteractionType, ProgressTracker, ProgressUpdateAndId},
-            ItemId,
+        use peace_item_interaction_model::ItemLocationState;
+        use peace_item_model::ItemId;
+        use peace_progress_model::{
+            CmdBlockItemInteractionType,
+            ProgressTracker,
+            ProgressUpdateAndId,
         };
-        use peace_item_model::ItemLocationState;
 
         use crate::CmdProgressTracker;
     }

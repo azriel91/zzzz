@@ -5,7 +5,7 @@ use std::{
 
 use interruptible::InterruptSignal;
 use peace_cmd_model::CmdExecutionId;
-use peace_core::FlowId;
+use peace_flow_model::FlowId;
 use tokio::sync::mpsc;
 
 use peace_webi_model::{FlowOutcomeInfoGraphs, FlowProgressInfoGraphs};

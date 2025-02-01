@@ -24,7 +24,7 @@ mod state_stored_and_discovered;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "output_progress")] {
-        pub use peace_core::progress::ProgressUpdate;
+        pub use peace_progress_model::ProgressUpdate;
 
         pub use crate::cmd_progress_tracker::CmdProgressTracker;
 

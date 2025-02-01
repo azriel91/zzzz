@@ -77,7 +77,7 @@ pub fn impl_with_profile_filter(scope_struct: &ScopeStruct) -> proc_macro2::Toke
                 // >
                 #return_type
             where
-                F: (Fn(&peace_core::Profile) -> bool) + 'ctx
+                F: (Fn(&peace_profile_model::Profile) -> bool) + 'ctx
             {
                 let Self {
                     output,

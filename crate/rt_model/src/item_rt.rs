@@ -1,8 +1,9 @@
 use std::{any::Any, fmt::Debug};
 
 use dyn_clone::DynClone;
-use peace_cfg::{async_trait, FnCtx, ItemId};
+use peace_cfg::{async_trait, FnCtx};
 use peace_data::fn_graph::{DataAccess, DataAccessDyn};
+use peace_item_model::ItemId;
 use peace_params::ParamsSpecs;
 use peace_resource_rt::{
     resources::ts::{Empty, SetUp},
@@ -317,7 +318,7 @@ pub trait ItemRt<E>:
         &self,
         params_specs: &ParamsSpecs,
         resources: &Resources<SetUp>,
-    ) -> Result<peace_item_model::ItemInteractionsExample, E>;
+    ) -> Result<peace_item_interaction_model::ItemInteractionsExample, E>;
 
     /// Returns the physical resources that this item interacts with, merging
     /// any available current state over example state.
@@ -351,7 +352,7 @@ pub trait ItemRt<E>:
         &self,
         params_specs: &ParamsSpecs,
         resources: &Resources<SetUp>,
-    ) -> Result<peace_item_model::ItemInteractionsCurrentOrExample, E>;
+    ) -> Result<peace_item_interaction_model::ItemInteractionsCurrentOrExample, E>;
 
     /// Returns a human readable tag name that represents this item.
     ///

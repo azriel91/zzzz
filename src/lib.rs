@@ -15,13 +15,19 @@ pub use peace_cmd_rt as cmd_rt;
 pub use peace_data as data;
 pub use peace_diff as diff;
 pub use peace_flow_model as flow_model;
+pub use peace_flow_rt as flow_rt;
 pub use peace_fmt as fmt;
 #[cfg(feature = "item_interactions")]
+pub use peace_item_interaction_model as item_interaction_model;
 pub use peace_item_model as item_model;
 pub use peace_params as params;
+pub use peace_profile_model as profile_model;
+#[cfg(feature = "output_progress")]
+pub use peace_progress_model as progress_model;
 pub use peace_resource_rt as resource_rt;
 pub use peace_rt as rt;
 pub use peace_rt_model as rt_model;
+pub use peace_state_rt as state_rt;
 #[cfg(feature = "webi")]
 pub use peace_webi as webi;
 #[cfg(feature = "webi")]

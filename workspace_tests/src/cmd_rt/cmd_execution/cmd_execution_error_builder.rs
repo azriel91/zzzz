@@ -1,14 +1,16 @@
 use peace::{
-    cfg::{app_name, profile, FlowId},
+    cfg::{app_name, profile},
     cmd::ctx::CmdCtx,
     cmd_model::CmdExecutionError,
     cmd_rt::{CmdBlockWrapper, CmdExecution},
+    flow_model::FlowId,
+    flow_rt::{Flow, ItemGraphBuilder},
     resource_rt::states::{
         ts::{Current, Goal},
         StateDiffs,
     },
     rt::cmd_blocks::{DiffCmdBlock, StatesDiscoverCmdBlock},
-    rt_model::{self, Flow, ItemGraphBuilder, Workspace, WorkspaceSpec},
+    rt_model::{self, Workspace, WorkspaceSpec},
 };
 use tempfile::TempDir;
 

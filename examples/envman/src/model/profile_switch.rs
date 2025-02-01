@@ -1,4 +1,4 @@
-use peace::cfg::Profile;
+use peace::profile_model::Profile;
 use semver::Version;
 use url::Url;
 

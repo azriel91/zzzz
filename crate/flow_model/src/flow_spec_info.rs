@@ -3,24 +3,22 @@ use dot_ix::model::{
     info_graph::{GraphDir, GraphStyle, InfoGraph},
 };
 use fn_graph::{daggy2::Walker, Edge, GraphInfo};
-use peace_core::FlowId;
 use serde::{Deserialize, Serialize};
 
-use crate::ItemSpecInfo;
+use crate::{FlowId, ItemSpecInfo};
 
-#[cfg(feature = "output_progress")]
-use std::collections::HashMap;
+cfg_if::cfg_if! {
+    if #[cfg(feature = "output_progress")] {
+        use std::collections::HashMap;
 
-#[cfg(feature = "output_progress")]
-use dot_ix::model::{
-    common::AnyId,
-    theme::{AnyIdOrDefaults, CssClassPartials, Theme, ThemeAttr},
-};
-#[cfg(feature = "output_progress")]
-use peace_core::{
-    progress::{ProgressComplete, ProgressStatus},
-    ItemId,
-};
+        use dot_ix::model::{
+            common::AnyId,
+            theme::{AnyIdOrDefaults, CssClassPartials, Theme, ThemeAttr},
+        };
+        use peace_item_model::ItemId;
+        use peace_progress_model::{ProgressComplete, ProgressStatus};
+    }
+}
 
 /// Serializable representation of how a [`Flow`] is configured.
 ///

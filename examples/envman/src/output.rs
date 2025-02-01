@@ -1,10 +1,10 @@
 use peace::{
-    cfg::ItemId,
     cmd_model::CmdOutcome,
     fmt::{
         presentable::{Heading, HeadingLevel},
         presentln,
     },
+    item_model::ItemId,
     resource_rt::{resources::ts::SetUp, Resources},
     rt_model::{output::OutputWrite, IndexMap},
 };

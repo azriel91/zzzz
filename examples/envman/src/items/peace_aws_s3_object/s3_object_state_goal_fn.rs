@@ -10,7 +10,7 @@ use crate::items::peace_aws_s3_object::{
 };
 
 #[cfg(feature = "output_progress")]
-use peace::cfg::progress::ProgressMsgUpdate;
+use peace::progress_model::ProgressMsgUpdate;
 
 /// Reads the goal state of the S3 object state.
 #[derive(Debug)]

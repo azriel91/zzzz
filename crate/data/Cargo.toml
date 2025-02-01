@@ -23,6 +23,7 @@ test = false
 fn_graph = { workspace = true }
 peace_core = { workspace = true }
 peace_data_derive = { workspace = true }
+peace_item_model = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 
 [features]
